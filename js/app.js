@@ -19,15 +19,6 @@ var customSearch;
 
 		$wrapper.find('.nav-sub .logo').text(window.subData.title);
 		let pos = document.body.scrollTop;
-		const cWidth = document.body.clientWidth
-		let mLogo = $('.wrapper .logo').eq(1)
-		if(cWidth < 500){
-			console.log(1)
-// 			max-width: 240px;
-// white-space: nowrap;
-// text-overflow: ellipsis;
-// overflow: hidden;
-		}
 		$(document, window).scroll(() => {
 			const scrollTop = $(window).scrollTop();
 			const del = scrollTop - pos;
