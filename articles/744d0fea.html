@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   
-  <title>Solitude is freedom</title>
+  <title>为git page开通https踩坑实录 | Solitude is freedom</title>
   <meta name="description" content="A man who dreams of being a full stack engineer">
   <meta name="keywords" content="Javascript,Nodejs,Vue,Nuxt,Other">
   <meta name="HandheldFriendly" content="True">
@@ -13,17 +13,25 @@
   <link rel="icon" href="/images/favicon.ico">
   <link rel="alternate" href="/atom.xml" title="Solitude is freedom">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="A man who dreams of being a full stack engineer">
-<meta name="keywords" content="Javascript,Nodejs,Vue,Nuxt,Other">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Solitude is freedom">
-<meta property="og:url" content="http://i7eo.com/index.html">
+  <meta name="description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;利用hexo与gitpage开通博客后，无论是pc&amp;amp;mobile登陆时总会发现地址栏前有个感叹号。  强迫症表示真的看不下去，所以就去了解了下https。 1、了解到https是以安全为目标的HTTP通道，简单讲是HTTP的安全版。即HTTP下加入SSL层，HTTPS的安全基础是SSL，因此加密">
+<meta name="keywords" content="cloudflare,https">
+<meta property="og:type" content="article">
+<meta property="og:title" content="为git page开通https踩坑实录">
+<meta property="og:url" content="http://i7eo.com/articles/744d0fea.html">
 <meta property="og:site_name" content="Solitude is freedom">
-<meta property="og:description" content="A man who dreams of being a full stack engineer">
+<meta property="og:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;利用hexo与gitpage开通博客后，无论是pc&amp;amp;mobile登陆时总会发现地址栏前有个感叹号。  强迫症表示真的看不下去，所以就去了解了下https。 1、了解到https是以安全为目标的HTTP通道，简单讲是HTTP的安全版。即HTTP下加入SSL层，HTTPS的安全基础是SSL，因此加密">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="http://i7eo.com/images/blog_20171001/i7eo_0c2bc6ca1ca1987e198c600d294d8f06.png">
+<meta property="og:image" content="http://i7eo.com/images/blog_20171001/i7eo_4436910aa5b1e131037aa2f6007f7d23.png">
+<meta property="og:image" content="http://i7eo.com/images/blog_20171001/i7eo_be5528c7b4f28ce887136746b5de2d03.png">
+<meta property="og:image" content="http://i7eo.com/images/blog_20171001/i7eo_a726bae253f790060294d739a7ea706f.png">
+<meta property="og:image" content="http://i7eo.com/images/blog_20171001/i7eo_65772c9053e1e9b5a941fa515bc3c3f5.png">
+<meta property="og:image" content="http://i7eo.com/images/blog_20171001/i7eo_ee6b38aa59be590bd6736c90911683a4.png">
+<meta property="og:updated_time" content="2018-12-27T09:55:16.129Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Solitude is freedom">
-<meta name="twitter:description" content="A man who dreams of being a full stack engineer">
+<meta name="twitter:title" content="为git page开通https踩坑实录">
+<meta name="twitter:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;利用hexo与gitpage开通博客后，无论是pc&amp;amp;mobile登陆时总会发现地址栏前有个感叹号。  强迫症表示真的看不下去，所以就去了解了下https。 1、了解到https是以安全为目标的HTTP通道，简单讲是HTTP的安全版。即HTTP下加入SSL层，HTTPS的安全基础是SSL，因此加密">
+<meta name="twitter:image" content="http://i7eo.com/images/blog_20171001/i7eo_0c2bc6ca1ca1987e198c600d294d8f06.png">
 
   <!-- <link href="https://fonts.googleapis.com/css?family=Inconsolata|Titillium+Web" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet"> -->
@@ -134,116 +142,29 @@
   <div class="l_body">
     <div class='container clearfix'>
       <div class='l_main'>
-        
-<section class="post-list">
+        <article id="post-blog_20171001" class="post white-box article-type-post" itemscope="" itemprop="blogPost">
+	<section class="meta">
+	<h2 class="title">
+  	<a href="/articles/744d0fea.html">
+    	为git page开通https踩坑实录
+    </a>
+  </h2>
+	<time>
+	  Oct 1, 2017
+	</time>
 	
-    <div class="post-wrapper">
-      <article class="post reveal">
-  <section class="meta">
-    
-    <h2 class="title">
-      <a href="/articles/4a17b156.html">
-        Hello World
-      </a>
-    </h2>
-    
-    <time>
-      Dec 23, 2018
-    </time>
-		
-  </section>
-  <section class="article typo">
-	  <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-
-    
-    
-    
-  </section>
-</article>
-    </div>
-  
-    <div class="post-wrapper">
-      <article class="post reveal">
-  <section class="meta">
-    
-    <h2 class="title">
-      <a href="/articles/b77bff3c.html">
-        Mac下利用Alfred与七牛搭建markdown图床
-      </a>
-    </h2>
-    
-    <time>
-      Jul 4, 2018
-    </time>
-		
-    
-    <div class="cats">
-        <a href="/categories/自动化/">自动化</a>
-    </div>
-
-  </section>
-  <section class="article typo">
-	  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在使用hexo与gitpage完成个人博客搭建后，在写博客时想插入图片总是需要外链，感觉很繁琐。刚好在利用alfred的workflow后觉得能不能把整套手动获取图片外链的动作变成自动化的动作，来用热键触发。搜了下相关的文章自己踩了不少坑最终还是完成了，总结出来避免大家后面踩坑。</p>
-<pre><code>前期准备：
-1、可以使用workflow的alfred（能支持正版最好不过我还是准备了链接，位置在文章最后）
-2、七牛账号&amp;七牛自动化工具qshell
-3、截图工具（这个也可以没有，可以利用电脑自带的截图功能，只要保证截图动作后的结果处于剪切板中即可）
-</code></pre><p>第一部分：（七牛操作）</p>
-<p>第一步：注册成功登陆后，单击 管理控制台 -&gt; 对象存储 -&gt; 内容管理 找到外链默认域名，复制并保存。</p>
-<p>第二步：返回首页，单击 服务与支持 -&gt; 开发者中心 -&gt; sdk与工具 -&gt; 开发者工具 -&gt; qshell 进入后按照提示下载并安装。</p>
-
-    
-	  <div class="readmore">
-      <a href="/articles/b77bff3c.html">Read More</a>
-    </div>
-    
-    
-    
-	  <div class="full-width auto-padding tags">
-      
-        <a href="/tags/Alfred3-workflow/">Alfred3 workflow</a>
-      
-        <a href="/tags/图床/">图床</a>
-      
-        <a href="/tags/qshell/">qshell</a>
-      
-	  </div>
-    
-  </section>
-</article>
-    </div>
-  
-    <div class="post-wrapper">
-      <article class="post reveal">
-  <section class="meta">
-    
-    <h2 class="title">
-      <a href="/articles/744d0fea.html">
-        为git page开通https踩坑实录
-      </a>
-    </h2>
-    
-    <time>
-      Oct 1, 2017
-    </time>
-		
     
     <div class="cats">
         <a href="/categories/运维/">运维</a>
     </div>
 
-  </section>
-  <section class="article typo">
-	  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;利用hexo与gitpage开通博客后，无论是pc&amp;mobile登陆时总会发现地址栏前有个感叹号。</p>
+	</section>
+	
+		<section class="toc-wrapper"></section>
+	
+	<section class="article typo">
+  	<div class="article-entry" itemprop="articleBody">
+    	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;利用hexo与gitpage开通博客后，无论是pc&amp;mobile登陆时总会发现地址栏前有个感叹号。</p>
 <p><img src="../images/blog_20171001/i7eo_0c2bc6ca1ca1987e198c600d294d8f06.png" style="width:80px"></p>
 <p>强迫症表示真的看不下去，所以就去了解了下https。</p>
 <pre><code>1、了解到https是以安全为目标的HTTP通道，简单讲是HTTP的安全版。即HTTP下加入SSL层，HTTPS的安全基础是SSL，因此加密的详细内容就需要SSL。
@@ -258,16 +179,32 @@
 （具体原理指的是，用cloudflare的dns服务器，当你访问网页时，网页 -&gt; cloudflare 这个过程是加密的，而 cloudflare -&gt; git page这个过程是非加密（http））
 </code></pre><p>具体可参考官方文档：<a href="https://support.cloudflare.com/hc/en-us/articles/200170416" target="_blank" rel="noopener"> how Cloudflare’s servers connect to your origin for HTTPS requests</a></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;首先申请账号，完成后：</p>
-<p>第一步：设置dns<br>
+<p>第一步：设置dns<br><a id="more"></a></p>
+<p>把自己对应的dns服务器改为cloudflare的，下面以阿里来举例。阿里云 -&gt; 域名 -&gt; 管理 -&gt; 修改dns，出现一下界面：</p>
+<p><img src="../images/blog_20171001/i7eo_4436910aa5b1e131037aa2f6007f7d23.png" style="width:400px"></p>
+<p>这是我已经修改后的，单击右边的修改dns服务器即可，把cloudflare给出的俩个dns地址换上来就好。cloudflare给出的dns地址位于：cloudflare -&gt; dns -&gt; Cloudflare Nameservers。</p>
+<p>如何判断更换dns成功？<br>回到cloudflare后，单击overview，如果成功会出现：</p>
+<p><img src="../images/blog_20171001/i7eo_be5528c7b4f28ce887136746b5de2d03.png" style="width:400px"></p>
+<p>第二步：设置dns信息</p>
+<p>cloudflare -&gt; dns -&gt; DNS Records 如果这里没设置时有记录先删除，新增一条记录:</p>
+<p><img src="../images/blog_20171001/i7eo_a726bae253f790060294d739a7ea706f.png" style="width:400px"></p>
+<p>第三步：设置ssl&amp;强制跳转</p>
+<p>cloudflare -&gt; crypto -&gt; SSL 勾选flexible</p>
+<p>cloudflare -&gt; crypto -&gt; Always Use HTTPS 勾选on</p>
+<p>第四步：坐等&amp;排错</p>
+<p>大概10mins - 30mins左右就会生效，可以在等待的时候使用ping命令来ping个人的域名查看ip。</p>
+<p>如果你的博客出现以下情况：</p>
+<p><img src="../images/blog_20171001/i7eo_65772c9053e1e9b5a941fa515bc3c3f5.png" style="width:400px"></p>
+<p>检查gitpage的设置，取消掉勾选的Enforce HTTPS选项，这个设置是有缓存的</p>
+<p><img src="../images/blog_20171001/i7eo_ee6b38aa59be590bd6736c90911683a4.png" style="width:400px"></p>
+<p>可以切换source或者theme chooser这样可以清理掉缓存的Enforce HTTPS选项信息。</p>
+<p>参考文章：</p>
+<p><a href="https://steffan.cn/2017/03/22/use-cloudflare-to-implement-HTTPS-for-GithubPages-with-custom-domain-names/" target="_blank" rel="noopener">使用Cloudflare为自定义域名的GithubPages实现HTTPS化</a></p>
+<p><a href="https://www.heartnn.com/2018/11/17/resolve-err-too-many-redirects-on-cloudflare/" target="_blank" rel="noopener">解决Cloudflare产生的“ERR_TOO_MANY_REDIRECTS”错误</a></p>
 
-    
-	  <div class="readmore">
-      <a href="/articles/744d0fea.html">Read More</a>
-    </div>
-    
-    
-    
-	  <div class="full-width auto-padding tags">
+  	</div>
+	  
+	  <div class="article-tags tags">
       
         <a href="/tags/cloudflare/">cloudflare</a>
       
@@ -275,12 +212,26 @@
       
 	  </div>
     
-  </p></section>
+		
+	
+		<div class="art-item-footer">
+				
+					<span class="art-item-left"><i class="icon icon-chevron-thin-left"></i>prev：<a href="/articles/b77bff3c.html" rel="prev" title="Mac下利用Alfred与七牛搭建markdown图床">
+						Mac下利用Alfred与七牛搭建markdown图床 
+					</a></span>
+				
+				
+		</div>
+	
+	</section>
+	
 </article>
-    </div>
-  
-</section>
-
+<script>
+	window.subData = {
+		title: '为git page开通https踩坑实录',
+		tools: true
+	}
+</script>
 
       </div>
       <aside class='l_side'>

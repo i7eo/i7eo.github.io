@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   
-  <title>Archives | Solitude is freedom</title>
+  <title>Category: 运维 | Solitude is freedom</title>
   <meta name="description" content="A man who dreams of being a full stack engineer">
   <meta name="keywords" content="Javascript,Nodejs,Vue,Nuxt,Other">
   <meta name="HandheldFriendly" content="True">
@@ -17,7 +17,7 @@
 <meta name="keywords" content="Javascript,Nodejs,Vue,Nuxt,Other">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Solitude is freedom">
-<meta property="og:url" content="http://i7eo.com/archives/index.html">
+<meta property="og:url" content="http://i7eo.com/categories/运维/index.html">
 <meta property="og:site_name" content="Solitude is freedom">
 <meta property="og:description" content="A man who dreams of being a full stack engineer">
 <meta property="og:locale" content="default">
@@ -135,54 +135,71 @@
     <div class='container clearfix'>
       <div class='l_main'>
         
-  <article id="archive-page" class="post article white-box">
-    <section class="meta">
-      <h2 class="title">
-        <a href="javascript:void(0)">
-          Archives
-        </a>
-      </h2>
-    </section>
-    <section class="archive">
+  <script>
+    window.subData= { title:'Category : 运维'}
+  </script>
+
+<section class="post-list">
+	
+    <div class="post-wrapper">
+      <article class="post reveal">
+  <section class="meta">
+    
+    <h2 class="title">
+      <a href="/articles/744d0fea.html">
+        为git page开通https踩坑实录
+      </a>
+    </h2>
+    
+    <time>
+      Oct 1, 2017
+    </time>
+		
+    
+    <div class="cats">
+        <a href="/categories/运维/">运维</a>
+    </div>
+
+  </section>
+  <section class="article typo">
+	  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;利用hexo与gitpage开通博客后，无论是pc&amp;mobile登陆时总会发现地址栏前有个感叹号。</p>
+<p><img src="../images/blog_20171001/i7eo_0c2bc6ca1ca1987e198c600d294d8f06.png" style="width:80px"></p>
+<p>强迫症表示真的看不下去，所以就去了解了下https。</p>
+<pre><code>1、了解到https是以安全为目标的HTTP通道，简单讲是HTTP的安全版。即HTTP下加入SSL层，HTTPS的安全基础是SSL，因此加密的详细内容就需要SSL。
+2、最重要的一点，https可以避免dns挟持，就是可以避免在浏览网页时出现一些小广告弹窗！
+</code></pre><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;结合自己的代码发现引用的图片全是http协议下的，而且在input（即使type≠keyword）输入内容时感叹号变成了红字叉。我所用的是阿里的域名所以去网站查询https的信息，发现有免费的赛门铁克（Symantec）证书试用。果断申请后，发现：</p>
+<pre><code>1、git page自带https，在对应rep的设置中，点击 Enforce HTTPS 即可。
+2、git page绑定自定义域名后无法添加ssl证书。
+</code></pre><p>这个时候有点懵了，不过检索多次相关关键字后，发现了cloudflare这个好东西。大概了解了下后就确定用它了，好处如下：</p>
+<pre><code>1、有免费套餐
+2、cloudflare的dns服务器风评还是不错的
+3、cloudflare提供 Universal SSL 服务，简单来说就是让任意http站点支持https。
+（具体原理指的是，用cloudflare的dns服务器，当你访问网页时，网页 -&gt; cloudflare 这个过程是加密的，而 cloudflare -&gt; git page这个过程是非加密（http））
+</code></pre><p>具体可参考官方文档：<a href="https://support.cloudflare.com/hc/en-us/articles/200170416" target="_blank" rel="noopener"> how Cloudflare’s servers connect to your origin for HTTPS requests</a></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;首先申请账号，完成后：</p>
+<p>第一步：设置dns<br>
+
+    
+	  <div class="readmore">
+      <a href="/articles/744d0fea.html">Read More</a>
+    </div>
+    
+    
+    
+	  <div class="full-width auto-padding tags">
       
-            <div class="archive-item archive-year mark">
-              <a id="archive-year-2018" href="/archives/2018/">
-                2018
-              </a>
-            </div>
+        <a href="/tags/cloudflare/">cloudflare</a>
       
-          <div class="archive-item archive-post mark">
-            <a href="/articles/4a17b156.html">
-              <time>12-23</time>
-              <span class="title"><span>Hello World</span></span>
-            </a>
-          </div>
+        <a href="/tags/https/">https</a>
       
-          <div class="archive-item archive-post mark">
-            <a href="/articles/b77bff3c.html">
-              <time>07-04</time>
-              <span class="title"><span>Mac下利用Alfred与七牛搭建markdown图床</span></span>
-            </a>
-          </div>
-      
-            <div class="archive-item archive-year mark">
-              <a id="archive-year-2017" href="/archives/2017/">
-                2017
-              </a>
-            </div>
-      
-          <div class="archive-item archive-post mark">
-            <a href="/articles/744d0fea.html">
-              <time>10-01</time>
-              <span class="title"><span>为git page开通https踩坑实录</span></span>
-            </a>
-          </div>
-      
-    </section>
-  </article>
-  <!--
+	  </div>
+    
+  </p></section>
+</article>
+    </div>
   
-    -->
+</section>
+
 
       </div>
       <aside class='l_side'>
