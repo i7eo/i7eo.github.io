@@ -4,6 +4,17 @@ var customSearch;
 
 	"use strict";
 	const scrollCorrection = 70; // (header height = 50px) + (gap = 20px)
+	const sideH = $('.l_side').height();
+	let sideH_flag = true;
+	const el_toc = $('.toc-wrapper');
+	const el_toc_v = $('.toc-wrapper-vdom');
+	el_toc.css({
+		'top': sideH,
+		'display': 'block'
+	})
+	el_toc_v.css({
+		'top': 90
+	})
 	function scrolltoElement(elem, correction) {
 		correction = correction || scrollCorrection;
 		const $elem = elem.href ? $(elem.getAttribute('href')) : $(elem);
@@ -22,12 +33,26 @@ var customSearch;
 		$(document, window).scroll(() => {
 			const scrollTop = $(window).scrollTop();
 			const del = scrollTop - pos;
+			const offsetH = $('.toc-wrapper').get(0).getBoundingClientRect().top;
+			const docScrollTop = $(document).scrollTop();
 			if (del >= 20) {
 				pos = scrollTop;
 				$wrapper.addClass('sub');
 			} else if (del <= -20) {
 				pos = scrollTop;
 				$wrapper.removeClass('sub');
+			}
+			if(offsetH < 70 && sideH_flag) {
+				sideH_flag = false;
+				el_toc.hide();
+				el_toc_v.show();
+				el_toc_v.css('transform', 'perspective(1500px) translateZ(50px)');
+				// 使dom变换更加平滑
+			}
+			if(docScrollTop < 660 && !sideH_flag && docScrollTop > 10) {
+				sideH_flag = true;
+				el_toc.show();
+				el_toc_v.hide();
 			}
 		});
 		// bind events to every btn
@@ -39,6 +64,11 @@ var customSearch;
 		const $tocTarget = $('.toc-wrapper');
 		if ($tocTarget.length && $tocTarget.children().length) {
 			$toc.click((e) => { e.stopPropagation(); $tocTarget.toggleClass('active'); });
+		} else $toc.remove();
+
+		const $tocTarget2 = $('.toc-wrapper-vdom');
+		if ($tocTarget2.length && $tocTarget2.children().length) {
+			$toc.click((e) => { e.stopPropagation(); $tocTarget2.toggleClass('active'); });
 		} else $toc.remove();
 
 		$top.click(()=>scrolltoElement(document.body));
@@ -129,8 +159,15 @@ var customSearch;
 		const sr = ScrollReveal({ distance: 0 });
 		sr.reveal('.reveal');
 	}
-	function setTocToggle() {
-		const $toc = $('.toc-wrapper');
+	function changeToc() {
+		const $toc = [$('.toc-wrapper'), $('.toc-wrapper-vdom')];
+		for(let i = 0; i < $toc.length; i++) {
+			setTocToggle($toc[i]);
+		}
+	}
+	function setTocToggle(el) {
+		// const $toc = $('.toc-wrapper');
+		const $toc = el;
 		if ($toc.length === 0) return;
 		$toc.click((e) => { e.stopPropagation(); $toc.addClass('active'); });
 		$(document).click(() => $toc.removeClass('active'));
@@ -206,7 +243,8 @@ var customSearch;
 		setHeaderSearch();
 		setWaves();
 		setScrollReveal();
-		setTocToggle();
+		// setTocToggle();
+		changeToc();
 		// getHitokoto();
 		// getPicture();
 

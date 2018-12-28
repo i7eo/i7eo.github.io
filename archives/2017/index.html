@@ -147,7 +147,7 @@
   <section class="meta">
     
     <h2 class="title">
-      <a href="/articles/744d0fea.html">
+      <a href="/2017/10/01/为gitPages开通https踩坑实录.html">
         为git page开通https踩坑实录
       </a>
     </h2>
@@ -163,26 +163,16 @@
 
   </section>
   <section class="article typo">
-	  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;利用hexo与gitpage开通博客后，无论是pc&amp;mobile登陆时总会发现地址栏前有个感叹号。</p>
-<p><img src="../images/blog_20171001/i7eo_0c2bc6ca1ca1987e198c600d294d8f06.png" style="width:80px"></p>
-<p>强迫症表示真的看不下去，所以就去了解了下https。</p>
-<pre><code>1、了解到https是以安全为目标的HTTP通道，简单讲是HTTP的安全版。即HTTP下加入SSL层，HTTPS的安全基础是SSL，因此加密的详细内容就需要SSL。
-2、最重要的一点，https可以避免dns挟持，就是可以避免在浏览网页时出现一些小广告弹窗！
-</code></pre><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;结合自己的代码发现引用的图片全是http协议下的，而且在input（即使type≠keyword）输入内容时感叹号变成了红字叉。我所用的是阿里的域名所以去网站查询https的信息，发现有免费的赛门铁克（Symantec）证书试用。果断申请后，发现：</p>
-<pre><code>1、git page自带https，在对应rep的设置中，点击 Enforce HTTPS 即可。
-2、git page绑定自定义域名后无法添加ssl证书。
-</code></pre><p>这个时候有点懵了，不过检索多次相关关键字后，发现了cloudflare这个好东西。大概了解了下后就确定用它了，好处如下：</p>
-<pre><code>1、有免费套餐
-2、cloudflare的dns服务器风评还是不错的
-3、cloudflare提供 Universal SSL 服务，简单来说就是让任意http站点支持https。
-（具体原理指的是，用cloudflare的dns服务器，当你访问网页时，网页 -&gt; cloudflare 这个过程是加密的，而 cloudflare -&gt; git page这个过程是非加密（http））
-</code></pre><p>具体可参考官方文档：<a href="https://support.cloudflare.com/hc/en-us/articles/200170416" target="_blank" rel="noopener"> how Cloudflare’s servers connect to your origin for HTTPS requests</a></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;首先申请账号，完成后：</p>
-<p>第一步：设置dns<br>
+	  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;利用hexo与gitpage开通博客后，无论是pc&amp;mobile登陆时总会发现地址栏前有个感叹号。强迫症表示真的看不下去，所以就去了解了下https。</p>
+<h3 id="HTTPS的优点"><a href="#HTTPS的优点" class="headerlink" title="HTTPS的优点"></a>HTTPS的优点</h3><ul>
+<li>了解到https是以安全为目标的HTTP通道，简单讲是HTTP的安全版。即HTTP下加入SSL层，HTTPS的安全基础是SSL，因此加密的详细内容就需要SSL。</li>
+<li>最重要的一点，https可以避免dns挟持，就是可以避免在浏览网页时出现一些小广告弹窗！</li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;结合自己的代码发现引用的图片全是http协议下的，而且在input（即使type≠keyword）输入内容时感叹号变成了红字叉。我所用的是阿里的域名所以去网站查询https的信息，发现有免费的赛门铁克（Symantec）证书试用。果断申请后，发现：</p>
 
     
 	  <div class="readmore">
-      <a href="/articles/744d0fea.html">Read More</a>
+      <a href="/2017/10/01/为gitPages开通https踩坑实录.html">Read More</a>
     </div>
     
     
@@ -195,7 +185,7 @@
       
 	  </div>
     
-  </p></section>
+  </section>
 </article>
     </div>
   
@@ -206,8 +196,10 @@
       </div>
       <aside class='l_side'>
         
-  <section class="m_widget about">
-<img class="avatar waves-image" src="/images/avatar.jpg">
+    <section class="m_widget about">
+<a href="/about">
+  <img class="avatar waves-image" src="/images/avatar.jpg">
+</a>
 <div class="header">George Tan</div>
 <div class="content">
 <div class="desc">A man who dreams of being a full stack engineer</div>
@@ -215,32 +207,33 @@
 </section>
 
 
-  <section class="m_widget links">
-<div class="header">Links</div>
-<div class="content">
+    <!-- <section class='m_widget links'>
+<div class='header'>Links</div>
+<div class='content'>
     <ul class="entry">
     
         <li><a class="flat-box" target="_blank" href="https://ccoooss.com">
-            <div class="name">ClassicOldSong</div>
+            <div class='name'>ClassicOldSong</div>
         </a></li>
     
         <li><a class="flat-box" target="_blank" href="https://frantic1048.logdown.com/">
-            <div class="name">Frantic1048</div>
+            <div class='name'>Frantic1048</div>
         </a></li>
     
         <li><a class="flat-box" target="_blank" href="https://hclmaster.github.io/">
-            <div class="name">Hclmaster</div>
+            <div class='name'>Hclmaster</div>
         </a></li>
     
         <li><a class="flat-box" target="_blank" href="https://whst.github.io/">
-            <div class="name">WANG Hsü-Tung</div>
+            <div class='name'>WANG Hsü-Tung</div>
         </a></li>
     
     </ul>
 </div>
-</section>
+</section> -->
 
-  <section class="m_widget categories">
+
+    <section class="m_widget categories">
 <div class="header">Categories</div>
 <div class="content">
     
@@ -255,13 +248,14 @@
 </div>
 </section>
 
-  
+    
 <div class="m_widget tagcloud">
     <div class="header">Tags</div>
     <div class="content">
         <a href="/tags/Alfred3-workflow/" style="font-size: 14px; color: #808080">Alfred3 workflow</a> <a href="/tags/cloudflare/" style="font-size: 14px; color: #808080">cloudflare</a> <a href="/tags/https/" style="font-size: 14px; color: #808080">https</a> <a href="/tags/qshell/" style="font-size: 14px; color: #808080">qshell</a> <a href="/tags/图床/" style="font-size: 14px; color: #808080">图床</a>
     </div>
 </div>
+
 
 
 
