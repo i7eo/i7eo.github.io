@@ -200,7 +200,7 @@
       May 1, 2018
     </time>
 		<span class="post-count">
-  字数 348个
+  字数 349个
 </span>
 
     
@@ -211,20 +211,18 @@
 
   </section>
   <section class="article typo">
-	  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前一阵子接触一个新项目，用了vue中的ssr解决方案 —— Nuxt.js。也算是小有感受，记录一些经验留后备用。</p>
+	  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前一阵子接触一个新项目，用了vue中的ssr解决方案 — Nuxt.js。也算是小有感受，记录一些经验留后备用。</p>
 <h3 id="CSR-amp-SSR"><a href="#CSR-amp-SSR" class="headerlink" title="CSR &amp; SSR"></a>CSR &amp; SSR</h3><h4 id="什么是-CSR"><a href="#什么是-CSR" class="headerlink" title="什么是 CSR ?"></a>什么是 CSR ?</h4><p>CSR =&gt; client-side-reder，即客户端渲染。具体过程如下：</p>
 <ul>
 <li>用户请求页面，返回页面。此时页面只是模版页面</li>
 <li>浏览器解析页面代码，读到js代码时，会根据我们所写的接口去请求数据</li>
-<li>得到返回数据后使用模版（vue/react/ng/art-template）进行渲染<h4 id="什么是-SSR"><a href="#什么是-SSR" class="headerlink" title="什么是 SSR ?"></a>什么是 SSR ?</h4>SSR =&gt; server-side-render，即服务器端渲染。具体过程如下：</li>
-<li>用户请求页面</li>
-<li>后端取到准备好的数据，渲染到我们自己写的服务器模版（next/nuxt/ejs）中，准备好html结构与相应数据后返回给浏览器<h4 id="CSR-amp-SSR-优缺点对比"><a href="#CSR-amp-SSR-优缺点对比" class="headerlink" title="CSR &amp; SSR 优缺点对比"></a>CSR &amp; SSR 优缺点对比</h4>|  | 优点 | 缺点 |<br>| :——– | :–:| :–: |<br>| CSR | 减轻服务器压力，前后端分离 | 对seo不友（不利于爬虫爬取），首页渲染存在白屏问题 |<br>| SSR | 对seo友好，首页渲染完美无白屏问题 | 对服务器性能有一定要求，不利于前后端分离 |</li>
+<li>得到返回数据后使用模版（vue/react/ng/art-template）进行渲染<h4 id="什么是-SSR"><a href="#什么是-SSR" class="headerlink" title="什么是 SSR ?"></a>什么是 SSR ?</h4></li>
 </ul>
-<p>其实在真正开发中通常是 csr 与 ssr 相结合使用，前端使用cdn缓存，后端使用nginx缓存。这样是最优的解决方案。上两张图大家对比理解：</p>
-<p><img src="/2018/05/01/Nuxt-js踩坑实录/i7eo_1687e50bff1dbae80b0211d67d9dbde4.png" alt="csr"></p>
-<p><img src="/2018/05/01/Nuxt-js踩坑实录/i7eo_910d2d75c2c87a237bfa316a4ed5ea26.png" alt="ssr"></p>
 
-
+    
+	  <div class="readmore">
+      <a href="/2018/05/01/Nuxt.js踩坑实录.html">Read More</a>
+    </div>
     
     
     
