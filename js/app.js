@@ -4,17 +4,22 @@ var customSearch;
 
 	"use strict";
 	const scrollCorrection = 70; // (header height = 50px) + (gap = 20px)
+	const clientW = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth || 0;
 	const sideH = $('.l_side').height();
-	let sideH_flag = true;
 	const el_toc = $('.toc-wrapper');
 	const el_toc_v = $('.toc-wrapper-vdom');
+	let sideH_flag = true;
+	let visible_flag = clientW <= 820 ? 'none' : 'block';
+	//1090 = 820(@on-phone) + 250(@side-width) + 20 (@gap)
+
 	el_toc.css({
 		'top': sideH,
-		'display': 'block'
+		'display': visible_flag
 	})
 	el_toc_v.css({
 		'top': 90
 	})
+
 	function scrolltoElement(elem, correction) {
 		correction = correction || scrollCorrection;
 		const $elem = elem.href ? $(elem.getAttribute('href')) : $(elem);
@@ -42,14 +47,14 @@ var customSearch;
 				pos = scrollTop;
 				$wrapper.removeClass('sub');
 			}
-			if(offsetH < 70 && sideH_flag) {
+			if(offsetH < 70 && sideH_flag && visible_flag === 'block') {
 				sideH_flag = false;
 				el_toc.hide();
 				el_toc_v.show();
 				el_toc_v.css('transform', 'perspective(1500px) translateZ(50px)');
 				// 使dom变换更加平滑
 			}
-			if(docScrollTop < 660 && !sideH_flag && docScrollTop > 10) {
+			if(docScrollTop < 660 && !sideH_flag && docScrollTop > 10 && visible_flag === 'block') {
 				sideH_flag = true;
 				el_toc.show();
 				el_toc_v.hide();
@@ -206,7 +211,6 @@ var customSearch;
 			});
 		scrollListener();
 	}
-
 	// function getPicture() {
 	// 	const $banner = $('.banner');
 	// 	if ($banner.length === 0) return;
