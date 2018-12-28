@@ -33,7 +33,7 @@ var customSearch;
 		$(document, window).scroll(() => {
 			const scrollTop = $(window).scrollTop();
 			const del = scrollTop - pos;
-			const offsetH = $('.toc-wrapper').get(0).getBoundingClientRect().top;
+			const offsetH = $('.toc-wrapper').length && $('.toc-wrapper').get(0).getBoundingClientRect().top;
 			const docScrollTop = $(document).scrollTop();
 			if (del >= 20) {
 				pos = scrollTop;
