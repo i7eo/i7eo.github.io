@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <title>Javascript面向对象笔记 | Solitude is freedom</title>
+  <!-- <meta name="description" content="A man who dreams of being a full stack engineer" />
+  <meta name="keywords" content="Javascript,Nodejs,Vue,Nuxt,Other" /> -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <!-- <link rel="shortcut icon" href="/"> -->
+  <link rel="icon" href="/images/favicon.ico">
+  <link rel="alternate" href="/atom.xml" title="Solitude is freedom">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;说到面向对象，大多数人都想到的是高级语言：c++、java，但是我认为对于一名coder来说不论什么语言，一定要有面向对象这种思想（封装、继承、多态），我们只需要用语言这个工具把思想表达出来即可。本文只讨论继承。 Javascript 中创建对象new 关键字做了什么？利用 new &amp;amp; 构造函数">
+<meta name="keywords" content="prototype&#x2F;_proto_,面向对象,继承">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Javascript面向对象笔记">
+<meta property="og:url" content="https://i7eo.com/2018/03/25/Javascript面向对象笔记.html">
+<meta property="og:site_name" content="Solitude is freedom">
+<meta property="og:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;说到面向对象，大多数人都想到的是高级语言：c++、java，但是我认为对于一名coder来说不论什么语言，一定要有面向对象这种思想（封装、继承、多态），我们只需要用语言这个工具把思想表达出来即可。本文只讨论继承。 Javascript 中创建对象new 关键字做了什么？利用 new &amp;amp; 构造函数">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-12-30T13:44:35.875Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Javascript面向对象笔记">
+<meta name="twitter:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;说到面向对象，大多数人都想到的是高级语言：c++、java，但是我认为对于一名coder来说不论什么语言，一定要有面向对象这种思想（封装、继承、多态），我们只需要用语言这个工具把思想表达出来即可。本文只讨论继承。 Javascript 中创建对象new 关键字做了什么？利用 new &amp;amp; 构造函数">
+
+  <!-- <link href="https://fonts.googleapis.com/css?family=Inconsolata|Titillium+Web" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet"> -->
+  <link href="//cdn.bootcss.com/node-waves/0.7.5/waves.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+</head>
+</html>
+<body>
+  <div id="loading-bar-wrapper">
+  <div id="loading-bar"></div>
+</div>
+
+
+  <script>setLoadingBarProgress(20)</script> 
+  <header class="l_header">
+	<div class="wrapper">
+		<div class="nav-main container container--flex">
+			<a class="logo flat-box" href="/">
+				Solitude is freedom
+			</a>
+			<div class="menu">
+				<ul class="h-list">
+					
+						<li>
+							<a class="flat-box nav-home" href="/">
+								Home
+							</a>
+						</li>
+					
+						<li>
+							<a class="flat-box nav-archives" href="/archives">
+								Archives
+							</a>
+						</li>
+					
+						<li>
+							<a class="flat-box nav-about" href="/about">
+								About
+							</a>
+						</li>
+					
+				</ul>
+				<div class="underline"></div>
+			</div>
+			
+				<div class="m_search">
+					<form name="searchform" class="form u-search-form">
+						<input type="text" class="input u-search-input" placeholder="Search">
+						<span class="icon icon-search"></span>
+					</form>
+				</div>
+			
+			<ul class="switcher h-list">
+				
+					<li class="s-search"><a href="javascript:void(0)"><span class="icon icon-search flat-box"></span></a></li>
+				
+				<li class="s-menu"><a href="javascript:void(0)"><span class="icon icon-menu flat-box"></span></a></li>
+			</ul>
+		</div>
+
+		<div class="nav-sub container container--flex">
+			<a class="logo mlogo" href="javascript:void(0)">
+				Word of Forks
+			</a>
+
+			<ul class="switcher h-list">
+				<li class="s-comment"><a href="javascript:void(0)"><span class="icon icon-chat_bubble_outline flat-box"></span></a></li>
+				<li class="s-top"><a href="javascript:void(0)"><span class="icon icon-arrow_upward flat-box"></span></a></li>
+				<!-- <li class='s-toc'><a href='javascript:void(0)'><span class="icon icon-format_list_numbered flat-box"></span></a></li> -->
+			</ul>
+		</div>
+	</div>
+</header>
+<aside class="menu-phone">
+	<nav>
+		
+			<a href="/" class="nav-home nav">
+				Home
+			</a>
+		
+			<a href="/archives" class="nav-archives nav">
+				Archives
+			</a>
+		
+			<a href="/about" class="nav-about nav">
+				About
+			</a>
+		
+	</nav>
+</aside>
+
+    <script>setLoadingBarProgress(40);</script>
+  <div class="l_body">
+    <div class='container clearfix'>
+      <div class='l_main'>
+        <article id="post-Javascript面向对象笔记" class="post white-box article-type-post" itemscope="" itemprop="blogPost">
+	<section class="meta">
+	<h2 class="title">
+  	<a href="/2018/03/25/Javascript面向对象笔记.html">
+    	Javascript面向对象笔记
+    </a>
+  </h2>
+	<time>
+	  Mar 25, 2018
+	</time>
+	
+    
+    <span class="post-count">
+      |&nbsp;字数 1473
+    </span>
+    <div class="cats">
+        <a href="/categories/Javascript/">Javascript</a>
+    </div>
+
+
+	</section>
+	
+		<section class="toc-wrapper"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Javascript-中创建对象"><span class="toc-number">1.</span> <span class="toc-text">Javascript 中创建对象</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#new-关键字做了什么？"><span class="toc-number">1.1.</span> <span class="toc-text">new 关键字做了什么？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#prototype-proto-是什么？"><span class="toc-number">1.2.</span> <span class="toc-text">prototype/_proto_ 是什么？</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#面向对象-—-继承"><span class="toc-number">2.</span> <span class="toc-text">面向对象 — 继承</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、call-apply"><span class="toc-number">2.1.</span> <span class="toc-text">1、call/apply</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、原型链继承"><span class="toc-number">2.2.</span> <span class="toc-text">2、原型链继承</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、改进后的原型继承"><span class="toc-number">2.3.</span> <span class="toc-text">3、改进后的原型继承</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、class-extends-关键字实现继承"><span class="toc-number">2.4.</span> <span class="toc-text">4、class/extends 关键字实现继承</span></a></li></ol></li></ol></section>
+		<section class="toc-wrapper-vdom"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Javascript-中创建对象"><span class="toc-number">1.</span> <span class="toc-text">Javascript 中创建对象</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#new-关键字做了什么？"><span class="toc-number">1.1.</span> <span class="toc-text">new 关键字做了什么？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#prototype-proto-是什么？"><span class="toc-number">1.2.</span> <span class="toc-text">prototype/_proto_ 是什么？</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#面向对象-—-继承"><span class="toc-number">2.</span> <span class="toc-text">面向对象 — 继承</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、call-apply"><span class="toc-number">2.1.</span> <span class="toc-text">1、call/apply</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、原型链继承"><span class="toc-number">2.2.</span> <span class="toc-text">2、原型链继承</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、改进后的原型继承"><span class="toc-number">2.3.</span> <span class="toc-text">3、改进后的原型继承</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、class-extends-关键字实现继承"><span class="toc-number">2.4.</span> <span class="toc-text">4、class/extends 关键字实现继承</span></a></li></ol></li></ol></section>
+	
+	<section class="article typo">
+  	<div class="article-entry" itemprop="articleBody">
+    	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;说到面向对象，大多数人都想到的是高级语言：c++、java，但是我认为对于一名coder来说不论什么语言，一定要有面向对象这种思想（封装、继承、多态），我们只需要用语言这个工具把思想表达出来即可。本文只讨论继承。</p>
+<h3 id="Javascript-中创建对象"><a href="#Javascript-中创建对象" class="headerlink" title="Javascript 中创建对象"></a>Javascript 中创建对象</h3><h4 id="new-关键字做了什么？"><a href="#new-关键字做了什么？" class="headerlink" title="new 关键字做了什么？"></a>new 关键字做了什么？</h4><p>利用 new &amp; 构造函数 创建新的对象。这个创建新对象的过程分为三步：</p>
+<ul>
+<li>声明新的变量 basketball</li>
+</ul>
+<a id="more"></a>
+<ul>
+<li>new 将新变量的 _proto_ 属性指向了构造函数（Ball）的 prototype 属性，这时内存为 basketball 分配了内存，其成为了对象。<code>basketball._proto_ = ball.prototype</code></li>
+<li>利用 call 函数将新产生的对象 basketball 的 this 指向 ball。即绑定 this。</li>
+</ul>
+<h4 id="prototype-proto-是什么？"><a href="#prototype-proto-是什么？" class="headerlink" title="prototype/_proto_ 是什么？"></a>prototype/_proto_ 是什么？</h4><p>有的书上别别用显示原型/隐示原型来分别代 prototype/_proto_ 还有的用原型对象/对象原型。其实不论哪一种说法，代表的东西都是一样的。这里我们使用第二种说法。俩者区别如下表：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"></th>
+<th style="text-align:left">解释</th>
+<th style="text-align:left">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">prototype</td>
+<td style="text-align:left">指向函数的原型对象（包括拥有的变量与方法，constructor ，_proto_）</td>
+<td style="text-align:left">只有函数拥有此属性</td>
+</tr>
+<tr>
+<td style="text-align:left">_proto_</td>
+<td style="text-align:left">指向构造器的原型对象</td>
+<td style="text-align:left">不论对象或者函数都有此属性</td>
+</tr>
+</tbody>
+</table>
+<p>来看下面代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Ball</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">　　<span class="keyword">this</span>.name = name;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> basketball = <span class="keyword">new</span> Ball(<span class="string">'basketball'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(basketball.__proto__);</span><br><span class="line"></span><br><span class="line"><span class="comment">/*  输出</span></span><br><span class="line"><span class="comment">    constructor: ƒ ball(name)</span></span><br><span class="line"><span class="comment">    arguments: null</span></span><br><span class="line"><span class="comment">    caller: null</span></span><br><span class="line"><span class="comment">    length: 1</span></span><br><span class="line"><span class="comment">    name: "ball"</span></span><br><span class="line"><span class="comment">    prototype: &#123;constructor: ƒ&#125;</span></span><br><span class="line"><span class="comment">    __proto__: ƒ ()</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(ball.prototype)</span><br><span class="line"></span><br><span class="line"><span class="comment">/*  输出</span></span><br><span class="line"><span class="comment">    constructor: ƒ ball(name)</span></span><br><span class="line"><span class="comment">    arguments: null</span></span><br><span class="line"><span class="comment">    caller: null</span></span><br><span class="line"><span class="comment">    length: 1</span></span><br><span class="line"><span class="comment">    name: "ball"</span></span><br><span class="line"><span class="comment">    prototype: &#123;constructor: ƒ&#125;</span></span><br><span class="line"><span class="comment">    __proto__: ƒ ()</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(basketball.__proto__ === ball.prototype)</span><br><span class="line"></span><br><span class="line"><span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p>从结果来看确实跟我们上述的 new 创建对象过程一致。</p>
+<h3 id="面向对象-—-继承"><a href="#面向对象-—-继承" class="headerlink" title="面向对象 — 继承"></a>面向对象 — 继承</h3><h4 id="1、call-apply"><a href="#1、call-apply" class="headerlink" title="1、call/apply"></a>1、call/apply</h4><p>该方式采取的办法是将父对象的构造函数绑定在子对象上。具体如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Ball</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.general = <span class="string">"球类运动"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Basketball</span>(<span class="params">name, space</span>) </span>&#123;</span><br><span class="line">    Ball.apply(<span class="keyword">this</span>, <span class="built_in">arguments</span>);</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.space = space;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> bb = <span class="keyword">new</span> Basketball(<span class="string">'耐克7号球'</span>, <span class="string">'室内'</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(bb.general)</span><br><span class="line"><span class="comment">// 球类运动</span></span><br></pre></td></tr></table></figure>
+<h4 id="2、原型链继承"><a href="#2、原型链继承" class="headerlink" title="2、原型链继承"></a>2、原型链继承</h4><p>使子类原型对象指向父类的原型对象以实现继承。具体如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Ball</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.general = <span class="string">"球类运动"</span>;</span><br><span class="line">    <span class="keyword">this</span>.ballprint = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'ball'</span>);</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Basketball</span>(<span class="params">name, space</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.space = space;</span><br><span class="line">    <span class="keyword">this</span>.print = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'basketball'</span>);</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Basketball.prototype = <span class="keyword">new</span> Ball();</span><br><span class="line"><span class="keyword">let</span> bb = <span class="keyword">new</span> Basketball(<span class="string">'耐克7号球'</span>, <span class="string">'室内'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(bb.general) <span class="comment">// 1、球类运动</span></span><br><span class="line"><span class="built_in">console</span>.log(bb.ballprint()) <span class="comment">// 2、ball</span></span><br><span class="line"><span class="built_in">console</span>.log(bb.name) <span class="comment">// 3、耐克7号球</span></span><br><span class="line"><span class="built_in">console</span>.log(bb.print()) <span class="comment">// 4、basketball</span></span><br><span class="line"><span class="built_in">console</span>.log(Basketball.prototype == Ball.prototype) <span class="comment">// 5、true</span></span><br><span class="line"><span class="built_in">console</span>.log(Basketball.prototype.__proto__ == Ball.prototype) <span class="comment">// 6、true</span></span><br></pre></td></tr></table></figure>
+<p>调试语句5更深层次的意思是说:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Basketball.prototype.constuctor = Ball.prototype.constuctor</span><br></pre></td></tr></table></figure></p>
+<p>因为前面说过每个函数特有 prototype 这个原型对象属性，而在这个原型对象中存有 constuctor ，所以<strong>要使俩函数的 prototype 相等，那么其中的 constuctor 必定也想等</strong>。所以 bb 作为子类才可以访问到 ball 中的属性与方法。语句1&amp;2证明了这一点。</p>
+<p>语句6结果符合 new 操作符的操作。</p>
+<p>如果子类与父类中的属性、方法同名那么结果怎样呢？结果如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Ball</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = <span class="string">"球类运动"</span>;</span><br><span class="line">    <span class="keyword">this</span>.print = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'ball'</span>);</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Basketball</span>(<span class="params">name, space</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.space = space;</span><br><span class="line">    <span class="keyword">this</span>.print = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'basketball'</span>);</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Basketball.prototype = <span class="keyword">new</span> Ball();</span><br><span class="line"><span class="keyword">let</span> bb = <span class="keyword">new</span> Basketball(<span class="string">'耐克7号球'</span>, <span class="string">'室内'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(bb.name) <span class="comment">// 1、耐克7号球</span></span><br><span class="line"><span class="built_in">console</span>.log(bb.print()) <span class="comment">// 2、basketball</span></span><br><span class="line"><span class="built_in">console</span>.log(Basketball.prototype == Ball.prototype) <span class="comment">// 3、true</span></span><br><span class="line"><span class="built_in">console</span>.log(Basketball.prototype.__proto__ == Ball.prototype) <span class="comment">// 4、true</span></span><br></pre></td></tr></table></figure>
+<p>此时虽然 <code>bb._proto_ = Basketball.prototype = Ball.prototype</code> 但是同名采取的<strong>就近访问的原则</strong>，所以执行 Basketball 中的语句。<strong>而不会通过 _proto_ 原型链去去上级父类寻找变量与方法</strong>。</p>
+<h4 id="3、改进后的原型继承"><a href="#3、改进后的原型继承" class="headerlink" title="3、改进后的原型继承"></a>3、改进后的原型继承</h4><p>因为上述2中的方法会修改构造函数，所以我们应该手动置回。具体如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Ball</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = <span class="string">"球类运动"</span>;</span><br><span class="line">    <span class="keyword">this</span>.print = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'ball'</span>);</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Basketball</span>(<span class="params">name, space</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.space = space;</span><br><span class="line">    <span class="keyword">this</span>.print = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'basketball'</span>);</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Basketball.prototype = <span class="keyword">new</span> Ball();</span><br><span class="line">Basketball.prototype.constructor = Basketball;</span><br><span class="line"><span class="keyword">let</span> bb = <span class="keyword">new</span> Basketball(<span class="string">'耐克7号球'</span>, <span class="string">'室内'</span>);</span><br></pre></td></tr></table></figure>
+<p>这样即可。当然这样的继承方式是多占用了些内存，<code>Basketball.prototype = new Ball();</code> ，<strong>当然还有不占内存的方式，比如利用空对象作为中介的方式</strong>。创建了一个临时的对象，理解起来不难。具体请参考：</p>
+<p><a href="http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_inheritance.html" target="_blank" rel="noopener">Javascript面向对象编程（二）：构造函数的继承</a></p>
+<p>阮老师这里介绍的空对象方法，没什么问题。但是我觉得没有把临时对象使用完后手动置空的操作，自己加上即可。</p>
+<h4 id="4、class-extends-关键字实现继承"><a href="#4、class-extends-关键字实现继承" class="headerlink" title="4、class/extends 关键字实现继承"></a>4、class/extends 关键字实现继承</h4><p>es6中引入了类的概念，用 class 关键字声明的函数作为对象模版。具体如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Ball</span></span>&#123;</span><br><span class="line">	<span class="keyword">constructor</span>(name) &#123;</span><br><span class="line">		<span class="keyword">this</span>.name = name</span><br><span class="line">	&#125;</span><br><span class="line">	play() &#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">'Ball is: '</span>, <span class="keyword">this</span>.name)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Basketball</span> <span class="keyword">extends</span> <span class="title">Ball</span> </span>&#123;</span><br><span class="line">	<span class="keyword">constructor</span>(name) &#123;</span><br><span class="line">		<span class="keyword">super</span>(name)</span><br><span class="line">		<span class="keyword">this</span>.name = name</span><br><span class="line">	&#125;</span><br><span class="line">	playb() &#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">'Basketball is: '</span>, <span class="keyword">this</span>.name)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> bb = <span class="keyword">new</span> Basketball(<span class="string">'nikeball'</span>)</span><br><span class="line">bb.play(); <span class="comment">// Ball is: nikeball</span></span><br><span class="line">bb.playb(); <span class="comment">// Basketball is: nikeball</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> Ball) <span class="comment">// 1、function</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> Basketball) <span class="comment">// 2、function</span></span><br><span class="line"><span class="built_in">console</span>.log(bb.__proto__ == Basketball.prototype) <span class="comment">// 3、true</span></span><br><span class="line"><span class="built_in">console</span>.log(Basketball.prototype)</span><br><span class="line"><span class="comment">/* 4、</span></span><br><span class="line"><span class="comment">constructor: class Basketball</span></span><br><span class="line"><span class="comment">playb: ƒ playb()</span></span><br><span class="line"><span class="comment">__proto__: Object</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<p>由打印出的结果1&amp;2我们可以看出，class 好像是包在 function 上的语法糖；由3慢慢确定了这一点；由4我们更加确定了这一点，而且<strong>结合前面说的改进原型继承的方式，还可以尝试分析 class 继承的关键步骤</strong>：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Basketball.prototype = <span class="keyword">new</span> Ball()</span><br><span class="line"></span><br><span class="line">Basketball.prototype.constructor = Basketball</span><br><span class="line"></span><br><span class="line"><span class="comment">// playb() &#123;...&#125; 相当于:</span></span><br><span class="line">Basketball.prototype.playb = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;...&#125;</span><br></pre></td></tr></table></figure>
+<p>使用 class 时一定要注意在使用 this 或者子类构造函数返回前，一定要在子类中使用 super 关键字调用父类的构造函数。说白了就是在子类中一定要使用 super 。</p>
+<p>参考资料：</p>
+<p><a href="http://www.cnblogs.com/cshi/p/5476416.html" target="_blank" rel="noopener">JS当中的new关键字都干了些什么？</a></p>
+<p><a href="http://www.cnblogs.com/pssp/p/5204324.html" target="_blank" rel="noopener">作用域链与原型链</a></p>
+<p><a href="http://louiszhai.github.io/2015/12/17/prototype/" target="_blank" rel="noopener">详解prototype与_proto_</a></p>
+
+  	</div>
+	  
+	  <div class="article-tags tags">
+      
+        <a href="/tags/prototype-proto/">prototype/_proto_</a>
+      
+        <a href="/tags/面向对象/">面向对象</a>
+      
+        <a href="/tags/继承/">继承</a>
+      
+	  </div>
+    
+
+	
+		<div class="art-item-footer">
+				
+					<span class="art-item-left">上一篇：<a href="/2018/05/01/Nuxt.js踩坑实录.html" rel="prev" title="Nuxt.js踩坑实录">
+						Nuxt.js踩坑实录
+					</a></span>
+				
+				
+					<span class="art-item-right">下一篇：<a href="/2017/11/03/Mac下利用Alfred与七牛搭建markdown图床.html" rel="next" title="Mac下利用Alfred与七牛搭建markdown图床">
+						Mac下利用Alfred与七牛搭建markdown图床
+					</a></span>
+				
+		</div>
+	
+	</section>
+	
+</article>
+<script>
+	window.subData = {
+		title: 'Javascript面向对象笔记',
+		tools: true
+	}
+</script>
+
+      </div>
+      <aside class='l_side'>
+        
+    <section class="m_widget about">
+<a href="/about">
+  <img class="avatar waves-image" src="/images/avatar.jpg">
+</a>
+<div class="header">George Tan</div>
+<div class="content">
+<div class="desc">A man who dreams of being a full stack engineer</div>
+</div>
+</section>
+
+
+    <!-- <section class='m_widget links'>
+<div class='header'>Links</div>
+<div class='content'>
+    <ul class="entry">
+    
+        <li><a class="flat-box" target="_blank" href="https://ccoooss.com">
+            <div class='name'>ClassicOldSong</div>
+        </a></li>
+    
+        <li><a class="flat-box" target="_blank" href="https://frantic1048.logdown.com/">
+            <div class='name'>Frantic1048</div>
+        </a></li>
+    
+        <li><a class="flat-box" target="_blank" href="https://hclmaster.github.io/">
+            <div class='name'>Hclmaster</div>
+        </a></li>
+    
+        <li><a class="flat-box" target="_blank" href="https://whst.github.io/">
+            <div class='name'>WANG Hsü-Tung</div>
+        </a></li>
+    
+    </ul>
+</div>
+</section> -->
+
+
+    <section class="m_widget categories">
+<div class="header">Categories</div>
+<div class="content">
+    
+    <ul class="entry">
+    
+        <li><a class="flat-box" href="/categories/Javascript/"><div class="name">Javascript</div><div class="badget">1</div></a></li>
+    
+        <li><a class="flat-box" href="/categories/Vue-SSR/"><div class="name">Vue SSR</div><div class="badget">1</div></a></li>
+    
+        <li><a class="flat-box" href="/categories/自动化/"><div class="name">自动化</div><div class="badget">1</div></a></li>
+    
+        <li><a class="flat-box" href="/categories/运维/"><div class="name">运维</div><div class="badget">1</div></a></li>
+    
+    </ul>
+    
+</div>
+</section>
+
+    
+<div class="m_widget tagcloud">
+    <div class="header">Tags</div>
+    <div class="content">
+        <a href="/tags/Alfred3-workflow/" style="font-size: 14px; color: #808080">Alfred3 workflow</a> <a href="/tags/Nuxt-js/" style="font-size: 14px; color: #808080">Nuxt.js</a> <a href="/tags/SSR/" style="font-size: 14px; color: #808080">SSR</a> <a href="/tags/cloudflare/" style="font-size: 14px; color: #808080">cloudflare</a> <a href="/tags/https/" style="font-size: 14px; color: #808080">https</a> <a href="/tags/prototype-proto/" style="font-size: 14px; color: #808080">prototype/_proto_</a> <a href="/tags/qshell/" style="font-size: 14px; color: #808080">qshell</a> <a href="/tags/图床/" style="font-size: 14px; color: #808080">图床</a> <a href="/tags/继承/" style="font-size: 14px; color: #808080">继承</a> <a href="/tags/面向对象/" style="font-size: 14px; color: #808080">面向对象</a>
+    </div>
+</div>
+
+
+
+
+      </aside>
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+  </div>
+  <footer id="footer" class="clearfix">
+
+	<div class="social-wrapper">
+  	
+      
+        <a href="https://github.com/i7eo" class="social github" target="_blank" rel="external">
+          <span class="icon icon-github"></span>
+        </a>
+      
+        <a href="/atom.xml" class="social rss" target="_blank" rel="external">
+          <span class="icon icon-rss"></span>
+        </a>
+      
+    
+  </div>
+
+  <div>Theme <a href="https://github.com/stkevintan/hexo-theme-material-flow" class="codename">MaterialFlow</a> Powered by <a href="https://hexo.io/" target="_blank" class="codename">Hexo</a>.</div>
+
+</footer>
+
+  <script>setLoadingBarProgress(80);</script>
+  
+
+<!-- <script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script> -->
+<script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/node-waves/0.7.5/waves.min.js"></script>
+<script src="//cdn.bootcss.com/scrollReveal.js/3.3.2/scrollreveal.min.js"></script>
+<script src="/js/jquery.fitvids.js"></script>
+<script>
+	var GOOGLE_CUSTOM_SEARCH_API_KEY = "";
+	var GOOGLE_CUSTOM_SEARCH_ENGINE_ID = "";
+	var ALGOLIA_API_KEY = "";
+	var ALGOLIA_APP_ID = "";
+	var ALGOLIA_INDEX_NAME = "";
+  var AZURE_SERVICE_NAME = "";
+  var AZURE_INDEX_NAME = "";
+  var AZURE_QUERY_KEY = "";
+  var BAIDU_API_ID = "";
+  var SEARCH_SERVICE = "hexo";
+  var ROOT = "/"||"/";
+  if(!ROOT.endsWith('/'))ROOT += '/';
+</script>
+<script src="/js/search.js"></script>
+<script src="/js/app.js"></script>
+
+  <script>setLoadingBarProgress(100);</script>
+</body>
+</html>
