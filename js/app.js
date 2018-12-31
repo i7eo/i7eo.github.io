@@ -126,6 +126,7 @@ var customSearch;
 			e.stopPropagation();
 			$('body').toggleClass('z_menu-open');
 			$switcher.toggleClass('active');
+			// slove mobile click disabled
 			$('body').css('cursor', 'pointer')
 		});
 		$(document).click(function (e) {
