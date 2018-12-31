@@ -144,9 +144,13 @@ var customSearch;
 			e.stopPropagation();
 			$header.toggleClass('z_search-open');
 			$search.find('input').focus();
+			// slove mobile click disabled
+			$('body').css('cursor', 'pointer')
 		});
 		$(document).click(function (e) {
 			$header.removeClass('z_search-open');
+			// slove mobile click disabled
+			$('body').css('cursor', 'pointer')
 		});
 		$search.click(function (e) {
 			e.stopPropagation();
