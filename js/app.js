@@ -150,7 +150,7 @@ var customSearch;
 		$(document).click(function (e) {
 			$header.removeClass('z_search-open');
 			// slove mobile click disabled
-			$('body').css('cursor', 'pointer')
+			$('body').css('cursor', '')
 		});
 		$search.click(function (e) {
 			e.stopPropagation();
