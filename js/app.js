@@ -126,10 +126,12 @@ var customSearch;
 			e.stopPropagation();
 			$('body').toggleClass('z_menu-open');
 			$switcher.toggleClass('active');
+			$('body').css('cursor', 'pointer')
 		});
 		$(document).click(function (e) {
 			$('body').removeClass('z_menu-open');
 			$switcher.removeClass('active');
+			$('body').css('cursor', '')
 		});
 	}
 	function setHeaderSearch() {
