@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   
-  <title>Tag: 面向对象 | Solitude is freedom</title>
+  <title>Tag: EventLoop | Solitude is freedom</title>
   <!-- <meta name="description" content="A man who dreams of being a full stack engineer" />
   <meta name="keywords" content="Javascript,Nodejs,Vue,Nuxt,Other" /> -->
   <meta name="HandheldFriendly" content="True">
@@ -17,7 +17,7 @@
 <meta name="keywords" content="Javascript,Nodejs,Vue,Nuxt,Other">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Solitude is freedom">
-<meta property="og:url" content="https://i7eo.com/tags/面向对象/index.html">
+<meta property="og:url" content="https://i7eo.com/tags/EventLoop/index.html">
 <meta property="og:site_name" content="Solitude is freedom">
 <meta property="og:description" content="A man who dreams of being a full stack engineer">
 <meta property="og:locale" content="default">
@@ -126,7 +126,7 @@
       <div class='l_main'>
         
   <script>
-    window.subData= { title:'Tag : 面向对象'}
+    window.subData= { title:'Tag : EventLoop'}
   </script>
 
 <section class="post-list">
@@ -136,18 +136,18 @@
   <section class="meta">
     
     <h2 class="title">
-      <a href="/2018/03/25/Javascript面向对象笔记.html">
-        Javascript面向对象笔记
+      <a href="/2018/03/08/Event-Loop总结.html">
+        Event Loop总结
       </a>
     </h2>
     
     <time>
-      Mar 25, 2018
+      Mar 8, 2018
     </time>
 		
     
     <span class="post-count">
-      |&nbsp;字数 1473
+      |&nbsp;字数 2175
     </span>
     <div class="cats">
         <a href="/categories/Javascript/">Javascript</a>
@@ -156,26 +156,30 @@
 
   </section>
   <section class="article typo">
-	  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;说到面向对象，大多数人都想到的是高级语言：c++、java，但是我认为对于一名coder来说不论什么语言，一定要有面向对象这种思想（封装、继承、多态），我们只需要用语言这个工具把思想表达出来即可。本文只讨论继承。</p>
-<h3 id="Javascript-中创建对象"><a href="#Javascript-中创建对象" class="headerlink" title="Javascript 中创建对象"></a>Javascript 中创建对象</h3><h4 id="new-关键字做了什么？"><a href="#new-关键字做了什么？" class="headerlink" title="new 关键字做了什么？"></a>new 关键字做了什么？</h4><p>利用 new &amp; 构造函数 创建新的对象。这个创建新对象的过程分为三步：</p>
-<ul>
-<li>声明新的变量 basketball</li>
-</ul>
+	  <p>之前也有 event loop 的概念，但一直都是琐碎的。直到阅读以下三篇文章后，琐碎的点串在了一起。</p>
+<blockquote>
+<p><a href="https://www.cnblogs.com/cangqinglang/p/8963557.html" target="_blank" rel="noopener">从浏览器多进程到JS单线程，JS运行机制最全面的一次梳理</a></p>
+</blockquote>
+<blockquote>
+<p><a href="https://juejin.im/post/59e85eebf265da430d571f89" target="_blank" rel="noopener">这一次，彻底弄懂 JavaScript 执行机制</a></p>
+</blockquote>
+<blockquote>
+<p><a href="https://zhuanlan.zhihu.com/p/33087629" target="_blank" rel="noopener">Event Loop的规范和实现</a></p>
+</blockquote>
+<p>为了印象深刻，还是决定自己写一写。总结如下：</p>
+<h3 id="1、进程与线程的区别"><a href="#1、进程与线程的区别" class="headerlink" title="1、进程与线程的区别"></a>1、进程与线程的区别</h3><h4 id="1、什么是进程？"><a href="#1、什么是进程？" class="headerlink" title="1、什么是进程？"></a>1、什么是进程？</h4><p>在计算机操作系统中，只有进程才能在系统中运行。所以要使程序运行就必须为其创建进程。当我们打开浏览器时就已经创建了进程。创建进程之后，系统会为其分配资源(内存等)供其使用。</p>
+<p><a href="https://zh.wikipedia.org/wiki/%E8%A1%8C%E7%A8%8B" target="_blank" rel="noopener">进程</a>是程序（指令和数据）的真正运行实例。若干<a href="https://zh.wikipedia.org/wiki/%E8%A1%8C%E7%A8%8B" target="_blank" rel="noopener">进程</a>有可能 …</p>
 
     
 	  <div class="readmore">
-      <a href="/2018/03/25/Javascript面向对象笔记.html">Read More</a>
+      <a href="/2018/03/08/Event-Loop总结.html">Read More</a>
     </div>
     
     
     
 	  <div class="full-width auto-padding tags">
       
-        <a href="/tags/prototype-proto/">prototype/_proto_</a>
-      
-        <a href="/tags/面向对象/">面向对象</a>
-      
-        <a href="/tags/继承/">继承</a>
+        <a href="/tags/EventLoop/">EventLoop</a>
       
 	  </div>
     

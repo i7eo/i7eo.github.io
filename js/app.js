@@ -54,7 +54,7 @@ var customSearch;
 				el_toc_v.css('transform', 'perspective(1500px) translateZ(50px)');
 				// 使dom变换更加平滑
 			}
-			if(docScrollTop < 660 && !sideH_flag && docScrollTop > 10 && visible_flag === 'block') {
+			if(docScrollTop < sideH && !sideH_flag && docScrollTop > 10 && visible_flag === 'block') {
 				sideH_flag = true;
 				el_toc.show();
 				el_toc_v.hide();
