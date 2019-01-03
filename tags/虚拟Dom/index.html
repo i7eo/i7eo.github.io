@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   
-  <title>Category: Vue SSR | Solitude is freedom</title>
+  <title>Tag: 虚拟Dom | Solitude is freedom</title>
   <!-- <meta name="description" content="A man who dreams of being a full stack engineer" />
   <meta name="keywords" content="Javascript,Nodejs,Vue,Nuxt,Other" /> -->
   <meta name="HandheldFriendly" content="True">
@@ -17,7 +17,7 @@
 <meta name="keywords" content="Javascript,Nodejs,Vue,Nuxt,Other">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Solitude is freedom">
-<meta property="og:url" content="https://i7eo.com/categories/Vue-SSR/index.html">
+<meta property="og:url" content="https://i7eo.com/tags/虚拟Dom/index.html">
 <meta property="og:site_name" content="Solitude is freedom">
 <meta property="og:description" content="A man who dreams of being a full stack engineer">
 <meta property="og:locale" content="default">
@@ -126,7 +126,7 @@
       <div class='l_main'>
         
   <script>
-    window.subData= { title:'Category : Vue SSR'}
+    window.subData= { title:'Tag : 虚拟Dom'}
   </script>
 
 <section class="post-list">
@@ -136,46 +136,43 @@
   <section class="meta">
     
     <h2 class="title">
-      <a href="/2018/05/01/Nuxt.js踩坑实录.html">
-        Nuxt.js踩坑实录
+      <a href="/2018/01/03/vdom.html">
+        虚拟 Dom 到底是什么？
       </a>
     </h2>
     
     <time>
-      May 1, 2018
+      Jan 3, 2018
     </time>
 		
     
     <span class="post-count">
-      |&nbsp;字数 1669
+      |&nbsp;字数 1693
     </span>
     <div class="cats">
-        <a href="/categories/Vue-SSR/">Vue SSR</a>
+        <a href="/categories/Javascript/">Javascript</a>
     </div>
 
 
   </section>
   <section class="article typo">
-	  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前一阵子接触一个新项目，用了vue中的ssr解决方案 — Nuxt.js。也算是小有感受，记录一些经验留后备用。</p>
-<h3 id="CSR-amp-SSR"><a href="#CSR-amp-SSR" class="headerlink" title="CSR &amp; SSR"></a>CSR &amp; SSR</h3><h4 id="什么是-CSR"><a href="#什么是-CSR" class="headerlink" title="什么是 CSR ?"></a>什么是 CSR ?</h4><p>CSR =&gt; client-side-reder，即客户端渲染。具体过程如下：</p>
-<ul>
-<li>用户请求页面，返回页面。此时页面只是模版页面</li>
-<li>浏览器解析页面代码，读到js代码时，会根据我们所写的接口去请求数据</li>
-<li>得到返回数据后使用模版（vue/react/ng/art-template）进行渲染<h4 id="什么是-SSR"><a href="#什么是-SSR" class="headerlink" title="什么是 SSR ?"></a>什么是 SSR ?</h4></li>
-</ul>
+	  <p>本文为译文，原文地址：</p>
+<blockquote>
+<p><a href="https://bitsofco.de/understanding-the-virtual-dom/" target="_blank" rel="noopener">Understanding the Virtual DOM</a></p>
+</blockquote>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;我最近在写一些如何正确区分 dom 与 shadow dom 的文章。总的来说，dom 是HTML文档的基于对象的表示，以及操作该对象的接口。shadow dom 可以被认为是轻量级版本的 dom。它同样是以原生对象为基础的 html document，但是它并不是完整的。可能有些难懂，换一种说法来看，shadow dom 允许我们去将我们的 dom 划分的更小，更轻，可以跨文档使用。（这里作者想表达的意思是我们可以根据需要截取部分 dom 生成 vdom，而不用每次从 html 标签开始写 vdom 直到 html 标签闭合）</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;另一个你可能遇到过的相似说法称 “shadow dom” 为 “virtual DOM”。尽管 …</p>
 
     
 	  <div class="readmore">
-      <a href="/2018/05/01/Nuxt.js踩坑实录.html">Read More</a>
+      <a href="/2018/01/03/vdom.html">Read More</a>
     </div>
     
     
     
 	  <div class="full-width auto-padding tags">
       
-        <a href="/tags/Nuxt-js/">Nuxt.js</a>
-      
-        <a href="/tags/SSR/">SSR</a>
+        <a href="/tags/虚拟Dom/">虚拟Dom</a>
       
 	  </div>
     
