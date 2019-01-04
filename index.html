@@ -132,6 +132,55 @@
   <section class="meta">
     
     <h2 class="title">
+      <a href="/2019/01/03/vuesc.html">
+        Vue 的响应式/模版解析/渲染
+      </a>
+    </h2>
+    
+    <time>
+      Jan 3, 2019
+    </time>
+		
+    
+    <span class="post-count">
+      |&nbsp;字数 883
+    </span>
+    <div class="cats">
+        <a href="/categories/Vuejs/">Vuejs</a>
+    </div>
+
+
+  </section>
+  <section class="article typo">
+	  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;对于使用 vue 的同学来说，响应式、模版解析/渲染应该都很熟悉，vue 开发离不开这些特性。用了 vue 挺长时间了，写写总结。</p>
+<h3 id="响应式"><a href="#响应式" class="headerlink" title="响应式"></a>响应式</h3><p>创建一个普通的对象：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> t = &#123;</span><br><span class="line">    name: <span class="string">'t1'</span></span><br><span class="line">    age: <span class="number">19</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(t.age) <span class="comment">// 19 那么如何监听age属性的访问与设置呢？</span></span><br></pre></td></tr></table></figure>
+<p>在es5中加入了一个api叫 Object.defineProperty,该api允许 …</p>
+
+    
+	  <div class="readmore">
+      <a href="/2019/01/03/vuesc.html">Read More</a>
+    </div>
+    
+    
+    
+	  <div class="full-width auto-padding tags">
+      
+        <a href="/tags/模版解析/">模版解析</a>
+      
+        <a href="/tags/render-函数/">render 函数</a>
+      
+	  </div>
+    
+  </section>
+</article>
+    </div>
+  
+    <div class="post-wrapper">
+      <article class="post reveal">
+  <section class="meta">
+    
+    <h2 class="title">
       <a href="/2018/05/01/Nuxt.js踩坑实录.html">
         Nuxt.js踩坑实录
       </a>
@@ -303,7 +352,7 @@
 		
     
     <span class="post-count">
-      |&nbsp;字数 1693
+      |&nbsp;字数 2498
     </span>
     <div class="cats">
         <a href="/categories/Javascript/">Javascript</a>
@@ -490,6 +539,8 @@
     
         <li><a class="flat-box" href="/categories/Vue-SSR/"><div class="name">Vue SSR</div><div class="badget">1</div></a></li>
     
+        <li><a class="flat-box" href="/categories/Vuejs/"><div class="name">Vuejs</div><div class="badget">1</div></a></li>
+    
         <li><a class="flat-box" href="/categories/自动化/"><div class="name">自动化</div><div class="badget">1</div></a></li>
     
         <li><a class="flat-box" href="/categories/运维/"><div class="name">运维</div><div class="badget">1</div></a></li>
@@ -503,7 +554,7 @@
 <div class="m_widget tagcloud">
     <div class="header">Tags</div>
     <div class="content">
-        <a href="/tags/Alfred3-workflow/" style="font-size: 14px; color: #808080">Alfred3 workflow</a> <a href="/tags/EventLoop/" style="font-size: 14px; color: #808080">EventLoop</a> <a href="/tags/Nuxt-js/" style="font-size: 14px; color: #808080">Nuxt.js</a> <a href="/tags/SSR/" style="font-size: 14px; color: #808080">SSR</a> <a href="/tags/cloudflare/" style="font-size: 14px; color: #808080">cloudflare</a> <a href="/tags/https/" style="font-size: 14px; color: #808080">https</a> <a href="/tags/prototype-proto/" style="font-size: 14px; color: #808080">prototype/_proto_</a> <a href="/tags/qshell/" style="font-size: 14px; color: #808080">qshell</a> <a href="/tags/图床/" style="font-size: 14px; color: #808080">图床</a> <a href="/tags/继承/" style="font-size: 14px; color: #808080">继承</a> <a href="/tags/虚拟Dom/" style="font-size: 14px; color: #808080">虚拟Dom</a> <a href="/tags/面向对象/" style="font-size: 14px; color: #808080">面向对象</a>
+        <a href="/tags/Alfred3-workflow/" style="font-size: 14px; color: #808080">Alfred3 workflow</a> <a href="/tags/EventLoop/" style="font-size: 14px; color: #808080">EventLoop</a> <a href="/tags/Nuxt-js/" style="font-size: 14px; color: #808080">Nuxt.js</a> <a href="/tags/SSR/" style="font-size: 14px; color: #808080">SSR</a> <a href="/tags/cloudflare/" style="font-size: 14px; color: #808080">cloudflare</a> <a href="/tags/https/" style="font-size: 14px; color: #808080">https</a> <a href="/tags/prototype-proto/" style="font-size: 14px; color: #808080">prototype/_proto_</a> <a href="/tags/qshell/" style="font-size: 14px; color: #808080">qshell</a> <a href="/tags/render-函数/" style="font-size: 14px; color: #808080">render 函数</a> <a href="/tags/图床/" style="font-size: 14px; color: #808080">图床</a> <a href="/tags/模版解析/" style="font-size: 14px; color: #808080">模版解析</a> <a href="/tags/继承/" style="font-size: 14px; color: #808080">继承</a> <a href="/tags/虚拟Dom/" style="font-size: 14px; color: #808080">虚拟Dom</a> <a href="/tags/面向对象/" style="font-size: 14px; color: #808080">面向对象</a>
     </div>
 </div>
 

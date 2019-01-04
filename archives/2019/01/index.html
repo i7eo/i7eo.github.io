@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   
-  <title>Tag: 面向对象 | Solitude is freedom</title>
+  <title>Archives: 2019/1 | Solitude is freedom</title>
   <!-- <meta name="description" content="A man who dreams of being a full stack engineer" />
   <meta name="keywords" content="Javascript,Nodejs,Vue,Nuxt,Other" /> -->
   <meta name="HandheldFriendly" content="True">
@@ -17,7 +17,7 @@
 <meta name="keywords" content="Javascript,Nodejs,Vue,Nuxt,Other">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Solitude is freedom">
-<meta property="og:url" content="https://i7eo.com/tags/面向对象/index.html">
+<meta property="og:url" content="https://i7eo.com/archives/2019/01/index.html">
 <meta property="og:site_name" content="Solitude is freedom">
 <meta property="og:description" content="A man who dreams of being a full stack engineer">
 <meta property="og:locale" content="default">
@@ -125,8 +125,9 @@
     <div class='container clearfix'>
       <div class='l_main'>
         
+	
   <script>
-    window.subData= { title:'Tag : 面向对象'}
+    window.subData= { title:'Year : 2019.1'}
   </script>
 
 <section class="post-list">
@@ -136,46 +137,43 @@
   <section class="meta">
     
     <h2 class="title">
-      <a href="/2018/03/25/Javascript面向对象笔记.html">
-        Javascript面向对象笔记
+      <a href="/2019/01/03/vuesc.html">
+        Vue 的响应式/模版解析/渲染
       </a>
     </h2>
     
     <time>
-      Mar 25, 2018
+      Jan 3, 2019
     </time>
 		
     
     <span class="post-count">
-      |&nbsp;字数 1473
+      |&nbsp;字数 883
     </span>
     <div class="cats">
-        <a href="/categories/Javascript/">Javascript</a>
+        <a href="/categories/Vuejs/">Vuejs</a>
     </div>
 
 
   </section>
   <section class="article typo">
-	  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;说到面向对象，大多数人都想到的是高级语言：c++、java，但是我认为对于一名coder来说不论什么语言，一定要有面向对象这种思想（封装、继承、多态），我们只需要用语言这个工具把思想表达出来即可。本文只讨论继承。</p>
-<h3 id="Javascript-中创建对象"><a href="#Javascript-中创建对象" class="headerlink" title="Javascript 中创建对象"></a>Javascript 中创建对象</h3><h4 id="new-关键字做了什么？"><a href="#new-关键字做了什么？" class="headerlink" title="new 关键字做了什么？"></a>new 关键字做了什么？</h4><p>利用 new &amp; 构造函数 创建新的对象。这个创建新对象的过程分为三步：</p>
-<ul>
-<li>声明新的变量 basketball</li>
-</ul>
+	  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;对于使用 vue 的同学来说，响应式、模版解析/渲染应该都很熟悉，vue 开发离不开这些特性。用了 vue 挺长时间了，写写总结。</p>
+<h3 id="响应式"><a href="#响应式" class="headerlink" title="响应式"></a>响应式</h3><p>创建一个普通的对象：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> t = &#123;</span><br><span class="line">    name: <span class="string">'t1'</span></span><br><span class="line">    age: <span class="number">19</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(t.age) <span class="comment">// 19 那么如何监听age属性的访问与设置呢？</span></span><br></pre></td></tr></table></figure>
+<p>在es5中加入了一个api叫 Object.defineProperty,该api允许 …</p>
 
     
 	  <div class="readmore">
-      <a href="/2018/03/25/Javascript面向对象笔记.html">Read More</a>
+      <a href="/2019/01/03/vuesc.html">Read More</a>
     </div>
     
     
     
 	  <div class="full-width auto-padding tags">
       
-        <a href="/tags/prototype-proto/">prototype/_proto_</a>
+        <a href="/tags/模版解析/">模版解析</a>
       
-        <a href="/tags/面向对象/">面向对象</a>
-      
-        <a href="/tags/继承/">继承</a>
+        <a href="/tags/render-函数/">render 函数</a>
       
 	  </div>
     
@@ -184,6 +182,7 @@
     </div>
   
 </section>
+
 
 
       </div>
