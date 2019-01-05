@@ -184,62 +184,6 @@
 </article>
     </div>
   
-    <div class="post-wrapper">
-      <article class="post reveal">
-  <section class="meta">
-    
-    <h2 class="title">
-      <a href="/2018/03/08/Event-Loop总结.html">
-        Event Loop总结
-      </a>
-    </h2>
-    
-    <time>
-      Mar 8, 2018
-    </time>
-		
-    
-    <span class="post-count">
-      |&nbsp;字数 2175
-    </span>
-    <div class="cats">
-        <a href="/categories/Javascript/">Javascript</a>
-    </div>
-
-
-  </section>
-  <section class="article typo">
-	  <p>之前也有 event loop 的概念，但一直都是琐碎的。直到阅读以下三篇文章后，琐碎的点串在了一起。</p>
-<blockquote>
-<p><a href="https://www.cnblogs.com/cangqinglang/p/8963557.html" target="_blank" rel="noopener">从浏览器多进程到JS单线程，JS运行机制最全面的一次梳理</a></p>
-</blockquote>
-<blockquote>
-<p><a href="https://juejin.im/post/59e85eebf265da430d571f89" target="_blank" rel="noopener">这一次，彻底弄懂 JavaScript 执行机制</a></p>
-</blockquote>
-<blockquote>
-<p><a href="https://zhuanlan.zhihu.com/p/33087629" target="_blank" rel="noopener">Event Loop的规范和实现</a></p>
-</blockquote>
-<p>为了印象深刻，还是决定自己写一写。总结如下：</p>
-<h3 id="1、进程与线程的区别"><a href="#1、进程与线程的区别" class="headerlink" title="1、进程与线程的区别"></a>1、进程与线程的区别</h3><h4 id="1、什么是进程？"><a href="#1、什么是进程？" class="headerlink" title="1、什么是进程？"></a>1、什么是进程？</h4><p>在计算机操作系统中，只有进程才能在系统中运行。所以要使程序运行就必须为其创建进程。当我们打开浏览器时就已经创建了进程。创建进程之后，系统会为其分配资源(内存等)供其使用。</p>
-<p><a href="https://zh.wikipedia.org/wiki/%E8%A1%8C%E7%A8%8B" target="_blank" rel="noopener">进程</a>是程序（指令和数据）的真正运行实例。若干<a href="https://zh.wikipedia.org/wiki/%E8%A1%8C%E7%A8%8B" target="_blank" rel="noopener">进程</a>有可能 …</p>
-
-    
-	  <div class="readmore">
-      <a href="/2018/03/08/Event-Loop总结.html">Read More</a>
-    </div>
-    
-    
-    
-	  <div class="full-width auto-padding tags">
-      
-        <a href="/tags/EventLoop/">EventLoop</a>
-      
-	  </div>
-    
-  </section>
-</article>
-    </div>
-  
 </section>
 
 
@@ -290,7 +234,9 @@
     
     <ul class="entry">
     
-        <li><a class="flat-box" href="/categories/Javascript/"><div class="name">Javascript</div><div class="badget">3</div></a></li>
+        <li><a class="flat-box" href="/categories/HTML-CSS/"><div class="name">HTML&amp;CSS</div><div class="badget">4</div></a></li>
+    
+        <li><a class="flat-box" href="/categories/Javascript/"><div class="name">Javascript</div><div class="badget">7</div></a></li>
     
         <li><a class="flat-box" href="/categories/Vuejs/"><div class="name">Vuejs</div><div class="badget">2</div></a></li>
     
@@ -307,7 +253,7 @@
 <div class="m_widget tagcloud">
     <div class="header">Tags</div>
     <div class="content">
-        <a href="/tags/Alfred3-workflow/" style="font-size: 14px; color: #808080">Alfred3 workflow</a> <a href="/tags/EventLoop/" style="font-size: 14px; color: #808080">EventLoop</a> <a href="/tags/Nuxt-js/" style="font-size: 14px; color: #808080">Nuxt.js</a> <a href="/tags/SSR/" style="font-size: 14px; color: #808080">SSR</a> <a href="/tags/cloudflare/" style="font-size: 14px; color: #808080">cloudflare</a> <a href="/tags/https/" style="font-size: 14px; color: #808080">https</a> <a href="/tags/prototype-proto/" style="font-size: 14px; color: #808080">prototype/_proto_</a> <a href="/tags/qshell/" style="font-size: 14px; color: #808080">qshell</a> <a href="/tags/render-函数/" style="font-size: 14px; color: #808080">render 函数</a> <a href="/tags/图床/" style="font-size: 14px; color: #808080">图床</a> <a href="/tags/模版解析/" style="font-size: 14px; color: #808080">模版解析</a> <a href="/tags/继承/" style="font-size: 14px; color: #808080">继承</a> <a href="/tags/虚拟Dom/" style="font-size: 14px; color: #808080">虚拟Dom</a> <a href="/tags/面向对象/" style="font-size: 14px; color: #808080">面向对象</a>
+        <a href="/tags/Alfred3-workflow/" style="font-size: 14px; color: #808080">Alfred3 workflow</a> <a href="/tags/EventLoop/" style="font-size: 14px; color: #808080">EventLoop</a> <a href="/tags/Nuxt-js/" style="font-size: 14px; color: #808080">Nuxt.js</a> <a href="/tags/SSR/" style="font-size: 14px; color: #808080">SSR</a> <a href="/tags/cloudflare/" style="font-size: 14px; color: #808080">cloudflare</a> <a href="/tags/flex/" style="font-size: 14px; color: #808080">flex</a> <a href="/tags/https/" style="font-size: 14px; color: #808080">https</a> <a href="/tags/prototype-proto/" style="font-size: 14px; color: #808080">prototype/_proto_</a> <a href="/tags/qshell/" style="font-size: 14px; color: #808080">qshell</a> <a href="/tags/rem/" style="font-size: 14px; color: #808080">rem</a> <a href="/tags/render-函数/" style="font-size: 14px; color: #808080">render 函数</a> <a href="/tags/sticky-footer/" style="font-size: 14px; color: #808080">sticky footer</a> <a href="/tags/webpack/" style="font-size: 14px; color: #808080">webpack</a> <a href="/tags/上下文/" style="font-size: 14px; color: #808080">上下文</a> <a href="/tags/作用域/" style="font-size: 14px; color: #808080">作用域</a> <a href="/tags/值传递/" style="font-size: 14px; color: #808080">值传递</a> <a href="/tags/图床/" style="font-size: 14px; color: #808080">图床</a> <a href="/tags/层叠上下文/" style="font-size: 14px; color: #808080">层叠上下文</a> <a href="/tags/执行环境/" style="font-size: 14px; color: #808080">执行环境</a> <a href="/tags/模版解析/" style="font-size: 14px; color: #808080">模版解析</a> <a href="/tags/水平垂直居中/" style="font-size: 14px; color: #808080">水平垂直居中</a> <a href="/tags/深拷贝/" style="font-size: 14px; color: #808080">深拷贝</a> <a href="/tags/继承/" style="font-size: 14px; color: #808080">继承</a> <a href="/tags/虚拟Dom/" style="font-size: 14px; color: #808080">虚拟Dom</a> <a href="/tags/闭包/" style="font-size: 14px; color: #808080">闭包</a> <a href="/tags/面向对象/" style="font-size: 14px; color: #808080">面向对象</a>
     </div>
 </div>
 

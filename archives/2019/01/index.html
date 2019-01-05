@@ -160,7 +160,7 @@
 	  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;对于使用 vue 的同学来说，响应式、模版解析/渲染应该都很熟悉，vue 开发离不开这些特性。用了 vue 挺长时间了，写写总结。</p>
 <h3 id="响应式"><a href="#响应式" class="headerlink" title="响应式"></a>响应式</h3><p>创建一个普通的对象：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> t = &#123;</span><br><span class="line">    name: <span class="string">'t1'</span></span><br><span class="line">    age: <span class="number">19</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(t.age) <span class="comment">// 19 那么如何监听age属性的访问与设置呢？</span></span><br></pre></td></tr></table></figure>
-<p>在es5中加入了一个api叫 Object.defineProperty,该api允许 …</p>
+<p>在es5中加入了一个api叫 Object.defineProperty,该api允许</p>
 
     
 	  <div class="readmore">
@@ -174,6 +174,55 @@
         <a href="/tags/模版解析/">模版解析</a>
       
         <a href="/tags/render-函数/">render 函数</a>
+      
+	  </div>
+    
+  </section>
+</article>
+    </div>
+  
+    <div class="post-wrapper">
+      <article class="post reveal">
+  <section class="meta">
+    
+    <h2 class="title">
+      <a href="/2019/01/01/vdom.html">
+        虚拟 Dom 到底是什么？
+      </a>
+    </h2>
+    
+    <time>
+      Jan 1, 2019
+    </time>
+		
+    
+    <span class="post-count">
+      |&nbsp;字数 2498
+    </span>
+    <div class="cats">
+        <a href="/categories/Javascript/">Javascript</a>
+    </div>
+
+
+  </section>
+  <section class="article typo">
+	  <p>本文为译文，原文地址：</p>
+<blockquote>
+<p><a href="https://bitsofco.de/understanding-the-virtual-dom/" target="_blank" rel="noopener">Understanding the Virtual DOM</a></p>
+</blockquote>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;我最近在写一些如何正确区分 dom 与 shadow dom 的文章。总的来说，dom 是HTML文档的基于对象的表示，以及操作该对象的接口。shadow dom 可以被认为是轻量级版本的 dom。它同样是以原生对象为基础的 html document，但是它并不是完整的。可能有些难懂，换一种说法来看，shadow dom 允许我们去将我们的 dom 划分的更小，更轻，可以跨文档使用。（这里作者想表达的意思是我们可以根据需要截取部分 dom 生成 vdom，而不用每次从 html 标签开始写 vdom 直到 html 标签闭合）</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;另一个你可能遇到过的相似说法称 “shadow dom” 为 “virtual DOM”。尽管</p>
+
+    
+	  <div class="readmore">
+      <a href="/2019/01/01/vdom.html">Read More</a>
+    </div>
+    
+    
+    
+	  <div class="full-width auto-padding tags">
+      
+        <a href="/tags/虚拟Dom/">虚拟Dom</a>
       
 	  </div>
     
@@ -231,7 +280,9 @@
     
     <ul class="entry">
     
-        <li><a class="flat-box" href="/categories/Javascript/"><div class="name">Javascript</div><div class="badget">3</div></a></li>
+        <li><a class="flat-box" href="/categories/HTML-CSS/"><div class="name">HTML&amp;CSS</div><div class="badget">4</div></a></li>
+    
+        <li><a class="flat-box" href="/categories/Javascript/"><div class="name">Javascript</div><div class="badget">7</div></a></li>
     
         <li><a class="flat-box" href="/categories/Vuejs/"><div class="name">Vuejs</div><div class="badget">2</div></a></li>
     
@@ -248,7 +299,7 @@
 <div class="m_widget tagcloud">
     <div class="header">Tags</div>
     <div class="content">
-        <a href="/tags/Alfred3-workflow/" style="font-size: 14px; color: #808080">Alfred3 workflow</a> <a href="/tags/EventLoop/" style="font-size: 14px; color: #808080">EventLoop</a> <a href="/tags/Nuxt-js/" style="font-size: 14px; color: #808080">Nuxt.js</a> <a href="/tags/SSR/" style="font-size: 14px; color: #808080">SSR</a> <a href="/tags/cloudflare/" style="font-size: 14px; color: #808080">cloudflare</a> <a href="/tags/https/" style="font-size: 14px; color: #808080">https</a> <a href="/tags/prototype-proto/" style="font-size: 14px; color: #808080">prototype/_proto_</a> <a href="/tags/qshell/" style="font-size: 14px; color: #808080">qshell</a> <a href="/tags/render-函数/" style="font-size: 14px; color: #808080">render 函数</a> <a href="/tags/图床/" style="font-size: 14px; color: #808080">图床</a> <a href="/tags/模版解析/" style="font-size: 14px; color: #808080">模版解析</a> <a href="/tags/继承/" style="font-size: 14px; color: #808080">继承</a> <a href="/tags/虚拟Dom/" style="font-size: 14px; color: #808080">虚拟Dom</a> <a href="/tags/面向对象/" style="font-size: 14px; color: #808080">面向对象</a>
+        <a href="/tags/Alfred3-workflow/" style="font-size: 14px; color: #808080">Alfred3 workflow</a> <a href="/tags/EventLoop/" style="font-size: 14px; color: #808080">EventLoop</a> <a href="/tags/Nuxt-js/" style="font-size: 14px; color: #808080">Nuxt.js</a> <a href="/tags/SSR/" style="font-size: 14px; color: #808080">SSR</a> <a href="/tags/cloudflare/" style="font-size: 14px; color: #808080">cloudflare</a> <a href="/tags/flex/" style="font-size: 14px; color: #808080">flex</a> <a href="/tags/https/" style="font-size: 14px; color: #808080">https</a> <a href="/tags/prototype-proto/" style="font-size: 14px; color: #808080">prototype/_proto_</a> <a href="/tags/qshell/" style="font-size: 14px; color: #808080">qshell</a> <a href="/tags/rem/" style="font-size: 14px; color: #808080">rem</a> <a href="/tags/render-函数/" style="font-size: 14px; color: #808080">render 函数</a> <a href="/tags/sticky-footer/" style="font-size: 14px; color: #808080">sticky footer</a> <a href="/tags/webpack/" style="font-size: 14px; color: #808080">webpack</a> <a href="/tags/上下文/" style="font-size: 14px; color: #808080">上下文</a> <a href="/tags/作用域/" style="font-size: 14px; color: #808080">作用域</a> <a href="/tags/值传递/" style="font-size: 14px; color: #808080">值传递</a> <a href="/tags/图床/" style="font-size: 14px; color: #808080">图床</a> <a href="/tags/层叠上下文/" style="font-size: 14px; color: #808080">层叠上下文</a> <a href="/tags/执行环境/" style="font-size: 14px; color: #808080">执行环境</a> <a href="/tags/模版解析/" style="font-size: 14px; color: #808080">模版解析</a> <a href="/tags/水平垂直居中/" style="font-size: 14px; color: #808080">水平垂直居中</a> <a href="/tags/深拷贝/" style="font-size: 14px; color: #808080">深拷贝</a> <a href="/tags/继承/" style="font-size: 14px; color: #808080">继承</a> <a href="/tags/虚拟Dom/" style="font-size: 14px; color: #808080">虚拟Dom</a> <a href="/tags/闭包/" style="font-size: 14px; color: #808080">闭包</a> <a href="/tags/面向对象/" style="font-size: 14px; color: #808080">面向对象</a>
     </div>
 </div>
 

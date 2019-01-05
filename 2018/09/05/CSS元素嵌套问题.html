@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <title>CSS元素嵌套问题 | Solitude is freedom</title>
+  <!-- <meta name="description" content="A man who dreams of being a full stack engineer" />
+  <meta name="keywords" content="Javascript,Nodejs,Vue,Nuxt,Other" /> -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <!-- <link rel="shortcut icon" href="/"> -->
+  <link rel="icon" href="/images/favicon.ico">
+  <link rel="alternate" href="/atom.xml" title="Solitude is freedom">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;回顾了一下之前的代码，发现一个css中的坑即层叠顺序。什么叫层叠顺序？简单来说就是在屏幕上某一个位置堆积了很多 div 这些块哪个在上哪个在下的关系就是层叠顺序。（下面代码演示了三层堆叠）">
+<meta name="keywords" content="层叠上下文">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS元素嵌套问题">
+<meta property="og:url" content="https://i7eo.com/2018/09/05/CSS元素嵌套问题.html">
+<meta property="og:site_name" content="Solitude is freedom">
+<meta property="og:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;回顾了一下之前的代码，发现一个css中的坑即层叠顺序。什么叫层叠顺序？简单来说就是在屏幕上某一个位置堆积了很多 div 这些块哪个在上哪个在下的关系就是层叠顺序。（下面代码演示了三层堆叠）">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://i7eo.com/2018/09/05/CSS元素嵌套问题/i7eo_a3e3f0589b44e1eb85a387e0b8fa7d38.png">
+<meta property="og:image" content="https://i7eo.com/2018/09/05/CSS元素嵌套问题/i7eo_5a1d655846a04a4367b22766f24cf0a0.png">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2763803-ae96de8a5feb15ec.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/600">
+<meta property="og:updated_time" content="2019-01-05T06:45:07.511Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS元素嵌套问题">
+<meta name="twitter:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;回顾了一下之前的代码，发现一个css中的坑即层叠顺序。什么叫层叠顺序？简单来说就是在屏幕上某一个位置堆积了很多 div 这些块哪个在上哪个在下的关系就是层叠顺序。（下面代码演示了三层堆叠）">
+<meta name="twitter:image" content="https://i7eo.com/2018/09/05/CSS元素嵌套问题/i7eo_a3e3f0589b44e1eb85a387e0b8fa7d38.png">
+
+  <!-- <link href="https://fonts.googleapis.com/css?family=Inconsolata|Titillium+Web" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet"> -->
+  <link href="//cdn.bootcss.com/node-waves/0.7.5/waves.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+</head>
+</html>
+<body>
+  <div id="loading-bar-wrapper">
+  <div id="loading-bar"></div>
+</div>
+
+
+  <script>setLoadingBarProgress(20)</script> 
+  <header class="l_header">
+	<div class="wrapper">
+		<div class="nav-main container container--flex">
+			<a class="logo flat-box" href="/">
+				Solitude is freedom
+			</a>
+			<div class="menu">
+				<ul class="h-list">
+					
+						<li>
+							<a class="flat-box nav-home" href="/">
+								Home
+							</a>
+						</li>
+					
+						<li>
+							<a class="flat-box nav-archives" href="/archives">
+								Archives
+							</a>
+						</li>
+					
+						<li>
+							<a class="flat-box nav-about" href="/about">
+								About
+							</a>
+						</li>
+					
+				</ul>
+				<div class="underline"></div>
+			</div>
+			
+				<div class="m_search">
+					<form name="searchform" class="form u-search-form">
+						<input type="text" class="input u-search-input" placeholder="Search">
+						<span class="icon icon-search"></span>
+					</form>
+				</div>
+			
+			<ul class="switcher h-list">
+				
+					<li class="s-search"><a href="javascript:void(0)"><span class="icon icon-search flat-box"></span></a></li>
+				
+				<li class="s-menu"><a href="javascript:void(0)"><span class="icon icon-menu flat-box"></span></a></li>
+			</ul>
+		</div>
+
+		<div class="nav-sub container container--flex">
+			<a class="logo mlogo" href="javascript:void(0)">
+				Word of Forks
+			</a>
+
+			<ul class="switcher h-list">
+				<li class="s-comment"><a href="javascript:void(0)"><span class="icon icon-chat_bubble_outline flat-box"></span></a></li>
+				<li class="s-top"><a href="javascript:void(0)"><span class="icon icon-arrow_upward flat-box"></span></a></li>
+				<!-- <li class='s-toc'><a href='javascript:void(0)'><span class="icon icon-format_list_numbered flat-box"></span></a></li> -->
+			</ul>
+		</div>
+	</div>
+</header>
+<aside class="menu-phone">
+	<nav>
+		
+			<a href="/" class="nav-home nav">
+				Home
+			</a>
+		
+			<a href="/archives" class="nav-archives nav">
+				Archives
+			</a>
+		
+			<a href="/about" class="nav-about nav">
+				About
+			</a>
+		
+	</nav>
+</aside>
+
+    <script>setLoadingBarProgress(40);</script>
+  <div class="l_body">
+    <div class='container clearfix'>
+      <div class='l_main'>
+        <article id="post-CSS元素嵌套问题" class="post white-box article-type-post" itemscope="" itemprop="blogPost">
+	<section class="meta">
+	<h2 class="title">
+  	<a href="/2018/09/05/CSS元素嵌套问题.html">
+    	CSS元素嵌套问题
+    </a>
+  </h2>
+	<time>
+	  Sep 5, 2018
+	</time>
+	
+    
+    <span class="post-count">
+      |&nbsp;字数 1845
+    </span>
+    <div class="cats">
+        <a href="/categories/HTML-CSS/">HTML&CSS</a>
+    </div>
+
+
+	</section>
+	
+	<section class="article typo">
+  	<div class="article-entry" itemprop="articleBody">
+    	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;回顾了一下之前的代码，发现一个css中的坑即层叠顺序。什么叫层叠顺序？简单来说就是在屏幕上某一个位置堆积了很多 <code>div</code> 这些块哪个在上哪个在下的关系就是层叠顺序。（下面代码演示了三层堆叠）</p>
+<a id="more"></a>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.test2</span>&#123;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">260px</span>;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">margin-left</span>: -<span class="number">150px</span>;</span><br><span class="line">  <span class="attribute">margin-top</span>: -<span class="number">130px</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: blue;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.test3</span>&#123;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">margin-left</span>: -<span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">margin-top</span>: -<span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: black;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.test4</span>&#123;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">150px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">150px</span>;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">margin-left</span>: -<span class="number">75px</span>;</span><br><span class="line">  <span class="attribute">margin-top</span>: -<span class="number">75px</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: gray;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>对应的html结构如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"test2"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"test3"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"test4"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="/2018/09/05/CSS元素嵌套问题/i7eo_a3e3f0589b44e1eb85a387e0b8fa7d38.png" alt=""></p>
+<p>如图所示，都是水平垂直居中的。这里我们主要关注层叠顺序。此时三者均为绝对定位，由test2开始从下到上依次是 test2 -&gt; test3 -&gt; test4 这样的顺序。test4位于最上方，此时想让test3与test4位置颠倒且test2位置不变（由下到上的顺序为test2 -&gt; test4 -&gt; test3），应该怎么做？<br>肯定首先想到使用 z-index：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.test3</span> &#123;</span><br><span class="line">  //...</span><br><span class="line">  <span class="selector-tag">z-index</span>: 3</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.test4</span> &#123;</span><br><span class="line">  //..</span><br><span class="line">  <span class="selector-tag">z-index</span>: 2</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样修改结果并不会改变。为什么？既然 z-index 不生效那我们肯定先去查 z-index 。</p>
+<blockquote>
+<p>对于一个已经定位的元素（即position属性值是非static的元素），z-index 属性指定：<br>元素在当前堆叠上下文中的堆叠层级。<br>元素是否创建一个新的本地层叠上下文。</p>
+</blockquote>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/z-index" target="_blank" rel="noopener">MDN : z-index</a></p>
+<p>根据mdn的介绍来看，我们设定了堆叠层级，这样来说是应该可以的。但是结果却不尽人意。留意一下层叠上下文，是否跟创建的层叠上下文有关呢？<br>常见的创建层叠上下文（stacking context）的方式有：</p>
+<ul>
+<li><p>z-index 值不为 “auto”的 绝对/相对定位</p>
+</li>
+<li><p>一个 z-index 值不为 “auto”的 flex 项目 (flex item)，即：父元素 display: flex|inline-flex</p>
+</li>
+</ul>
+<p>可能你并没有意识，但你确实会常常这样为html标签创建样式并为它创建了层叠上下文。</p>
+<p>层叠上下文的特点：(mdn)</p>
+<ol>
+<li>给一个 HTML 元素定位和 z-index 赋值创建一个层叠上下文，（opacity 值不为 1 的也是相同）。</li>
+<li>层叠上下文可以包含在其他层叠上下文中，并且一起创建一个有层级的层叠上下文。</li>
+<li>每个层叠上下文完全独立于它的兄弟元素：当处理层叠时只考虑子元素。</li>
+<li>每个层叠上下文是自包含的：当元素的内容发生层叠后，整个该元素将会 在父层叠上下文中 按顺序进行层叠。</li>
+</ol>
+<p>具体的层叠关系如下图：</p>
+<p><img src="/2018/09/05/CSS元素嵌套问题/i7eo_5a1d655846a04a4367b22766f24cf0a0.png" alt=""></p>
+<p><a href="https://www.zhangxinxu.com/wordpress/2016/01/understand-css-stacking-context-order-z-index/" target="_blank" rel="noopener">深入理解CSS中的层叠上下文和层叠顺序</a></p>
+<p>对于当前代码来说，我创建了三个层叠上下文元素并且一一嵌套。当我们设置test3的z-index时，test4是test3的子元素（层叠上下文特点3），会影响到test4。此时test3与test4一同来到了test2上方（其实也就是保持了原位置，因为test2没有设置zindex所以没有层叠上下文）。<br>这个时候再设置test4的z-index，相当于俩个层叠上下文元素在比较z-index，那按照上图所示的比较规则，test3的z-index只要大于test4就能在上面了，那为什么还是不变呢？我们来看看大神的解释：</p>
+<p>层叠上下文元素有如下特性：（<a href="https://www.zhangxinxu.com/wordpress/2016/01/understand-css-stacking-context-order-z-index/" target="_blank" rel="noopener">理解元素层叠上下文-张鑫旭</a>）</p>
+<blockquote>
+<p>1、层叠上下文的层叠水平要比普通元素高（原因后面会说明）；</p>
+</blockquote>
+<blockquote>
+<p>2、层叠上下文可以阻断元素的混合模式；</p>
+</blockquote>
+<blockquote>
+<p>3、层叠上下文可以嵌套，内部层叠上下文及其所有子元素均受制于外部的层叠上下文。</p>
+</blockquote>
+<blockquote>
+<p>4、每个层叠上下文和兄弟元素独立，也就是当进行层叠变化或渲染的时候，只需要考虑后代元素。</p>
+</blockquote>
+<blockquote>
+<p>5、每个层叠上下文是自成体系的，当元素发生层叠的时候，整个元素被认为是在父层叠上下文的层叠顺序中。</p>
+</blockquote>
+<p>根据上面第3点我们知道了内部层叠受制于外部层叠，结合代码也就是说只要test3设置了z-index，那它就会带着test4一起走。当test4设置z-index时，<strong>首先要判断设置的值和test3的z-index正负是否相同，如果都为正（同为负），无论大小test3与test4的位置永不会变</strong>。既然设置俩个正值作为z-index行不通，那我们试试一正一负行得通吗？</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;首先设置test4的z-index为-1，此时只有一个层叠上下文test4，并且层叠顺序为：由test4开始从下到上依次是 test4 -&gt; test2 -&gt; test3 这样的顺序。test3位于最上方，此时如果给test3的z-index赋正值会导致test4重回原位置（test3上方），赋负值会导致test3来到了test2之下，不符合要求。既然父级元素没有操作空间了，试试父父级元素test2，根据特点3我们猜想如果test2的z-index设置正值那么会把test3（包括test4）这个整体共同带到test2之上的位置。如下：</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/2763803-ae96de8a5feb15ec.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/600" alt="test.png"></p>
+<p>在改变test4的z-index之后（为了看得更清晰我手动改变了长宽）我们发现达到了效果。设置父父级（test2）的z-index为1之后拥有了层叠上下文，test4设置z-index为-1也拥有了层叠上下文。<strong>此时test3作为普通的绝对定位元素保留在原位置（为了方便理解所以这样描述，这里test3其实是bfc发挥了作用），因为test2是父父级符合特点3，所以将位于底下的test4带了上来，但是test4属于test3的子元素，上来后就去和test3比较，因为test3不拥有层叠上下文保留在原位置，而此时test4的z-index为负值，所以在test3之下，test2之上显示</strong>。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这里说了三个块级元素，大家还可以试试嵌套行内元素是什么效果。需要注意的是伪元素创建层叠上下文的表现是否和上面一样呢？</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.test</span>&#123;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">260px</span>;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">margin-left</span>: -<span class="number">150px</span>;</span><br><span class="line">  <span class="attribute">margin-top</span>: -<span class="number">130px</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: blue;</span><br><span class="line">  <span class="attribute">z-index</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.test1</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">margin-left</span>: -<span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">margin-top</span>: -<span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: black;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.test1</span><span class="selector-pseudo">:after</span>&#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">''</span>;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: gray;</span><br><span class="line">  <span class="attribute">animation</span>: breathe infinite ease-in-out <span class="number">2s</span>;</span><br><span class="line">  <span class="attribute">opacity</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">z-index</span>: -<span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line">@<span class="keyword">keyframes</span> breathe&#123;</span><br><span class="line">    0% &#123;</span><br><span class="line">        <span class="attribute">transform</span>:<span class="built_in">scale</span>(.5);</span><br><span class="line">        <span class="attribute">opacity</span>:.<span class="number">9</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    95% &#123;</span><br><span class="line">      <span class="attribute">transform</span>:<span class="built_in">scale</span>(1.5);</span><br><span class="line">      <span class="attribute">opacity</span>:<span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    100% &#123;</span><br><span class="line">        <span class="attribute">transform</span>:<span class="built_in">scale</span>(.9);</span><br><span class="line">        <span class="attribute">opacity</span>:<span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>html如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"test"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"test1"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这个其实就是我遇到的问题，用伪元素创建了层叠上下文，我想让伪元素动画出现在test1的下方test的上方。和上面一样分别设置z-index为-1和1即可达到效果。</p>
+<p>参考资料：</p>
+<ul>
+<li><p><a href="https://www.zhangxinxu.com/wordpress/2016/01/understand-css-stacking-context-order-z-index/" target="_blank" rel="noopener">深入理解CSS中的层叠上下文和层叠顺序</a></p>
+</li>
+<li><p><a href="https://www.zhangxinxu.com/wordpress/2015/02/css-deep-understand-flow-bfc-column-two-auto-layout/" target="_blank" rel="noopener">CSS深入理解流体特性和BFC特性下多栏自适应布局</a></p>
+</li>
+<li><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Understanding_z_index/The_stacking_context" target="_blank" rel="noopener">层叠上下文</a></p>
+</li>
+<li><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Understanding_z_index/Stacking_context_example_2" target="_blank" rel="noopener">Stacking_context_example_2</a></p>
+</li>
+<li><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Understanding_z_index/Stacking_context_example_3" target="_blank" rel="noopener">Stacking_context_example_3</a></p>
+</li>
+</ul>
+
+  	</div>
+	  
+	  <div class="article-tags tags">
+      
+        <a href="/tags/层叠上下文/">层叠上下文</a>
+      
+	  </div>
+    
+
+	
+		<div class="art-item-footer">
+				
+					<span class="art-item-left">上一篇：<a href="/2018/11/11/Event-Loop总结.html" rel="prev" title="Event Loop总结">
+						Event Loop总结
+					</a></span>
+				
+				
+					<span class="art-item-right">下一篇：<a href="/2018/07/04/Nuxt.js踩坑实录.html" rel="next" title="Nuxt.js踩坑实录">
+						Nuxt.js踩坑实录
+					</a></span>
+				
+		</div>
+	
+	</section>
+	
+</article>
+<script>
+	window.subData = {
+		title: 'CSS元素嵌套问题',
+		tools: true
+	}
+</script>
+
+      </div>
+      <aside class='l_side'>
+        
+    <section class="m_widget about">
+<a href="/about">
+  <img class="avatar waves-image" src="/images/avatar.jpg">
+</a>
+<div class="header">George Tan</div>
+<div class="content">
+<div class="desc">A man who dreams of being a full stack engineer</div>
+</div>
+</section>
+
+
+    <!-- <section class='m_widget links'>
+<div class='header'>Links</div>
+<div class='content'>
+    <ul class="entry">
+    
+        <li><a class="flat-box" target="_blank" href="https://ccoooss.com">
+            <div class='name'>ClassicOldSong</div>
+        </a></li>
+    
+        <li><a class="flat-box" target="_blank" href="https://frantic1048.logdown.com/">
+            <div class='name'>Frantic1048</div>
+        </a></li>
+    
+        <li><a class="flat-box" target="_blank" href="https://hclmaster.github.io/">
+            <div class='name'>Hclmaster</div>
+        </a></li>
+    
+        <li><a class="flat-box" target="_blank" href="https://whst.github.io/">
+            <div class='name'>WANG Hsü-Tung</div>
+        </a></li>
+    
+    </ul>
+</div>
+</section> -->
+
+
+    <section class="m_widget categories">
+<div class="header">Categories</div>
+<div class="content">
+    
+    <ul class="entry">
+    
+        <li><a class="flat-box" href="/categories/HTML-CSS/"><div class="name">HTML&amp;CSS</div><div class="badget">4</div></a></li>
+    
+        <li><a class="flat-box" href="/categories/Javascript/"><div class="name">Javascript</div><div class="badget">7</div></a></li>
+    
+        <li><a class="flat-box" href="/categories/Vuejs/"><div class="name">Vuejs</div><div class="badget">2</div></a></li>
+    
+        <li><a class="flat-box" href="/categories/自动化/"><div class="name">自动化</div><div class="badget">1</div></a></li>
+    
+        <li><a class="flat-box" href="/categories/运维/"><div class="name">运维</div><div class="badget">1</div></a></li>
+    
+    </ul>
+    
+</div>
+</section>
+
+    
+<div class="m_widget tagcloud">
+    <div class="header">Tags</div>
+    <div class="content">
+        <a href="/tags/Alfred3-workflow/" style="font-size: 14px; color: #808080">Alfred3 workflow</a> <a href="/tags/EventLoop/" style="font-size: 14px; color: #808080">EventLoop</a> <a href="/tags/Nuxt-js/" style="font-size: 14px; color: #808080">Nuxt.js</a> <a href="/tags/SSR/" style="font-size: 14px; color: #808080">SSR</a> <a href="/tags/cloudflare/" style="font-size: 14px; color: #808080">cloudflare</a> <a href="/tags/flex/" style="font-size: 14px; color: #808080">flex</a> <a href="/tags/https/" style="font-size: 14px; color: #808080">https</a> <a href="/tags/prototype-proto/" style="font-size: 14px; color: #808080">prototype/_proto_</a> <a href="/tags/qshell/" style="font-size: 14px; color: #808080">qshell</a> <a href="/tags/rem/" style="font-size: 14px; color: #808080">rem</a> <a href="/tags/render-函数/" style="font-size: 14px; color: #808080">render 函数</a> <a href="/tags/sticky-footer/" style="font-size: 14px; color: #808080">sticky footer</a> <a href="/tags/webpack/" style="font-size: 14px; color: #808080">webpack</a> <a href="/tags/上下文/" style="font-size: 14px; color: #808080">上下文</a> <a href="/tags/作用域/" style="font-size: 14px; color: #808080">作用域</a> <a href="/tags/值传递/" style="font-size: 14px; color: #808080">值传递</a> <a href="/tags/图床/" style="font-size: 14px; color: #808080">图床</a> <a href="/tags/层叠上下文/" style="font-size: 14px; color: #808080">层叠上下文</a> <a href="/tags/执行环境/" style="font-size: 14px; color: #808080">执行环境</a> <a href="/tags/模版解析/" style="font-size: 14px; color: #808080">模版解析</a> <a href="/tags/水平垂直居中/" style="font-size: 14px; color: #808080">水平垂直居中</a> <a href="/tags/深拷贝/" style="font-size: 14px; color: #808080">深拷贝</a> <a href="/tags/继承/" style="font-size: 14px; color: #808080">继承</a> <a href="/tags/虚拟Dom/" style="font-size: 14px; color: #808080">虚拟Dom</a> <a href="/tags/闭包/" style="font-size: 14px; color: #808080">闭包</a> <a href="/tags/面向对象/" style="font-size: 14px; color: #808080">面向对象</a>
+    </div>
+</div>
+
+
+
+
+      </aside>
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+  </div>
+  <footer id="footer" class="clearfix">
+
+	<div class="social-wrapper">
+  	
+      
+        <a href="https://github.com/i7eo" class="social github" target="_blank" rel="external">
+          <span class="icon icon-github"></span>
+        </a>
+      
+        <a href="/atom.xml" class="social rss" target="_blank" rel="external">
+          <span class="icon icon-rss"></span>
+        </a>
+      
+    
+  </div>
+
+  <div>Theme <a href="https://github.com/stkevintan/hexo-theme-material-flow" class="codename">MaterialFlow</a> Powered by <a href="https://hexo.io/" target="_blank" class="codename">Hexo</a>.</div>
+
+</footer>
+
+  <script>setLoadingBarProgress(80);</script>
+  
+
+<!-- <script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script> -->
+<script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/node-waves/0.7.5/waves.min.js"></script>
+<script src="//cdn.bootcss.com/scrollReveal.js/3.3.2/scrollreveal.min.js"></script>
+<script src="/js/jquery.fitvids.js"></script>
+<script>
+	var GOOGLE_CUSTOM_SEARCH_API_KEY = "";
+	var GOOGLE_CUSTOM_SEARCH_ENGINE_ID = "";
+	var ALGOLIA_API_KEY = "";
+	var ALGOLIA_APP_ID = "";
+	var ALGOLIA_INDEX_NAME = "";
+  var AZURE_SERVICE_NAME = "";
+  var AZURE_INDEX_NAME = "";
+  var AZURE_QUERY_KEY = "";
+  var BAIDU_API_ID = "";
+  var SEARCH_SERVICE = "hexo";
+  var ROOT = "/"||"/";
+  if(!ROOT.endsWith('/'))ROOT += '/';
+</script>
+<script src="/js/search.js"></script>
+<script src="/js/app.js"></script>
+
+  <script>setLoadingBarProgress(100);</script>
+</body>
+</html>
