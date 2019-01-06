@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <title>HTTP笔记(上) | Solitude is freedom</title>
+  <!-- <meta name="description" content="A man who dreams of being a full stack engineer" />
+  <meta name="keywords" content="Javascript,Nodejs,Vue,Nuxt,Other" /> -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <!-- <link rel="shortcut icon" href="/"> -->
+  <link rel="icon" href="/images/favicon.ico">
+  <link rel="alternate" href="/atom.xml" title="Solitude is freedom">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="HTTP 基础网络间通信的大体流程   名称 概念 常用协议     应用层 为应用程序提供服务 HTTP/FTP/SMTP   表示层 定义数据格式及加密    会话层 定义了如何开始、控制和结束一个会话 SSL   传输层 向用户提供端到端的服务 TCP/UDP   网络层 数据在俩个机器间创建逻辑链路 IP(IPV4/IPV6)、ARP   数据链路层 通信实体间建立数据链路连接    物理">
+<meta name="keywords" content="Javascript,Nodejs,Vue,Nuxt,Other">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTTP笔记(上)">
+<meta property="og:url" content="https://i7eo.com/2018/11/03/HTTP1-0.html">
+<meta property="og:site_name" content="Solitude is freedom">
+<meta property="og:description" content="HTTP 基础网络间通信的大体流程   名称 概念 常用协议     应用层 为应用程序提供服务 HTTP/FTP/SMTP   表示层 定义数据格式及加密    会话层 定义了如何开始、控制和结束一个会话 SSL   传输层 向用户提供端到端的服务 TCP/UDP   网络层 数据在俩个机器间创建逻辑链路 IP(IPV4/IPV6)、ARP   数据链路层 通信实体间建立数据链路连接    物理">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://i7eo.com/2018/11/03/HTTP1-0/i7eo_519e65e5e25f00ef5a81add83a0c3d79.png">
+<meta property="og:image" content="https://i7eo.com/2018/11/03/HTTP1-0/i7eo_2aa7ba936cdaf5772435de872d3f18d2.png">
+<meta property="og:image" content="https://i7eo.com/2018/11/03/HTTP1-0/i7eo_c3ad664d8759aeed097490aee8830038.png">
+<meta property="og:image" content="https://i7eo.com/2018/11/03/HTTP1-0/i7eo_2635b93238bf4d0760e51199dca77949.png">
+<meta property="og:updated_time" content="2019-01-06T15:45:24.533Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HTTP笔记(上)">
+<meta name="twitter:description" content="HTTP 基础网络间通信的大体流程   名称 概念 常用协议     应用层 为应用程序提供服务 HTTP/FTP/SMTP   表示层 定义数据格式及加密    会话层 定义了如何开始、控制和结束一个会话 SSL   传输层 向用户提供端到端的服务 TCP/UDP   网络层 数据在俩个机器间创建逻辑链路 IP(IPV4/IPV6)、ARP   数据链路层 通信实体间建立数据链路连接    物理">
+<meta name="twitter:image" content="https://i7eo.com/2018/11/03/HTTP1-0/i7eo_519e65e5e25f00ef5a81add83a0c3d79.png">
+
+  <!-- <link href="https://fonts.googleapis.com/css?family=Inconsolata|Titillium+Web" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet"> -->
+  <link href="//cdn.bootcss.com/node-waves/0.7.5/waves.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+</head>
+</html>
+<body>
+  <div id="loading-bar-wrapper">
+  <div id="loading-bar"></div>
+</div>
+
+
+  <script>setLoadingBarProgress(20)</script> 
+  <header class="l_header">
+	<div class="wrapper">
+		<div class="nav-main container container--flex">
+			<a class="logo flat-box" href="/">
+				Solitude is freedom
+			</a>
+			<div class="menu">
+				<ul class="h-list">
+					
+						<li>
+							<a class="flat-box nav-home" href="/">
+								Home
+							</a>
+						</li>
+					
+						<li>
+							<a class="flat-box nav-archives" href="/archives">
+								Archives
+							</a>
+						</li>
+					
+						<li>
+							<a class="flat-box nav-about" href="/about">
+								About
+							</a>
+						</li>
+					
+				</ul>
+				<div class="underline"></div>
+			</div>
+			
+				<div class="m_search">
+					<form name="searchform" class="form u-search-form">
+						<input type="text" class="input u-search-input" placeholder="Search">
+						<span class="icon icon-search"></span>
+					</form>
+				</div>
+			
+			<ul class="switcher h-list">
+				
+					<li class="s-search"><a href="javascript:void(0)"><span class="icon icon-search flat-box"></span></a></li>
+				
+				<li class="s-menu"><a href="javascript:void(0)"><span class="icon icon-menu flat-box"></span></a></li>
+			</ul>
+		</div>
+
+		<div class="nav-sub container container--flex">
+			<a class="logo mlogo" href="javascript:void(0)">
+				Word of Forks
+			</a>
+
+			<ul class="switcher h-list">
+				<li class="s-comment"><a href="javascript:void(0)"><span class="icon icon-chat_bubble_outline flat-box"></span></a></li>
+				<li class="s-top"><a href="javascript:void(0)"><span class="icon icon-arrow_upward flat-box"></span></a></li>
+				<!-- <li class='s-toc'><a href='javascript:void(0)'><span class="icon icon-format_list_numbered flat-box"></span></a></li> -->
+			</ul>
+		</div>
+	</div>
+</header>
+<aside class="menu-phone">
+	<nav>
+		
+			<a href="/" class="nav-home nav">
+				Home
+			</a>
+		
+			<a href="/archives" class="nav-archives nav">
+				Archives
+			</a>
+		
+			<a href="/about" class="nav-about nav">
+				About
+			</a>
+		
+	</nav>
+</aside>
+
+    <script>setLoadingBarProgress(40);</script>
+  <div class="l_body">
+    <div class='container clearfix'>
+      <div class='l_main'>
+        <article id="post-HTTP1-0" class="post white-box article-type-post" itemscope="" itemprop="blogPost">
+	<section class="meta">
+	<h2 class="title">
+  	<a href="/2018/11/03/HTTP1-0.html">
+    	HTTP笔记(上)
+    </a>
+  </h2>
+	<time>
+	  Nov 3, 2018
+	</time>
+	
+    
+    <span class="post-count">
+      |&nbsp;字数 1401
+    </span>
+    <div class="cats">
+        <a href="/categories/HTTP/">HTTP</a>
+    </div>
+
+
+	</section>
+	
+		<section class="toc-wrapper"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTP-基础"><span class="toc-number">1.</span> <span class="toc-text">HTTP 基础</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#网络间通信的大体流程"><span class="toc-number">1.1.</span> <span class="toc-text">网络间通信的大体流程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#HTTP-不同版本特点对比"><span class="toc-number">1.2.</span> <span class="toc-text">HTTP 不同版本特点对比</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#HTTP-的三次握手"><span class="toc-number">1.3.</span> <span class="toc-text">HTTP 的三次握手</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#补充：套接字（socket）"><span class="toc-number">1.4.</span> <span class="toc-text">补充：套接字（socket）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#HTTP-报文格式"><span class="toc-number">1.5.</span> <span class="toc-text">HTTP 报文格式</span></a></li></ol></li></ol></section>
+		<section class="toc-wrapper-vdom"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTP-基础"><span class="toc-number">1.</span> <span class="toc-text">HTTP 基础</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#网络间通信的大体流程"><span class="toc-number">1.1.</span> <span class="toc-text">网络间通信的大体流程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#HTTP-不同版本特点对比"><span class="toc-number">1.2.</span> <span class="toc-text">HTTP 不同版本特点对比</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#HTTP-的三次握手"><span class="toc-number">1.3.</span> <span class="toc-text">HTTP 的三次握手</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#补充：套接字（socket）"><span class="toc-number">1.4.</span> <span class="toc-text">补充：套接字（socket）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#HTTP-报文格式"><span class="toc-number">1.5.</span> <span class="toc-text">HTTP 报文格式</span></a></li></ol></li></ol></section>
+	
+	<section class="article typo">
+  	<div class="article-entry" itemprop="articleBody">
+    	<h3 id="HTTP-基础"><a href="#HTTP-基础" class="headerlink" title="HTTP 基础"></a>HTTP 基础</h3><h4 id="网络间通信的大体流程"><a href="#网络间通信的大体流程" class="headerlink" title="网络间通信的大体流程"></a>网络间通信的大体流程</h4><table>
+<thead>
+<tr>
+<th style="text-align:left">名称</th>
+<th style="text-align:left">概念</th>
+<th style="text-align:left">常用协议</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">应用层</td>
+<td style="text-align:left">为应用程序提供服务</td>
+<td style="text-align:left">HTTP/FTP/SMTP</td>
+</tr>
+<tr>
+<td style="text-align:left">表示层</td>
+<td style="text-align:left">定义数据格式及加密</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">会话层</td>
+<td style="text-align:left">定义了如何开始、控制和结束一个会话</td>
+<td style="text-align:left">SSL</td>
+</tr>
+<tr>
+<td style="text-align:left">传输层</td>
+<td style="text-align:left">向用户提供端到端的服务</td>
+<td style="text-align:left">TCP/UDP</td>
+</tr>
+<tr>
+<td style="text-align:left">网络层</td>
+<td style="text-align:left">数据在俩个机器间创建逻辑链路</td>
+<td style="text-align:left">IP(IPV4/IPV6)、ARP</td>
+</tr>
+<tr>
+<td style="text-align:left">数据链路层</td>
+<td style="text-align:left">通信实体间建立数据链路连接</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">物理层</td>
+<td style="text-align:left">定义物理设备间如何传输比特流的规范（网线、光缆等硬件）</td>
+</tr>
+</tbody>
+</table>
+<p>osi 模型较为复杂，一般常说的是五层模型：</p>
+<p>物理层 -&gt; 数据链路层 -&gt; 网络层 -&gt; 传输层 -&gt; 应用层</p>
+<a id="more"></a>
+<p>下面这张图用来简单描述俩台通过路由器联系起来的主机的数据是如何传输的。</p>
+<p><img src="/2018/11/03/HTTP1-0/i7eo_519e65e5e25f00ef5a81add83a0c3d79.png" alt=""></p>
+<p>假设主机1的程序ap1向主机2的程序ap2传送数据。ap1先将数据交给第5层（应用层）。第5层<strong>加上必要的控制信息h5传递给下一层</strong>，以此类推。需要注意的是数据到达第2层（数据链路层）后，控制信息分成俩部分，分别加到本层数据单元的首部（h2）和尾部（t2）；而第1层由于是比特流传送即0101…所以不必加上控制信息，但是物理层是从首部开始传递数据。</p>
+<p>这一串比特流离开主机1后通过物理媒介传递到路由器，从路由器的第1层（物理层）依次上升至第3层（网络层）每一层都会对控制信息进行操作，操作后将控制信息剥去将剩下的数据向上传送，当到达第3层后就会<strong>根据首部的目的地址查找路由器中的路由表，找出转发分组的接口</strong>，然后从第3层向下传递至第1层，转为比特流之后传递给主机2，主机2的过程与上类似，最终程序ap2收到传输的数据。</p>
+<p>在我们平时上网浏览网页时，通常都是我们的电脑与服务器的数据交互，中间过程不是像上述描述的只经过一个路由器这么简单，期间会经过dns服务器、cdn服务器等等。这里着重记录关于 http 部分的知识。</p>
+<h4 id="HTTP-不同版本特点对比"><a href="#HTTP-不同版本特点对比" class="headerlink" title="HTTP 不同版本特点对比"></a>HTTP 不同版本特点对比</h4><p>HTTP/0.9 ：</p>
+<ul>
+<li>只有一个 GET 命令</li>
+<li>没有 header 等描述信息</li>
+<li>服务器发送完毕，tcp连接被关闭</li>
+</ul>
+<p>HTTP/1.0</p>
+<ul>
+<li>增加 POST/PUT 等命令</li>
+<li>增加 header &amp; status code 信息</li>
+<li>支持多字符集、多部分发送，缓存等</li>
+</ul>
+<p>HTTP/1.1</p>
+<ul>
+<li>使tcp连接持久化</li>
+<li>pipeline（客户端可以发送多个http请求，但是服务端必须按顺序返回）</li>
+<li>增加host与其他命令（利用host中的端口判断具体属于node还是java等）</li>
+</ul>
+<p>HTTP/2.0</p>
+<ul>
+<li>数据以二进制传输（2.0之前数据传输是已字符串传输）</li>
+<li>对于客户端发送的多个http请求，服务器返回时不用按照顺序返回，可以并行返回</li>
+<li>头信息压缩，增加了推送等提高效率的功能</li>
+</ul>
+<p>需要注意的是：</p>
+<ul>
+<li>理论上来说一个tcp连接中可以存在多个http请求，但是目前的做法是http1.1中一个tcp链接上同时最多只有一个http请求</li>
+<li>并发量一般指的是tcp连接的并发量</li>
+</ul>
+<p>各个浏览器对应的tcp并发数量详情可查看：<br><a href="https://blog.csdn.net/jueshengtianya/article/details/38271081" target="_blank" rel="noopener">主流浏览器的HTTP最大并发连接数</a></p>
+<h4 id="HTTP-的三次握手"><a href="#HTTP-的三次握手" class="headerlink" title="HTTP 的三次握手"></a>HTTP 的三次握手</h4><p><img src="/2018/11/03/HTTP1-0/i7eo_2aa7ba936cdaf5772435de872d3f18d2.png" alt=""></p>
+<p>具体情况如上图，这里的 syn 代表同步位，seq 代表序号，ack 代表确认号。需要注意的是当首次握手发生时，即客户端进入 SYN-SENT状态前，不能携带数据，当发生二次握手时，即服务器进入SYN-RECV状态前，也是不能携带数据的，当发生第三次握手时即客户端进入ESTAB-LISHED状态前，<strong>可以携带数据。</strong></p>
+<p>为什么需要三次握手？<br>因为tcp要保证传输的数据可靠性，但是信道（数据链路层）传输是不可靠的。如何保证tcp传输的数据是可靠的？只能在tcp连接建立前保证通道畅通。因为在三次握手的过程中有网络延迟、包丢失等原因，所以才有了三次握手，三次握手是理论上的最小值。具体分析请参考：<a href="https://www.zhihu.com/question/24853633" target="_blank" rel="noopener">TCP 为什么是三次握手，而不是两次或四次？</a> 、<a href="https://www.jianshu.com/p/e7f45779008a" target="_blank" rel="noopener">tcp建立连接为什么需要三次握手</a></p>
+<h4 id="补充：套接字（socket）"><a href="#补充：套接字（socket）" class="headerlink" title="补充：套接字（socket）"></a>补充：套接字（socket）</h4><p>平常我们在使用自己电脑测试移动端页面或者是自己在写程序连接某项服务时都会使用 ip + 端口号 来连接，这是为什么呢？</p>
+<p>因为这些做法都使用了tcp连接，而tcp把连接作为最基本的抽象。在tcp的俩端分别有俩个端点，端点叫做套接字。rfc 793 定义：端口号拼接到 ip 地址构成了套接字。如下图：</p>
+<p><img src="/2018/11/03/HTTP1-0/i7eo_c3ad664d8759aeed097490aee8830038.png" alt=""></p>
+<p>同一个ip地址可以有多个tcp连接，而同一个端口号也可以出现在多个不同的tcp连接中。</p>
+<h4 id="HTTP-报文格式"><a href="#HTTP-报文格式" class="headerlink" title="HTTP 报文格式"></a>HTTP 报文格式</h4><p><img src="/2018/11/03/HTTP1-0/i7eo_2635b93238bf4d0760e51199dca77949.png" alt=""></p>
+<p>这是一个很简单的请求与响应报文格式图。需要注意的是响应报文的首部结尾是空行。响应报文中具体的status code 请参考：<a href="https://blog.csdn.net/l_mloveforever/article/details/82892292" target="_blank" rel="noopener">常见的HTTPRequest状态码说明</a></p>
+
+  	</div>
+	  
+
+	
+		<div class="art-item-footer">
+				
+					<span class="art-item-left">上一篇：<a href="/2018/11/11/Event-Loop总结.html" rel="prev" title="Event Loop总结">
+						Event Loop总结
+					</a></span>
+				
+				
+					<span class="art-item-right">下一篇：<a href="/2018/09/05/CSS元素嵌套问题.html" rel="next" title="CSS元素嵌套问题">
+						CSS元素嵌套问题
+					</a></span>
+				
+		</div>
+	
+	</section>
+	
+</article>
+<script>
+	window.subData = {
+		title: 'HTTP笔记(上)',
+		tools: true
+	}
+</script>
+
+      </div>
+      <aside class='l_side'>
+        
+    <section class="m_widget about">
+<a href="/about">
+  <img class="avatar waves-image" src="/images/avatar.jpg">
+</a>
+<div class="header">George Tan</div>
+<div class="content">
+<div class="desc">A man who dreams of being a full stack engineer</div>
+</div>
+</section>
+
+
+    <!-- <section class='m_widget links'>
+<div class='header'>Links</div>
+<div class='content'>
+    <ul class="entry">
+    
+        <li><a class="flat-box" target="_blank" href="https://ccoooss.com">
+            <div class='name'>ClassicOldSong</div>
+        </a></li>
+    
+        <li><a class="flat-box" target="_blank" href="https://frantic1048.logdown.com/">
+            <div class='name'>Frantic1048</div>
+        </a></li>
+    
+        <li><a class="flat-box" target="_blank" href="https://hclmaster.github.io/">
+            <div class='name'>Hclmaster</div>
+        </a></li>
+    
+        <li><a class="flat-box" target="_blank" href="https://whst.github.io/">
+            <div class='name'>WANG Hsü-Tung</div>
+        </a></li>
+    
+    </ul>
+</div>
+</section> -->
+
+
+    <section class="m_widget categories">
+<div class="header">Categories</div>
+<div class="content">
+    
+    <ul class="entry">
+    
+        <li><a class="flat-box" href="/categories/HTML-CSS/"><div class="name">HTML&amp;CSS</div><div class="badget">4</div></a></li>
+    
+        <li><a class="flat-box" href="/categories/HTTP/"><div class="name">HTTP</div><div class="badget">1</div></a></li>
+    
+        <li><a class="flat-box" href="/categories/Javascript/"><div class="name">Javascript</div><div class="badget">7</div></a></li>
+    
+        <li><a class="flat-box" href="/categories/Vuejs/"><div class="name">Vuejs</div><div class="badget">2</div></a></li>
+    
+        <li><a class="flat-box" href="/categories/自动化/"><div class="name">自动化</div><div class="badget">1</div></a></li>
+    
+        <li><a class="flat-box" href="/categories/运维/"><div class="name">运维</div><div class="badget">1</div></a></li>
+    
+    </ul>
+    
+</div>
+</section>
+
+    
+<div class="m_widget tagcloud">
+    <div class="header">Tags</div>
+    <div class="content">
+        <a href="/tags/Alfred3-workflow/" style="font-size: 14px; color: #808080">Alfred3 workflow</a> <a href="/tags/EventLoop/" style="font-size: 14px; color: #808080">EventLoop</a> <a href="/tags/Nuxt-js/" style="font-size: 14px; color: #808080">Nuxt.js</a> <a href="/tags/SSR/" style="font-size: 14px; color: #808080">SSR</a> <a href="/tags/cloudflare/" style="font-size: 14px; color: #808080">cloudflare</a> <a href="/tags/flex/" style="font-size: 14px; color: #808080">flex</a> <a href="/tags/https/" style="font-size: 14px; color: #808080">https</a> <a href="/tags/prototype-proto/" style="font-size: 14px; color: #808080">prototype/_proto_</a> <a href="/tags/qshell/" style="font-size: 14px; color: #808080">qshell</a> <a href="/tags/rem/" style="font-size: 14px; color: #808080">rem</a> <a href="/tags/render-函数/" style="font-size: 14px; color: #808080">render 函数</a> <a href="/tags/sticky-footer/" style="font-size: 14px; color: #808080">sticky footer</a> <a href="/tags/webpack/" style="font-size: 14px; color: #808080">webpack</a> <a href="/tags/上下文/" style="font-size: 14px; color: #808080">上下文</a> <a href="/tags/作用域/" style="font-size: 14px; color: #808080">作用域</a> <a href="/tags/值传递/" style="font-size: 14px; color: #808080">值传递</a> <a href="/tags/图床/" style="font-size: 14px; color: #808080">图床</a> <a href="/tags/层叠上下文/" style="font-size: 14px; color: #808080">层叠上下文</a> <a href="/tags/执行环境/" style="font-size: 14px; color: #808080">执行环境</a> <a href="/tags/模版解析/" style="font-size: 14px; color: #808080">模版解析</a> <a href="/tags/水平垂直居中/" style="font-size: 14px; color: #808080">水平垂直居中</a> <a href="/tags/深拷贝/" style="font-size: 14px; color: #808080">深拷贝</a> <a href="/tags/继承/" style="font-size: 14px; color: #808080">继承</a> <a href="/tags/虚拟Dom/" style="font-size: 14px; color: #808080">虚拟Dom</a> <a href="/tags/闭包/" style="font-size: 14px; color: #808080">闭包</a> <a href="/tags/面向对象/" style="font-size: 14px; color: #808080">面向对象</a>
+    </div>
+</div>
+
+
+
+
+      </aside>
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+  </div>
+  <footer id="footer" class="clearfix">
+
+	<div class="social-wrapper">
+  	
+      
+        <a href="https://github.com/i7eo" class="social github" target="_blank" rel="external">
+          <span class="icon icon-github"></span>
+        </a>
+      
+        <a href="/atom.xml" class="social rss" target="_blank" rel="external">
+          <span class="icon icon-rss"></span>
+        </a>
+      
+    
+  </div>
+
+  <div>Theme <a href="https://github.com/stkevintan/hexo-theme-material-flow" class="codename">MaterialFlow</a> Powered by <a href="https://hexo.io/" target="_blank" class="codename">Hexo</a>.</div>
+
+</footer>
+
+  <script>setLoadingBarProgress(80);</script>
+  
+
+<!-- <script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script> -->
+<script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/node-waves/0.7.5/waves.min.js"></script>
+<script src="//cdn.bootcss.com/scrollReveal.js/3.3.2/scrollreveal.min.js"></script>
+<script src="/js/jquery.fitvids.js"></script>
+<script>
+	var GOOGLE_CUSTOM_SEARCH_API_KEY = "";
+	var GOOGLE_CUSTOM_SEARCH_ENGINE_ID = "";
+	var ALGOLIA_API_KEY = "";
+	var ALGOLIA_APP_ID = "";
+	var ALGOLIA_INDEX_NAME = "";
+  var AZURE_SERVICE_NAME = "";
+  var AZURE_INDEX_NAME = "";
+  var AZURE_QUERY_KEY = "";
+  var BAIDU_API_ID = "";
+  var SEARCH_SERVICE = "hexo";
+  var ROOT = "/"||"/";
+  if(!ROOT.endsWith('/'))ROOT += '/';
+</script>
+<script src="/js/search.js"></script>
+<script src="/js/app.js"></script>
+
+  <script>setLoadingBarProgress(100);</script>
+</body>
+</html>

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://i7eo.com/"/>
-  <updated>2019-01-06T02:02:35.437Z</updated>
+  <updated>2019-01-05T05:22:56.913Z</updated>
   <id>https://i7eo.com/</id>
   
   <author>
@@ -15,20 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>HTTP1.0</title>
-    <link href="https://i7eo.com/2019/01/06/HTTP1-0.html"/>
-    <id>https://i7eo.com/2019/01/06/HTTP1-0.html</id>
-    <published>2019-01-06T02:02:35.000Z</published>
-    <updated>2019-01-06T02:02:35.437Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
   
   <entry>
     <title>Vue 的响应式/模版解析/渲染</title>
@@ -115,6 +101,72 @@
     
     
       <category term="EventLoop" scheme="https://i7eo.com/tags/EventLoop/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HTTP笔记(上)</title>
+    <link href="https://i7eo.com/2018/11/03/HTTP1-0.html"/>
+    <id>https://i7eo.com/2018/11/03/HTTP1-0.html</id>
+    <published>2018-11-03T02:02:35.000Z</published>
+    <updated>2019-01-06T15:45:24.533Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="HTTP-基础"><a href="#HTTP-基础" class="headerlink" title="HTTP 基础"></a>HTTP 基础</h3><h4 id="网络间通信的大体流程"><a href="#网络间通信的大体流程" class="headerlink" title="网络间通信的大体流程"></a>网络间通信的大体流程</h4><table><thead><tr><th style="text-align:left">名称</th><th style="text-align:left">概念</th><th style="text-align:left">常用协议</th></tr></thead><tbody><tr><td style="text-align:left">应用层</td><td style="text-align:left">为应用程序提供服务</td><td style="text-align:left">HTTP/FTP/SMTP</td></tr><tr><td style="text-align:left">表示层</td><td style="text-align:left">定义数据格式及加密</td><td style="text-align:left"></td></tr><tr><td style="text-align:left">会话层</td><td style="text-align:left">定义了如何开始、控制和结束一个会话</td><td style="text-align:left">SSL</td></tr><tr><td style="text-align:left">传输层</td><td style="text-align:left">向用户提供端到端的服务</td><td style="text-align:left">TCP/UDP</td></tr><tr><td style="text-align:left">网络层</td><td style="text-align:left">数据在俩个机器间创建逻辑链路</td><td style="text-align:left">IP(IPV4/IPV6)、ARP</td></tr><tr><td style="text-align:left">数据链路层</td><td style="text-align:left">通信实体间建立数据链路连接</td><td style="text-align:left"></td></tr><tr><td style="text-align:left">物理层</td><td style="text-align:left">定义物理设备间如何传输比特流的规范（网线、光缆等硬件）</td></tr></tbody></table><p>osi 模型较为复杂，一般常说的是五层模型：</p><p>物理层 -&gt; 数据链路层 -&gt; 网络层 -&gt; 传输层 -&gt; 应用层</p><a id="more"></a><p>下面这张图用来简单描述俩台通过路由器联系起来的主机的数据是如何传输的。</p><p><img src="/2018/11/03/HTTP1-0/i7eo_519e65e5e25f00ef5a81add83a0c3d79.png" alt=""></p><p>假设主机1的程序ap1向主机2的程序ap2传送数据。ap1先将数据交给第5层（应用层）。第5层<strong>加上必要的控制信息h5传递给下一层</strong>，以此类推。需要注意的是数据到达第2层（数据链路层）后，控制信息分成俩部分，分别加到本层数据单元的首部（h2）和尾部（t2）；而第1层由于是比特流传送即0101…所以不必加上控制信息，但是物理层是从首部开始传递数据。</p><p>这一串比特流离开主机1后通过物理媒介传递到路由器，从路由器的第1层（物理层）依次上升至第3层（网络层）每一层都会对控制信息进行操作，操作后将控制信息剥去将剩下的数据向上传送，当到达第3层后就会<strong>根据首部的目的地址查找路由器中的路由表，找出转发分组的接口</strong>，然后从第3层向下传递至第1层，转为比特流之后传递给主机2，主机2的过程与上类似，最终程序ap2收到传输的数据。</p><p>在我们平时上网浏览网页时，通常都是我们的电脑与服务器的数据交互，中间过程不是像上述描述的只经过一个路由器这么简单，期间会经过dns服务器、cdn服务器等等。这里着重记录关于 http 部分的知识。</p><h4 id="HTTP-不同版本特点对比"><a href="#HTTP-不同版本特点对比" class="headerlink" title="HTTP 不同版本特点对比"></a>HTTP 不同版本特点对比</h4><p>HTTP/0.9 ：</p><ul><li>只有一个 GET 命令</li><li>没有 header 等描述信息</li><li>服务器发送完毕，tcp连接被关闭</li></ul><p>HTTP/1.0</p><ul><li>增加 POST/PUT 等命令</li><li>增加 header &amp; status code 信息</li><li>支持多字符集、多部分发送，缓存等</li></ul><p>HTTP/1.1</p><ul><li>使tcp连接持久化</li><li>pipeline（客户端可以发送多个http请求，但是服务端必须按顺序返回）</li><li>增加host与其他命令（利用host中的端口判断具体属于node还是java等）</li></ul><p>HTTP/2.0</p><ul><li>数据以二进制传输（2.0之前数据传输是已字符串传输）</li><li>对于客户端发送的多个http请求，服务器返回时不用按照顺序返回，可以并行返回</li><li>头信息压缩，增加了推送等提高效率的功能</li></ul><p>需要注意的是：</p><ul><li>理论上来说一个tcp连接中可以存在多个http请求，但是目前的做法是http1.1中一个tcp链接上同时最多只有一个http请求</li><li>并发量一般指的是tcp连接的并发量</li></ul><p>各个浏览器对应的tcp并发数量详情可查看：<br><a href="https://blog.csdn.net/jueshengtianya/article/details/38271081" target="_blank" rel="noopener">主流浏览器的HTTP最大并发连接数</a></p><h4 id="HTTP-的三次握手"><a href="#HTTP-的三次握手" class="headerlink" title="HTTP 的三次握手"></a>HTTP 的三次握手</h4><p><img src="/2018/11/03/HTTP1-0/i7eo_2aa7ba936cdaf5772435de872d3f18d2.png" alt=""></p><p>具体情况如上图，这里的 syn 代表同步位，seq 代表序号，ack 代表确认号。需要注意的是当首次握手发生时，即客户端进入 SYN-SENT状态前，不能携带数据，当发生二次握手时，即服务器进入SYN-RECV状态前，也是不能携带数据的，当发生第三次握手时即客户端进入ESTAB-LISHED状态前，<strong>可以携带数据。</strong></p><p>为什么需要三次握手？<br>因为tcp要保证传输的数据可靠性，但是信道（数据链路层）传输是不可靠的。如何保证tcp传输的数据是可靠的？只能在tcp连接建立前保证通道畅通。因为在三次握手的过程中有网络延迟、包丢失等原因，所以才有了三次握手，三次握手是理论上的最小值。具体分析请参考：<a href="https://www.zhihu.com/question/24853633" target="_blank" rel="noopener">TCP 为什么是三次握手，而不是两次或四次？</a> 、<a href="https://www.jianshu.com/p/e7f45779008a" target="_blank" rel="noopener">tcp建立连接为什么需要三次握手</a></p><h4 id="补充：套接字（socket）"><a href="#补充：套接字（socket）" class="headerlink" title="补充：套接字（socket）"></a>补充：套接字（socket）</h4><p>平常我们在使用自己电脑测试移动端页面或者是自己在写程序连接某项服务时都会使用 ip + 端口号 来连接，这是为什么呢？</p><p>因为这些做法都使用了tcp连接，而tcp把连接作为最基本的抽象。在tcp的俩端分别有俩个端点，端点叫做套接字。rfc 793 定义：端口号拼接到 ip 地址构成了套接字。如下图：</p><p><img src="/2018/11/03/HTTP1-0/i7eo_c3ad664d8759aeed097490aee8830038.png" alt=""></p><p>同一个ip地址可以有多个tcp连接，而同一个端口号也可以出现在多个不同的tcp连接中。</p><h4 id="HTTP-报文格式"><a href="#HTTP-报文格式" class="headerlink" title="HTTP 报文格式"></a>HTTP 报文格式</h4><p><img src="/2018/11/03/HTTP1-0/i7eo_2635b93238bf4d0760e51199dca77949.png" alt=""></p><p>这是一个很简单的请求与响应报文格式图。需要注意的是响应报文的首部结尾是空行。响应报文中具体的status code 请参考：<a href="https://blog.csdn.net/l_mloveforever/article/details/82892292" target="_blank" rel="noopener">常见的HTTPRequest状态码说明</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;HTTP-基础&quot;&gt;&lt;a href=&quot;#HTTP-基础&quot; class=&quot;headerlink&quot; title=&quot;HTTP 基础&quot;&gt;&lt;/a&gt;HTTP 基础&lt;/h3&gt;&lt;h4 id=&quot;网络间通信的大体流程&quot;&gt;&lt;a href=&quot;#网络间通信的大体流程&quot; class=&quot;headerlink&quot; title=&quot;网络间通信的大体流程&quot;&gt;&lt;/a&gt;网络间通信的大体流程&lt;/h4&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:left&quot;&gt;名称&lt;/th&gt;
+&lt;th style=&quot;text-align:left&quot;&gt;概念&lt;/th&gt;
+&lt;th style=&quot;text-align:left&quot;&gt;常用协议&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;应用层&lt;/td&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;为应用程序提供服务&lt;/td&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;HTTP/FTP/SMTP&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;表示层&lt;/td&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;定义数据格式及加密&lt;/td&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;会话层&lt;/td&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;定义了如何开始、控制和结束一个会话&lt;/td&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;SSL&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;传输层&lt;/td&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;向用户提供端到端的服务&lt;/td&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;TCP/UDP&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;网络层&lt;/td&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;数据在俩个机器间创建逻辑链路&lt;/td&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;IP(IPV4/IPV6)、ARP&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;数据链路层&lt;/td&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;通信实体间建立数据链路连接&lt;/td&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;物理层&lt;/td&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;定义物理设备间如何传输比特流的规范（网线、光缆等硬件）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;osi 模型较为复杂，一般常说的是五层模型：&lt;/p&gt;
+&lt;p&gt;物理层 -&amp;gt; 数据链路层 -&amp;gt; 网络层 -&amp;gt; 传输层 -&amp;gt; 应用层&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="HTTP" scheme="https://i7eo.com/categories/HTTP/"/>
+    
     
   </entry>
   
