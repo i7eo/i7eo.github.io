@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>HTTP1.0</title>
+      <link href="/2019/01/06/HTTP1-0.html"/>
+      <url>/2019/01/06/HTTP1-0.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Vue 的响应式/模版解析/渲染</title>
       <link href="/2019/01/03/vuesc.html"/>
       <url>/2019/01/03/vuesc.html</url>
@@ -31,7 +44,7 @@
     
     
     <entry>
-      <title>虚拟 Dom 到底是什么？</title>
+      <title>译文：Understanding the Virtual DOM</title>
       <link href="/2019/01/01/vdom.html"/>
       <url>/2019/01/01/vdom.html</url>
       
