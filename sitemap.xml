@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://i7eo.com/about/index.html</loc>
+    
+    <lastmod>2019-02-03T03:49:29.901Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://i7eo.com/2018/11/06/HTTP1-02.html</loc>
     
     <lastmod>2019-01-13T08:15:50.703Z</lastmod>
@@ -103,13 +110,6 @@
     <loc>https://i7eo.com/2018/07/04/Nuxt.js%E8%B8%A9%E5%9D%91%E5%AE%9E%E5%BD%95.html</loc>
     
     <lastmod>2019-01-05T03:57:01.319Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://i7eo.com/about/index.html</loc>
-    
-    <lastmod>2019-01-03T09:32:32.507Z</lastmod>
     
   </url>
   
