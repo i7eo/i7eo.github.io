@@ -137,6 +137,64 @@
   <section class="meta">
     
     <h2 class="title">
+      <a href="/2019/05/21/三方接入踩坑集合.html">
+        三方接入踩坑集合
+      </a>
+    </h2>
+    
+    <time>
+      May 21, 2019
+    </time>
+		
+    
+    <span class="post-count">
+      |&nbsp;字数 1815
+    </span>
+    <div class="cats">
+        <a href="/categories/三方/">三方</a>
+    </div>
+
+
+  </section>
+  <section class="article typo">
+	  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在做跨境电商网站的时候避免不了接入三方的支付、统计等代码来进行一系列的数据统计、分析、引流等。这里记录一下自己踩过的坑。</p>
+<h3 id="worldpay俩方"><a href="#worldpay俩方" class="headerlink" title="worldpay俩方"></a>worldpay俩方</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;之前不论是 <code>paypal</code> 还是 <code>worldpay</code> 接支付都是跳转到三方页面，因为中间跳转的这一步会导致部分用户弃单，转化率下降。根据我们自己的统计和与海外客户沟通来看得到的结论时尽量不要跳转，所以要把之前的三方改为俩方，即页面中<code>嵌套 iframe</code> 的方式。</p>
+<ol>
+<li>引入资源css/js/helper.html</li>
+<li>创建目标div</li>
+<li>执行setup</li>
+</ol>
+
+    
+	  <div class="readmore">
+      <a href="/2019/05/21/三方接入踩坑集合.html">Read More</a>
+    </div>
+    
+    
+    
+	  <div class="full-width auto-padding tags">
+      
+        <a href="/tags/worldpay/">worldpay</a>
+      
+        <a href="/tags/paypal-smart-button/">paypal smart button</a>
+      
+        <a href="/tags/certona/">certona</a>
+      
+        <a href="/tags/pinterest/">pinterest</a>
+      
+        <a href="/tags/ga/">ga</a>
+      
+	  </div>
+    
+  </section>
+</article>
+    </div>
+  
+    <div class="post-wrapper">
+      <article class="post reveal">
+  <section class="meta">
+    
+    <h2 class="title">
       <a href="/2019/03/13/Javascript继承.html">
         Javascript继承
       </a>
@@ -394,6 +452,8 @@
     
         <li><a class="flat-box" href="/categories/Vuejs/"><div class="name">Vuejs</div><div class="badget">2</div></a></li>
     
+        <li><a class="flat-box" href="/categories/三方/"><div class="name">三方</div><div class="badget">1</div></a></li>
+    
         <li><a class="flat-box" href="/categories/自动化/"><div class="name">自动化</div><div class="badget">1</div></a></li>
     
         <li><a class="flat-box" href="/categories/运维/"><div class="name">运维</div><div class="badget">1</div></a></li>
@@ -407,7 +467,7 @@
 <div class="m_widget tagcloud">
     <div class="header">Tags</div>
     <div class="content">
-        <a href="/tags/Alfred3-workflow/" style="font-size: 14px; color: #808080">Alfred3 workflow</a> <a href="/tags/CORS/" style="font-size: 14px; color: #808080">CORS</a> <a href="/tags/EventLoop/" style="font-size: 14px; color: #808080">EventLoop</a> <a href="/tags/Nuxt-js/" style="font-size: 14px; color: #808080">Nuxt.js</a> <a href="/tags/SSR/" style="font-size: 14px; color: #808080">SSR</a> <a href="/tags/cloudflare/" style="font-size: 14px; color: #808080">cloudflare</a> <a href="/tags/flex/" style="font-size: 14px; color: #808080">flex</a> <a href="/tags/https/" style="font-size: 14px; color: #808080">https</a> <a href="/tags/prototype-proto/" style="font-size: 14px; color: #808080">prototype/_proto_</a> <a href="/tags/qshell/" style="font-size: 14px; color: #808080">qshell</a> <a href="/tags/rem/" style="font-size: 14px; color: #808080">rem</a> <a href="/tags/render-函数/" style="font-size: 14px; color: #808080">render 函数</a> <a href="/tags/sticky-footer/" style="font-size: 14px; color: #808080">sticky footer</a> <a href="/tags/webpack/" style="font-size: 14px; color: #808080">webpack</a> <a href="/tags/上下文/" style="font-size: 14px; color: #808080">上下文</a> <a href="/tags/作用域/" style="font-size: 14px; color: #808080">作用域</a> <a href="/tags/值传递/" style="font-size: 14px; color: #808080">值传递</a> <a href="/tags/图床/" style="font-size: 14px; color: #808080">图床</a> <a href="/tags/层叠上下文/" style="font-size: 14px; color: #808080">层叠上下文</a> <a href="/tags/执行环境/" style="font-size: 14px; color: #808080">执行环境</a> <a href="/tags/模版解析/" style="font-size: 14px; color: #808080">模版解析</a> <a href="/tags/水平垂直居中/" style="font-size: 14px; color: #808080">水平垂直居中</a> <a href="/tags/深拷贝/" style="font-size: 14px; color: #808080">深拷贝</a> <a href="/tags/继承/" style="font-size: 20px; color: #000">继承</a> <a href="/tags/缓存/" style="font-size: 14px; color: #808080">缓存</a> <a href="/tags/虚拟Dom/" style="font-size: 14px; color: #808080">虚拟Dom</a> <a href="/tags/规范/" style="font-size: 14px; color: #808080">规范</a> <a href="/tags/闭包/" style="font-size: 14px; color: #808080">闭包</a> <a href="/tags/面向对象/" style="font-size: 14px; color: #808080">面向对象</a>
+        <a href="/tags/Alfred3-workflow/" style="font-size: 14px; color: #808080">Alfred3 workflow</a> <a href="/tags/CORS/" style="font-size: 14px; color: #808080">CORS</a> <a href="/tags/EventLoop/" style="font-size: 14px; color: #808080">EventLoop</a> <a href="/tags/Nuxt-js/" style="font-size: 14px; color: #808080">Nuxt.js</a> <a href="/tags/SSR/" style="font-size: 14px; color: #808080">SSR</a> <a href="/tags/certona/" style="font-size: 14px; color: #808080">certona</a> <a href="/tags/cloudflare/" style="font-size: 14px; color: #808080">cloudflare</a> <a href="/tags/flex/" style="font-size: 14px; color: #808080">flex</a> <a href="/tags/ga/" style="font-size: 14px; color: #808080">ga</a> <a href="/tags/https/" style="font-size: 14px; color: #808080">https</a> <a href="/tags/paypal-smart-button/" style="font-size: 14px; color: #808080">paypal smart button</a> <a href="/tags/pinterest/" style="font-size: 14px; color: #808080">pinterest</a> <a href="/tags/prototype-proto/" style="font-size: 14px; color: #808080">prototype/_proto_</a> <a href="/tags/qshell/" style="font-size: 14px; color: #808080">qshell</a> <a href="/tags/rem/" style="font-size: 14px; color: #808080">rem</a> <a href="/tags/render-函数/" style="font-size: 14px; color: #808080">render 函数</a> <a href="/tags/sticky-footer/" style="font-size: 14px; color: #808080">sticky footer</a> <a href="/tags/webpack/" style="font-size: 14px; color: #808080">webpack</a> <a href="/tags/worldpay/" style="font-size: 14px; color: #808080">worldpay</a> <a href="/tags/上下文/" style="font-size: 14px; color: #808080">上下文</a> <a href="/tags/作用域/" style="font-size: 14px; color: #808080">作用域</a> <a href="/tags/值传递/" style="font-size: 14px; color: #808080">值传递</a> <a href="/tags/图床/" style="font-size: 14px; color: #808080">图床</a> <a href="/tags/层叠上下文/" style="font-size: 14px; color: #808080">层叠上下文</a> <a href="/tags/执行环境/" style="font-size: 14px; color: #808080">执行环境</a> <a href="/tags/模版解析/" style="font-size: 14px; color: #808080">模版解析</a> <a href="/tags/水平垂直居中/" style="font-size: 14px; color: #808080">水平垂直居中</a> <a href="/tags/深拷贝/" style="font-size: 14px; color: #808080">深拷贝</a> <a href="/tags/继承/" style="font-size: 20px; color: #000">继承</a> <a href="/tags/缓存/" style="font-size: 14px; color: #808080">缓存</a> <a href="/tags/虚拟Dom/" style="font-size: 14px; color: #808080">虚拟Dom</a> <a href="/tags/规范/" style="font-size: 14px; color: #808080">规范</a> <a href="/tags/闭包/" style="font-size: 14px; color: #808080">闭包</a> <a href="/tags/面向对象/" style="font-size: 14px; color: #808080">面向对象</a>
     </div>
 </div>
 
