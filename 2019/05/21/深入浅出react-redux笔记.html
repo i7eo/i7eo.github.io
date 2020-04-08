@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <title>深入浅出react&amp;redux笔记 | Solitude is freedom</title>
+  <!-- <meta name="description" content="A man who dreams of being a full stack engineer" />
+  <meta name="keywords" content="Javascript,Nodejs,Vue,Nuxt,Other" /> -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <!-- <link rel="shortcut icon" href="/"> -->
+  <link rel="icon" href="/images/favicon.ico">
+  <link rel="alternate" href="/atom.xml" title="Solitude is freedom">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="深入浅出react&amp;amp;redux笔记 高内聚（js、jsx、css） 低耦合（弱化不同组件间的关系） react组件数据  propTypes 建议在开发环境可加，生产环境通过babel-react-optimize去掉 初始化state：  12345678910this.state = &amp;#123;    count: props.initValue || 0&amp;#125;// =&amp;gt;">
+<meta name="keywords" content="React,Redux,中间件">
+<meta property="og:type" content="article">
+<meta property="og:title" content="深入浅出react&amp;redux笔记">
+<meta property="og:url" content="https://i7eo.com/2019/05/21/深入浅出react-redux笔记.html">
+<meta property="og:site_name" content="Solitude is freedom">
+<meta property="og:description" content="深入浅出react&amp;amp;redux笔记 高内聚（js、jsx、css） 低耦合（弱化不同组件间的关系） react组件数据  propTypes 建议在开发环境可加，生产环境通过babel-react-optimize去掉 初始化state：  12345678910this.state = &amp;#123;    count: props.initValue || 0&amp;#125;// =&amp;gt;">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2020-04-08T09:02:58.138Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="深入浅出react&amp;redux笔记">
+<meta name="twitter:description" content="深入浅出react&amp;amp;redux笔记 高内聚（js、jsx、css） 低耦合（弱化不同组件间的关系） react组件数据  propTypes 建议在开发环境可加，生产环境通过babel-react-optimize去掉 初始化state：  12345678910this.state = &amp;#123;    count: props.initValue || 0&amp;#125;// =&amp;gt;">
+
+  <!-- <link href="https://fonts.googleapis.com/css?family=Inconsolata|Titillium+Web" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet"> -->
+  <link href="//cdn.bootcss.com/node-waves/0.7.5/waves.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+</head>
+</html>
+<body>
+  <div id="loading-bar-wrapper">
+  <div id="loading-bar"></div>
+</div>
+
+
+  <script>setLoadingBarProgress(20)</script> 
+  <header class="l_header">
+	<div class="wrapper">
+		<div class="nav-main container container--flex">
+			<a class="logo flat-box" href="/">
+				Solitude is freedom
+			</a>
+			<div class="menu">
+				<ul class="h-list">
+					
+						<li>
+							<a class="flat-box nav-home" href="/">
+								Home
+							</a>
+						</li>
+					
+						<li>
+							<a class="flat-box nav-archives" href="/archives">
+								Archives
+							</a>
+						</li>
+					
+						<li>
+							<a class="flat-box nav-about" href="/about">
+								About
+							</a>
+						</li>
+					
+				</ul>
+				<div class="underline"></div>
+			</div>
+			
+				<div class="m_search">
+					<form name="searchform" class="form u-search-form">
+						<input type="text" class="input u-search-input" placeholder="Search">
+						<span class="icon icon-search"></span>
+					</form>
+				</div>
+			
+			<ul class="switcher h-list">
+				
+					<li class="s-search"><a href="javascript:void(0)"><span class="icon icon-search flat-box"></span></a></li>
+				
+				<li class="s-menu"><a href="javascript:void(0)"><span class="icon icon-menu flat-box"></span></a></li>
+			</ul>
+		</div>
+
+		<div class="nav-sub container container--flex">
+			<a class="logo mlogo" href="javascript:void(0)">
+				Word of Forks
+			</a>
+
+			<ul class="switcher h-list">
+				<li class="s-comment"><a href="javascript:void(0)"><span class="icon icon-chat_bubble_outline flat-box"></span></a></li>
+				<li class="s-top"><a href="javascript:void(0)"><span class="icon icon-arrow_upward flat-box"></span></a></li>
+				<!-- <li class='s-toc'><a href='javascript:void(0)'><span class="icon icon-format_list_numbered flat-box"></span></a></li> -->
+			</ul>
+		</div>
+	</div>
+</header>
+<aside class="menu-phone">
+	<nav>
+		
+			<a href="/" class="nav-home nav">
+				Home
+			</a>
+		
+			<a href="/archives" class="nav-archives nav">
+				Archives
+			</a>
+		
+			<a href="/about" class="nav-about nav">
+				About
+			</a>
+		
+	</nav>
+</aside>
+
+    <script>setLoadingBarProgress(40);</script>
+  <div class="l_body">
+    <div class='container clearfix'>
+      <div class='l_main'>
+        <article id="post-深入浅出react-redux笔记" class="post white-box article-type-post" itemscope="" itemprop="blogPost">
+	<section class="meta">
+	<h2 class="title">
+  	<a href="/2019/05/21/深入浅出react-redux笔记.html">
+    	深入浅出react&amp;redux笔记
+    </a>
+  </h2>
+	<time>
+	  May 21, 2019
+	</time>
+	
+    
+    <span class="post-count">
+      |&nbsp;字数 1910
+    </span>
+    <div class="cats">
+        <a href="/categories/React/">React</a>
+    </div>
+
+
+	</section>
+	
+		<section class="toc-wrapper"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#深入浅出react-amp-redux笔记"><span class="toc-number">1.</span> <span class="toc-text">深入浅出react&amp;redux笔记</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tips"><span class="toc-number">2.</span> <span class="toc-text">tips</span></a></li></ol></section>
+		<section class="toc-wrapper-vdom"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#深入浅出react-amp-redux笔记"><span class="toc-number">1.</span> <span class="toc-text">深入浅出react&amp;redux笔记</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tips"><span class="toc-number">2.</span> <span class="toc-text">tips</span></a></li></ol></section>
+	
+	<section class="article typo">
+  	<div class="article-entry" itemprop="articleBody">
+    	<h3 id="深入浅出react-amp-redux笔记"><a href="#深入浅出react-amp-redux笔记" class="headerlink" title="深入浅出react&amp;redux笔记"></a>深入浅出react&amp;redux笔记</h3><ol>
+<li>高内聚（js、jsx、css） 低耦合（弱化不同组件间的关系）</li>
+<li><p>react组件数据</p>
+<ol>
+<li>propTypes 建议在开发环境可加，生产环境通过babel-react-optimize去掉</li>
+<li><p>初始化state：</p>
+<ol>
+<li><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.state = &#123;</span><br><span class="line">    count: props.initValue || <span class="number">0</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// =&gt;</span></span><br><span class="line"><span class="keyword">this</span>.state = &#123;</span><br><span class="line">    count: props.initValue</span><br><span class="line">&#125;</span><br><span class="line">xxx.defaultProps = &#123;</span><br><span class="line">    count: <span class="number">0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><p>prop&amp;state的对比：</p>
+<ol>
+<li>prop 用于定义外部接口， state 用于记录内部状态;</li>
+<li>prop 的赋值在外部世界使用组件时， state 的赋值在组件内部;</li>
+<li><p>组件绝不应该改变 prop 的值（要严格遵守单向数据流原则，保证 ui=render(data) 这个函数无任何副作用），而 state存在的目的就是让组件来改变的 。</p>
+<a id="more"></a>
+</li>
+</ol>
+</li>
+<li><p>生命周期 (执行顺序如序号顺序)</p>
+<ul>
+<li>装载过程<ol>
+<li>constructor (初始化state，绑定this。当然也可以不绑定，在class中使用声明变量&amp;尖头函数的写法)</li>
+<li>getlnitialState (React.createClass中使用)</li>
+<li>getDefaultProps (React.createClass中使用)</li>
+<li>componentWillMount (这个时候没有任何渲染出来的结果，即使调用this.setState 修改状态也不会引发重新绘制换句话说，所有可以在这个 component­WillMount 中做的事情，都可以提前到 constructor 中间去做)</li>
+<li>render (完全根据 this.state 和 this.props 来决定返回的结果，而且不要产生任何副作用。在 render 函数中去调用 this.setState 毫无疑问是错误的，因为一个纯函数不应该引起状态的改变)</li>
+<li>componentDidMount (组件已经被装载到 DOM 树上了,这个时候我们可以通过请求来填充组件的内容、使用三方代码获取dom, 需要注意的是该生命周期不会在一个render后立即执行，而是在所有子组件render结束后执行，这是因为render只返回jsx对象并不往dom树上装载内容，具体的内容装载是react经过vm后才决定的)</li>
+</ol>
+</li>
+<li>更新过程<ol>
+<li>shouldComponentUpdate (如果这个函数返回 true，那就会继续更新过程，接下来调用 render 函数;反之，如果得到 一个 false，那就立刻停止更新过程，也就不会引发后续的渲染了)</li>
+<li>componentWillReceiveProps (只要是父组件的 render 函数被调用，在 render 函数里面被谊染的子组件就会经历更新过程，不管父组件传给子组件的 props 有没有改变，都会触发子组件的 componentWillReceiveProps 函数, 子组件中的 setstate 不会调用该方法)</li>
+<li>componentWillUpdate</li>
+<li>render</li>
+<li>componentDidUpdate</li>
+</ol>
+</li>
+<li>卸载过程<ol>
+<li>componentWillUnmount (通常解绑事件、定时器等)</li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>模块化<br> 用 React和 Redux来构建前端网页应用，这两者都奉 行这样一个公式 UI=render(state) 来产生用户界面。 React才适合于视图层面的东西，但是不能指望靠React来管理应用的状态， Redux才适合担当应用状态的管理工作。</p>
+<ul>
+<li><p>从架构出发，当我们开始一个新的应用的时候，有几件事情是一定要考虑清楚的：</p>
+<ol>
+<li><p>代码文件的组织结构</p>
+<ul>
+<li><p>按角色组织：</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">reducers/</span><br><span class="line">  todoReducer.js</span><br><span class="line">  filterReducer.js</span><br><span class="line">actions/ </span><br><span class="line">  todoActions.js</span><br><span class="line">  filterActions.js</span><br><span class="line">components/</span><br><span class="line">  todoList.js</span><br><span class="line">  todoItem.js</span><br><span class="line">  filter.js</span><br><span class="line">containers/</span><br><span class="line">  todoListContainer.js</span><br><span class="line">  todoiternContainer.js</span><br><span class="line">  filterContainer.js</span><br><span class="line"></span><br><span class="line"><span class="comment">// 唯一的缺点是新增功能需要在不同的文件夹下切换并且创建新文件</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>接功能组织：</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">todoList/</span><br><span class="line">  actions.js</span><br><span class="line">  actionTypes.js</span><br><span class="line">  index.js</span><br><span class="line">  reducer.js</span><br><span class="line">  views/</span><br><span class="line">    component.js</span><br><span class="line">    container.js</span><br><span class="line">filter/</span><br><span class="line">  actions.js</span><br><span class="line">  actionTypes.js</span><br><span class="line">  index.js</span><br><span class="line">  reducer.js</span><br><span class="line">  views/</span><br><span class="line">    component.js</span><br><span class="line">    container.js</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>模块接口</p>
+<ul>
+<li><p>常规导入：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> actions <span class="keyword">from</span> ’ .. /todoList/actions ’;</span><br><span class="line"><span class="keyword">import</span> container <span class="keyword">as</span> TodoList <span class="keyword">from</span> ’../todoList/views/container’;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 这种写法当然能够完成功能，但是却非常不合理，因为这让 filter模块依赖于 todoList模块的内部结构，而且直接伸手到 todoList 内部去导人想要的部分</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>统一入口导入 (index.js)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> actions <span class="keyword">from</span> ’. /actions.js ’;</span><br><span class="line"><span class="keyword">import</span> reducer <span class="keyword">from</span> ’. /reducer.js’;</span><br><span class="line"><span class="keyword">import</span> view <span class="keyword">from</span> ’./views/container.js ’;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> &#123;actions, reducer, view&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 使用如下</span></span><br><span class="line"><span class="keyword">import</span> &#123;actions , reducer, view <span class="keyword">as</span> TodoList&#125; <span class="keyword">from</span> ’../todoList’</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>Store 的状态树设计</p>
+<ul>
+<li>一个模块控制一个状态节点</li>
+<li>避免冗余数据 (数据一致性)</li>
+<li>树形结构扁平，避免出现以下情况：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> d = state.A &amp;&amp; state.A.B &amp;&amp; state.A.B.C &amp;&amp; state.A.B.C.D;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>组件性能优化</p>
+<ol>
+<li>容器组件与傻瓜组件 (让一个组件只专注做一件事，容器组件进行数据处理然后将数据传入傻瓜组件，傻瓜组件只负责渲染)</li>
+<li>使用 shouldcomponentupdate 来避免不必要的组件更新（重新渲染）</li>
+<li>那么如何查看 chrome 中 react 性能表现？参考资料如下：<ul>
+<li><a href="https://calibreapp.com/blog/react-performance-profiling-optimization" target="_blank" rel="noopener">Profiling React Performance with React 16 and Chrome DevTools.</a></li>
+<li><a href="https://zh-hans.reactjs.org/docs/optimizing-performance.html#profiling-components-with-the-chrome-performance-tab" target="_blank" rel="noopener">使用 Chrome Performance 标签分析组件</a></li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>高阶组件<br> |  | 特点 | 区别 |<br> | :—–| :—-: | :—-: |<br> | 代理方式的高阶组件 | 操纵 prop / 访问 ref / 抽取状态 / 包装组件 | 新组件、参数组件都要经历各自的生命周期 |<br> | 继承方式的高阶组件 | 操纵 prop / 操纵生命周期函数 | 只有一个生命周期（super.render()） |</p>
+</li>
+<li><p>redux</p>
+<ol>
+<li>redux基本原则：<ul>
+<li>唯一数据源(Single Source ofTruth)</li>
+<li>保持状态只读( State is read-only)</li>
+<li>数据改变只能通过纯函数完成( Changes are made with pure functions)</li>
+</ul>
+</li>
+<li>保持数据的唯一性 (context &amp; react-redux)</li>
+<li>react-redux 两个最主要功能:<ul>
+<li>connect: 连接容器组件和傻瓜组件;</li>
+<li>Provider: 提供包含 store 的 context (context 完全可以实现 provider 但是 react-redux 中的 provider 包含三个函数：subscribe、dispatch、getState。react-redux 定义了 Provider 的 componentWillReceiveProps 函数，在 React组件的生命周期中， componentWillReceiveProps 函数在每次重新渲染时都会调用到，react­ redux 在 componentWillReceiveProps 函数中会检查这一次渲染时代表 store 的 prop 和上 一次的是否一样。 如果不一样，就会给出警告，这样做是为了避免多次渲染用了不同的 Redux Store。 每个 Redux 应用只能有一个 Redux Store，在整个 Redux 的生命周期中都应该保持 Store 的唯一性)</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="tips"><a href="#tips" class="headerlink" title="tips"></a>tips</h3><ol>
+<li>在 jsx 用直接把匿名函数赋值的方法，看起来非常简洁而且方便，其实并不是值得提倡的方法。因为每次渲染都会创造一个新的匿名方法对象 ，而且有可能引发子组件不必要的重新渲染。</li>
+<li>render 和 shouldComponentUpdate 函数，也是 React 生命周期函数中唯二两个要求有返回结果的函数。 render 函数的返回结果将用于构造 DOM 对象，而 shouldComponent­Update 函数返回一个布尔值，告诉 React 库这个组件在这次更新过程中是否要继续。</li>
+<li>为什么 react 中大多数的调用通常是闭包形式的多层调用？ 因为遵从一个函数只做一件事的原则<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">connect(mapStateToProps, mapDispatchToProps)(Counter)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createThunkMiddleware</span>(<span class="params">extraArgument</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function">(<span class="params">&#123; dispatch, getState &#125;</span>) =&gt;</span> next =&gt; <span class="function"><span class="params">action</span>=&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">typeof</span> action === <span class="string">"function"</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> action(dispatch , getState , extraArgument);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> next(action)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/** 这是 thunk 的源码实现，只是单纯的判断了 action 类型，具体做了如下操作：</span></span><br><span class="line"><span class="comment"> * 1. 调用 dispatch派发出一个新 action对象;</span></span><br><span class="line"><span class="comment"> * 2. 调用 getState获得当前ReduxStore上的状态;</span></span><br><span class="line"><span class="comment"> * 3. 调用next告诉Redux当前中间件工作完毕，让Redux调用下一个中间件;</span></span><br><span class="line"><span class="comment"> * 4. 访问 action对象 action上的所有数据;</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li><p>触发 re-render 的方式：</p>
+<ul>
+<li>setState</li>
+<li>props 改变</li>
+<li>forceupdate</li>
+</ul>
+</li>
+<li><p>fetch认为只要服务器返回一个合法的 HTTP 响应就算成功，就会调用 then提供的回调函数，即使这个HTTP响应的状态码是表示出错了的400或者500。因为 fetch 的这个特点，所以我们在 then 中，要做的第一件事就是检查传人参数 response status 字段，只有 status 是代表成功的 200 的时候才继续，否则以错误处理 。</p>
+</li>
+</ol>
+
+  	</div>
+	  
+	  <div class="article-tags tags">
+      
+        <a href="/tags/React/">React</a>
+      
+        <a href="/tags/Redux/">Redux</a>
+      
+        <a href="/tags/中间件/">中间件</a>
+      
+	  </div>
+    
+
+	
+		<div class="art-item-footer">
+				
+					<span class="art-item-left">上一篇：<a href="/2019/05/21/三方接入踩坑集合.html" rel="prev" title="三方接入踩坑集合">
+						三方接入踩坑集合
+					</a></span>
+				
+				
+					<span class="art-item-right">下一篇：<a href="/2019/03/13/Javascript继承.html" rel="next" title="Javascript继承">
+						Javascript继承
+					</a></span>
+				
+		</div>
+	
+	</section>
+	
+</article>
+<script>
+	window.subData = {
+		title: '深入浅出react&amp;redux笔记',
+		tools: true
+	}
+</script>
+
+      </div>
+      <aside class='l_side'>
+        
+    <section class="m_widget about">
+<a href="/about">
+  <img class="avatar waves-image" src="/images/avatar.jpeg">
+</a>
+<div class="header">George Tan</div>
+<div class="content">
+<div class="desc">A man who dreams of being a full stack engineer</div>
+</div>
+</section>
+
+
+    <!-- <section class='m_widget links'>
+<div class='header'>Links</div>
+<div class='content'>
+    <ul class="entry">
+    
+        <li><a class="flat-box" target="_blank" href="https://ccoooss.com">
+            <div class='name'>ClassicOldSong</div>
+        </a></li>
+    
+        <li><a class="flat-box" target="_blank" href="https://frantic1048.logdown.com/">
+            <div class='name'>Frantic1048</div>
+        </a></li>
+    
+        <li><a class="flat-box" target="_blank" href="https://hclmaster.github.io/">
+            <div class='name'>Hclmaster</div>
+        </a></li>
+    
+        <li><a class="flat-box" target="_blank" href="https://whst.github.io/">
+            <div class='name'>WANG Hsü-Tung</div>
+        </a></li>
+    
+    </ul>
+</div>
+</section> -->
+
+
+    <section class="m_widget categories">
+<div class="header">Categories</div>
+<div class="content">
+    
+    <ul class="entry">
+    
+        <li><a class="flat-box" href="/categories/HTML-CSS/"><div class="name">HTML&amp;CSS</div><div class="badget">4</div></a></li>
+    
+        <li><a class="flat-box" href="/categories/HTTP/"><div class="name">HTTP</div><div class="badget">2</div></a></li>
+    
+        <li><a class="flat-box" href="/categories/Javascript/"><div class="name">Javascript</div><div class="badget">9</div></a></li>
+    
+        <li><a class="flat-box" href="/categories/React/"><div class="name">React</div><div class="badget">1</div></a></li>
+    
+        <li><a class="flat-box" href="/categories/Vuejs/"><div class="name">Vuejs</div><div class="badget">2</div></a></li>
+    
+        <li><a class="flat-box" href="/categories/三方/"><div class="name">三方</div><div class="badget">1</div></a></li>
+    
+        <li><a class="flat-box" href="/categories/自动化/"><div class="name">自动化</div><div class="badget">1</div></a></li>
+    
+        <li><a class="flat-box" href="/categories/运维/"><div class="name">运维</div><div class="badget">1</div></a></li>
+    
+    </ul>
+    
+</div>
+</section>
+
+    
+<div class="m_widget tagcloud">
+    <div class="header">Tags</div>
+    <div class="content">
+        <a href="/tags/Alfred3-workflow/" style="font-size: 14px; color: #808080">Alfred3 workflow</a> <a href="/tags/CORS/" style="font-size: 14px; color: #808080">CORS</a> <a href="/tags/EventLoop/" style="font-size: 14px; color: #808080">EventLoop</a> <a href="/tags/Nuxt-js/" style="font-size: 14px; color: #808080">Nuxt.js</a> <a href="/tags/React/" style="font-size: 14px; color: #808080">React</a> <a href="/tags/Redux/" style="font-size: 14px; color: #808080">Redux</a> <a href="/tags/SSR/" style="font-size: 14px; color: #808080">SSR</a> <a href="/tags/certona/" style="font-size: 14px; color: #808080">certona</a> <a href="/tags/cloudflare/" style="font-size: 14px; color: #808080">cloudflare</a> <a href="/tags/flex/" style="font-size: 14px; color: #808080">flex</a> <a href="/tags/ga/" style="font-size: 14px; color: #808080">ga</a> <a href="/tags/https/" style="font-size: 14px; color: #808080">https</a> <a href="/tags/paypal-smart-button/" style="font-size: 14px; color: #808080">paypal smart button</a> <a href="/tags/pinterest/" style="font-size: 14px; color: #808080">pinterest</a> <a href="/tags/prototype-proto/" style="font-size: 14px; color: #808080">prototype/_proto_</a> <a href="/tags/qshell/" style="font-size: 14px; color: #808080">qshell</a> <a href="/tags/rem/" style="font-size: 14px; color: #808080">rem</a> <a href="/tags/render-函数/" style="font-size: 14px; color: #808080">render 函数</a> <a href="/tags/sticky-footer/" style="font-size: 14px; color: #808080">sticky footer</a> <a href="/tags/webpack/" style="font-size: 14px; color: #808080">webpack</a> <a href="/tags/worldpay/" style="font-size: 14px; color: #808080">worldpay</a> <a href="/tags/上下文/" style="font-size: 14px; color: #808080">上下文</a> <a href="/tags/中间件/" style="font-size: 14px; color: #808080">中间件</a> <a href="/tags/作用域/" style="font-size: 14px; color: #808080">作用域</a> <a href="/tags/值传递/" style="font-size: 14px; color: #808080">值传递</a> <a href="/tags/图床/" style="font-size: 14px; color: #808080">图床</a> <a href="/tags/层叠上下文/" style="font-size: 14px; color: #808080">层叠上下文</a> <a href="/tags/执行环境/" style="font-size: 14px; color: #808080">执行环境</a> <a href="/tags/模版解析/" style="font-size: 14px; color: #808080">模版解析</a> <a href="/tags/水平垂直居中/" style="font-size: 14px; color: #808080">水平垂直居中</a> <a href="/tags/深拷贝/" style="font-size: 14px; color: #808080">深拷贝</a> <a href="/tags/继承/" style="font-size: 20px; color: #000">继承</a> <a href="/tags/缓存/" style="font-size: 14px; color: #808080">缓存</a> <a href="/tags/虚拟Dom/" style="font-size: 14px; color: #808080">虚拟Dom</a> <a href="/tags/规范/" style="font-size: 14px; color: #808080">规范</a> <a href="/tags/闭包/" style="font-size: 14px; color: #808080">闭包</a> <a href="/tags/面向对象/" style="font-size: 14px; color: #808080">面向对象</a>
+    </div>
+</div>
+
+
+
+
+      </aside>
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+  </div>
+  <footer id="footer" class="clearfix">
+
+	<div class="social-wrapper">
+  	
+      
+        <a href="https://github.com/i7eo" class="social github" target="_blank" rel="external">
+          <span class="icon icon-github"></span>
+        </a>
+      
+        <a href="/atom.xml" class="social rss" target="_blank" rel="external">
+          <span class="icon icon-rss"></span>
+        </a>
+      
+    
+  </div>
+
+  <div>Theme <a href="https://github.com/stkevintan/hexo-theme-material-flow" class="codename">MaterialFlow</a> Powered by <a href="https://hexo.io/" target="_blank" class="codename">Hexo</a>.</div>
+
+</footer>
+
+  <script>setLoadingBarProgress(80);</script>
+  
+
+<!-- <script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script> -->
+<script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/node-waves/0.7.5/waves.min.js"></script>
+<script src="//cdn.bootcss.com/scrollReveal.js/3.3.2/scrollreveal.min.js"></script>
+<script src="/js/jquery.fitvids.js"></script>
+<script>
+	var GOOGLE_CUSTOM_SEARCH_API_KEY = "";
+	var GOOGLE_CUSTOM_SEARCH_ENGINE_ID = "";
+	var ALGOLIA_API_KEY = "";
+	var ALGOLIA_APP_ID = "";
+	var ALGOLIA_INDEX_NAME = "";
+  var AZURE_SERVICE_NAME = "";
+  var AZURE_INDEX_NAME = "";
+  var AZURE_QUERY_KEY = "";
+  var BAIDU_API_ID = "";
+  var SEARCH_SERVICE = "hexo";
+  var ROOT = "/"||"/";
+  if(!ROOT.endsWith('/'))ROOT += '/';
+</script>
+<script src="/js/search.js"></script>
+<script src="/js/app.js"></script>
+
+  <script>setLoadingBarProgress(100);</script>
+</body>
+</html>
