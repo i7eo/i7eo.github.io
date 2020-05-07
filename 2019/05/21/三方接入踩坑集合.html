@@ -14,7 +14,7 @@
   <link rel="alternate" href="/atom.xml" title="Solitude is freedom">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;在做跨境电商网站的时候避免不了接入三方的支付、统计等代码来进行一系列的数据统计、分析、引流等。这里记录一下自己踩过的坑。 worldpay俩方&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;之前不论是 paypal 还是 worldpay 接支付都是跳转到">
-<meta name="keywords" content="worldpay,paypal smart button,certona,pinterest,ga">
+<meta name="keywords" content="worldpay,paypal smart button,certona,pinterest,ga,pingpong">
 <meta property="og:type" content="article">
 <meta property="og:title" content="三方接入踩坑集合">
 <meta property="og:url" content="https://i7eo.com/2019/05/21/三方接入踩坑集合.html">
@@ -22,7 +22,7 @@
 <meta property="og:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;在做跨境电商网站的时候避免不了接入三方的支付、统计等代码来进行一系列的数据统计、分析、引流等。这里记录一下自己踩过的坑。 worldpay俩方&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;之前不论是 paypal 还是 worldpay 接支付都是跳转到">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://i7eo.com/2019/05/21/三方接入踩坑集合/i7eo_df4a2176f1f9163f1d158cffcd294291.png">
-<meta property="og:updated_time" content="2020-03-30T06:01:03.047Z">
+<meta property="og:updated_time" content="2020-05-07T09:18:02.670Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="三方接入踩坑集合">
 <meta name="twitter:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;在做跨境电商网站的时候避免不了接入三方的支付、统计等代码来进行一系列的数据统计、分析、引流等。这里记录一下自己踩过的坑。 worldpay俩方&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;之前不论是 paypal 还是 worldpay 接支付都是跳转到">
@@ -140,7 +140,7 @@
 	
     
     <span class="post-count">
-      |&nbsp;字数 1813
+      |&nbsp;字数 2166
     </span>
     <div class="cats">
         <a href="/categories/三方/">三方</a>
@@ -149,8 +149,8 @@
 
 	</section>
 	
-		<section class="toc-wrapper"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#worldpay俩方"><span class="toc-number">1.</span> <span class="toc-text">worldpay俩方</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#paypal-smart-button"><span class="toc-number">2.</span> <span class="toc-text">paypal smart button</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#certona"><span class="toc-number">3.</span> <span class="toc-text">certona</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pinterest"><span class="toc-number">4.</span> <span class="toc-text">pinterest</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GA"><span class="toc-number">5.</span> <span class="toc-text">GA</span></a></li></ol></section>
-		<section class="toc-wrapper-vdom"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#worldpay俩方"><span class="toc-number">1.</span> <span class="toc-text">worldpay俩方</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#paypal-smart-button"><span class="toc-number">2.</span> <span class="toc-text">paypal smart button</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#certona"><span class="toc-number">3.</span> <span class="toc-text">certona</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pinterest"><span class="toc-number">4.</span> <span class="toc-text">pinterest</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GA"><span class="toc-number">5.</span> <span class="toc-text">GA</span></a></li></ol></section>
+		<section class="toc-wrapper"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#worldpay俩方"><span class="toc-number">1.</span> <span class="toc-text">worldpay俩方</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#paypal-smart-button"><span class="toc-number">2.</span> <span class="toc-text">paypal smart button</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#certona"><span class="toc-number">3.</span> <span class="toc-text">certona</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pinterest"><span class="toc-number">4.</span> <span class="toc-text">pinterest</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GA"><span class="toc-number">5.</span> <span class="toc-text">GA</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ping-Pong-Pay"><span class="toc-number">6.</span> <span class="toc-text">Ping Pong Pay</span></a></li></ol></section>
+		<section class="toc-wrapper-vdom"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#worldpay俩方"><span class="toc-number">1.</span> <span class="toc-text">worldpay俩方</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#paypal-smart-button"><span class="toc-number">2.</span> <span class="toc-text">paypal smart button</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#certona"><span class="toc-number">3.</span> <span class="toc-text">certona</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pinterest"><span class="toc-number">4.</span> <span class="toc-text">pinterest</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GA"><span class="toc-number">5.</span> <span class="toc-text">GA</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ping-Pong-Pay"><span class="toc-number">6.</span> <span class="toc-text">Ping Pong Pay</span></a></li></ol></section>
 	
 	<section class="article typo">
   	<div class="article-entry" itemprop="articleBody">
@@ -209,6 +209,8 @@
 <li>不论什么三方代码，在支付成功页添加时一定要注意避免刷新后重复上传，一般做法是利用cookie判断。shopify 平台还提供了一个 <code>first_time_accessed</code> 的方法。</li>
 </ol>
 <h3 id="GA"><a href="#GA" class="headerlink" title="GA"></a>GA</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ga的代码文档已经很详细，可以根据业务以及数据的不同维度来自定义上传数据，也没什么深坑，这里就不再阐述了。</p>
+<h3 id="Ping-Pong-Pay"><a href="#Ping-Pong-Pay" class="headerlink" title="Ping Pong Pay"></a>Ping Pong Pay</h3><p>现在大多支付已经从重定向的三方模式，向伪俩方或者俩方的模式发展。毕竟俩方不会跳页面，这样会降低用户的流失率。</p>
+<p>在对接这个支付时，采用的是伪俩方的模式，但是 pingpong 的伪俩方并不是直接生成 iframe 而是直接生成 dom，但问题是这个支付生成 dom 的父元素是一个我们自己业务的表单，当切换其他支付单击我们自己的表单提交按钮时 pingpong 的支付也会被触发。与 pingpong 沟通后，对方给了一个动态生成表单的建议。但是鉴于我们接入的支付很多，如果采用动态生成表单需要花时间重构、测试，所以这个意见并没有采纳。不过沟通后当我将 pingpong 的 js 不引入后，上述问题并没用复现。现在的问题就是怎么去除 js 的影响？<br>首先想到的是删除 script 标签，但是只要 js 加载，即使删除了 dom 代码还是会执行。（具体可参考：<a href="https://stackoverflow.com/questions/29970467/removed-javascript-is-still-executable" target="_blank" rel="noopener">Removed JavaScript is still executable</a>）所以需要换一种思路，选择非 pingpong 支付时将该 js 暴露出来的三方对象存起来后直接置 null，当从其他支付切回 pingpong 支付时将存起来的值重新赋回即可。</p>
 
   	</div>
 	  
@@ -223,6 +225,8 @@
         <a href="/tags/pinterest/">pinterest</a>
       
         <a href="/tags/ga/">ga</a>
+      
+        <a href="/tags/pingpong/">pingpong</a>
       
 	  </div>
     
@@ -322,7 +326,7 @@
 <div class="m_widget tagcloud">
     <div class="header">Tags</div>
     <div class="content">
-        <a href="/tags/Alfred3-workflow/" style="font-size: 14px; color: #808080">Alfred3 workflow</a> <a href="/tags/CORS/" style="font-size: 14px; color: #808080">CORS</a> <a href="/tags/EventLoop/" style="font-size: 14px; color: #808080">EventLoop</a> <a href="/tags/Nuxt-js/" style="font-size: 14px; color: #808080">Nuxt.js</a> <a href="/tags/React/" style="font-size: 14px; color: #808080">React</a> <a href="/tags/Redux/" style="font-size: 14px; color: #808080">Redux</a> <a href="/tags/SSR/" style="font-size: 14px; color: #808080">SSR</a> <a href="/tags/certona/" style="font-size: 14px; color: #808080">certona</a> <a href="/tags/cloudflare/" style="font-size: 14px; color: #808080">cloudflare</a> <a href="/tags/flex/" style="font-size: 14px; color: #808080">flex</a> <a href="/tags/ga/" style="font-size: 14px; color: #808080">ga</a> <a href="/tags/https/" style="font-size: 14px; color: #808080">https</a> <a href="/tags/paypal-smart-button/" style="font-size: 14px; color: #808080">paypal smart button</a> <a href="/tags/pinterest/" style="font-size: 14px; color: #808080">pinterest</a> <a href="/tags/prototype-proto/" style="font-size: 14px; color: #808080">prototype/_proto_</a> <a href="/tags/qshell/" style="font-size: 14px; color: #808080">qshell</a> <a href="/tags/rem/" style="font-size: 14px; color: #808080">rem</a> <a href="/tags/render-函数/" style="font-size: 14px; color: #808080">render 函数</a> <a href="/tags/sticky-footer/" style="font-size: 14px; color: #808080">sticky footer</a> <a href="/tags/webpack/" style="font-size: 14px; color: #808080">webpack</a> <a href="/tags/worldpay/" style="font-size: 14px; color: #808080">worldpay</a> <a href="/tags/上下文/" style="font-size: 14px; color: #808080">上下文</a> <a href="/tags/中间件/" style="font-size: 14px; color: #808080">中间件</a> <a href="/tags/作用域/" style="font-size: 14px; color: #808080">作用域</a> <a href="/tags/值传递/" style="font-size: 14px; color: #808080">值传递</a> <a href="/tags/图床/" style="font-size: 14px; color: #808080">图床</a> <a href="/tags/层叠上下文/" style="font-size: 14px; color: #808080">层叠上下文</a> <a href="/tags/执行环境/" style="font-size: 14px; color: #808080">执行环境</a> <a href="/tags/模版解析/" style="font-size: 14px; color: #808080">模版解析</a> <a href="/tags/水平垂直居中/" style="font-size: 14px; color: #808080">水平垂直居中</a> <a href="/tags/深拷贝/" style="font-size: 14px; color: #808080">深拷贝</a> <a href="/tags/继承/" style="font-size: 20px; color: #000">继承</a> <a href="/tags/缓存/" style="font-size: 14px; color: #808080">缓存</a> <a href="/tags/虚拟Dom/" style="font-size: 14px; color: #808080">虚拟Dom</a> <a href="/tags/规范/" style="font-size: 14px; color: #808080">规范</a> <a href="/tags/闭包/" style="font-size: 14px; color: #808080">闭包</a> <a href="/tags/面向对象/" style="font-size: 14px; color: #808080">面向对象</a>
+        <a href="/tags/Alfred3-workflow/" style="font-size: 14px; color: #808080">Alfred3 workflow</a> <a href="/tags/CORS/" style="font-size: 14px; color: #808080">CORS</a> <a href="/tags/EventLoop/" style="font-size: 14px; color: #808080">EventLoop</a> <a href="/tags/Nuxt-js/" style="font-size: 14px; color: #808080">Nuxt.js</a> <a href="/tags/React/" style="font-size: 14px; color: #808080">React</a> <a href="/tags/Redux/" style="font-size: 14px; color: #808080">Redux</a> <a href="/tags/SSR/" style="font-size: 14px; color: #808080">SSR</a> <a href="/tags/certona/" style="font-size: 14px; color: #808080">certona</a> <a href="/tags/cloudflare/" style="font-size: 14px; color: #808080">cloudflare</a> <a href="/tags/flex/" style="font-size: 14px; color: #808080">flex</a> <a href="/tags/ga/" style="font-size: 14px; color: #808080">ga</a> <a href="/tags/https/" style="font-size: 14px; color: #808080">https</a> <a href="/tags/paypal-smart-button/" style="font-size: 14px; color: #808080">paypal smart button</a> <a href="/tags/pingpong/" style="font-size: 14px; color: #808080">pingpong</a> <a href="/tags/pinterest/" style="font-size: 14px; color: #808080">pinterest</a> <a href="/tags/prototype-proto/" style="font-size: 14px; color: #808080">prototype/_proto_</a> <a href="/tags/qshell/" style="font-size: 14px; color: #808080">qshell</a> <a href="/tags/rem/" style="font-size: 14px; color: #808080">rem</a> <a href="/tags/render-函数/" style="font-size: 14px; color: #808080">render 函数</a> <a href="/tags/sticky-footer/" style="font-size: 14px; color: #808080">sticky footer</a> <a href="/tags/webpack/" style="font-size: 14px; color: #808080">webpack</a> <a href="/tags/worldpay/" style="font-size: 14px; color: #808080">worldpay</a> <a href="/tags/上下文/" style="font-size: 14px; color: #808080">上下文</a> <a href="/tags/中间件/" style="font-size: 14px; color: #808080">中间件</a> <a href="/tags/作用域/" style="font-size: 14px; color: #808080">作用域</a> <a href="/tags/值传递/" style="font-size: 14px; color: #808080">值传递</a> <a href="/tags/图床/" style="font-size: 14px; color: #808080">图床</a> <a href="/tags/层叠上下文/" style="font-size: 14px; color: #808080">层叠上下文</a> <a href="/tags/执行环境/" style="font-size: 14px; color: #808080">执行环境</a> <a href="/tags/模版解析/" style="font-size: 14px; color: #808080">模版解析</a> <a href="/tags/水平垂直居中/" style="font-size: 14px; color: #808080">水平垂直居中</a> <a href="/tags/深拷贝/" style="font-size: 14px; color: #808080">深拷贝</a> <a href="/tags/继承/" style="font-size: 20px; color: #000">继承</a> <a href="/tags/缓存/" style="font-size: 14px; color: #808080">缓存</a> <a href="/tags/虚拟Dom/" style="font-size: 14px; color: #808080">虚拟Dom</a> <a href="/tags/规范/" style="font-size: 14px; color: #808080">规范</a> <a href="/tags/闭包/" style="font-size: 14px; color: #808080">闭包</a> <a href="/tags/面向对象/" style="font-size: 14px; color: #808080">面向对象</a>
     </div>
 </div>
 

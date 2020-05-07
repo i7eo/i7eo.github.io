@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   
-  <title>Archives: 2017/2 | Solitude is freedom</title>
+  <title>Tag: pingpong | Solitude is freedom</title>
   <!-- <meta name="description" content="A man who dreams of being a full stack engineer" />
   <meta name="keywords" content="Javascript,Nodejs,Vue,Nuxt,Other" /> -->
   <meta name="HandheldFriendly" content="True">
@@ -17,7 +17,7 @@
 <meta name="keywords" content="Javascript,Nodejs,Vue,Nuxt,Other">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Solitude is freedom">
-<meta property="og:url" content="https://i7eo.com/archives/2017/02/index.html">
+<meta property="og:url" content="https://i7eo.com/tags/pingpong/index.html">
 <meta property="og:site_name" content="Solitude is freedom">
 <meta property="og:description" content="A man who dreams of being a full stack engineer">
 <meta property="og:locale" content="default">
@@ -125,9 +125,8 @@
     <div class='container clearfix'>
       <div class='l_main'>
         
-	
   <script>
-    window.subData= { title:'Year : 2017.2'}
+    window.subData= { title:'Tag : pingpong'}
   </script>
 
 <section class="post-list">
@@ -137,45 +136,54 @@
   <section class="meta">
     
     <h2 class="title">
-      <a href="/2017/02/15/浅谈响应式布局-自适应布局.html">
-        浅谈响应式布局&amp;自适应布局
+      <a href="/2019/05/21/三方接入踩坑集合.html">
+        三方接入踩坑集合
       </a>
     </h2>
     
     <time>
-      Feb 15, 2017
+      May 21, 2019
     </time>
 		
     
     <span class="post-count">
-      |&nbsp;字数 1889
+      |&nbsp;字数 2166
     </span>
     <div class="cats">
-        <a href="/categories/HTML-CSS/">HTML&CSS</a>
+        <a href="/categories/三方/">三方</a>
     </div>
 
 
   </section>
   <section class="article typo">
-	  <h3 id="一、响应式布局"><a href="#一、响应式布局" class="headerlink" title="一、响应式布局"></a>一、响应式布局</h3><p>1、什么是响应式页面？响应式布局可以一统pc&amp;mobile吗？响应式与自适应式布局的区别？</p>
-<ul>
-<li>响应式简单来说是一个网站的布局 <strong>能够兼容多个不同终端</strong>，  而并不是传统的pc端一套页面，移动端一套页面。</li>
-<li>当初Ethan Marcotte在2010年5月份提出的这个概念的时候是希望响应式可以一统pc&amp;mobile页面，同时我们也做到了。但是这样带来的问题也越发让开发者心烦意乱，最重要的一点就是兼容各种设备会导致 <strong>大量累赘的代码</strong>，维护与重构较麻烦。</li>
-<li>响应式布局讲究的是使用一套布局代码来在不同终端展示，<strong>根据屏幕尺寸的大小对页面的布局进行改造</strong>（即当屏幕变小时，开发者可能会让标题栏中原本显示10个子标题现在只显示5个，隐藏剩下的5个或者让其在第二行出现），而</li>
-</ul>
+	  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在做跨境电商网站的时候避免不了接入三方的支付、统计等代码来进行一系列的数据统计、分析、引流等。这里记录一下自己踩过的坑。</p>
+<h3 id="worldpay俩方"><a href="#worldpay俩方" class="headerlink" title="worldpay俩方"></a>worldpay俩方</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;之前不论是 <code>paypal</code> 还是 <code>worldpay</code> 接支付都是跳转到三方页面，因为中间跳转的这一步会导致部分用户弃单，转化率下降。根据我们自己的统计和与海外客户沟通来看得到的结论时尽量不要跳转，所以要把之前的三方改为俩方，即页面中<code>嵌套 iframe</code> 的方式。</p>
+<ol>
+<li>引入资源css/js/helper.html</li>
+<li>创建目标div</li>
+<li>执行setup</li>
+</ol>
 
     
 	  <div class="readmore">
-      <a href="/2017/02/15/浅谈响应式布局-自适应布局.html">Read More</a>
+      <a href="/2019/05/21/三方接入踩坑集合.html">Read More</a>
     </div>
     
     
     
 	  <div class="full-width auto-padding tags">
       
-        <a href="/tags/flex/">flex</a>
+        <a href="/tags/worldpay/">worldpay</a>
       
-        <a href="/tags/rem/">rem</a>
+        <a href="/tags/paypal-smart-button/">paypal smart button</a>
+      
+        <a href="/tags/certona/">certona</a>
+      
+        <a href="/tags/pinterest/">pinterest</a>
+      
+        <a href="/tags/ga/">ga</a>
+      
+        <a href="/tags/pingpong/">pingpong</a>
       
 	  </div>
     
@@ -184,7 +192,6 @@
     </div>
   
 </section>
-
 
 
       </div>
