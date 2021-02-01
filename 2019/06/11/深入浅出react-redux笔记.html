@@ -13,19 +13,19 @@
   <link rel="icon" href="/images/favicon.ico">
   <link rel="alternate" href="/atom.xml" title="Solitude is freedom">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="深入浅出react&amp;amp;redux笔记 高内聚（js、jsx、css） 低耦合（弱化不同组件间的关系） react组件数据  propTypes 建议在开发环境可加，生产环境通过babel-react-optimize去掉 初始化state：  12345678910this.state = &amp;#123;    count: props.initValue || 0&amp;#125;// =&amp;gt;">
+  <meta name="description" content="深入浅出react&amp;amp;redux笔记 高内聚（js、jsx、css） 低耦合（弱化不同组件间的关系） react组件数据  propTypes 建议在开发环境可加，生产环境通过babel-react-optimize去掉">
 <meta name="keywords" content="React,Redux,中间件">
 <meta property="og:type" content="article">
 <meta property="og:title" content="深入浅出react&amp;redux笔记">
 <meta property="og:url" content="https://i7eo.com/2019/06/11/深入浅出react-redux笔记.html">
 <meta property="og:site_name" content="Solitude is freedom">
-<meta property="og:description" content="深入浅出react&amp;amp;redux笔记 高内聚（js、jsx、css） 低耦合（弱化不同组件间的关系） react组件数据  propTypes 建议在开发环境可加，生产环境通过babel-react-optimize去掉 初始化state：  12345678910this.state = &amp;#123;    count: props.initValue || 0&amp;#125;// =&amp;gt;">
+<meta property="og:description" content="深入浅出react&amp;amp;redux笔记 高内聚（js、jsx、css） 低耦合（弱化不同组件间的关系） react组件数据  propTypes 建议在开发环境可加，生产环境通过babel-react-optimize去掉">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://i7eo.com/2019/06/11/深入浅出react-redux笔记/i7eo_25f291ba15777c663644a0f507fde1af.png">
-<meta property="og:updated_time" content="2021-02-01T07:01:53.306Z">
+<meta property="og:updated_time" content="2021-02-01T07:06:44.258Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入浅出react&amp;redux笔记">
-<meta name="twitter:description" content="深入浅出react&amp;amp;redux笔记 高内聚（js、jsx、css） 低耦合（弱化不同组件间的关系） react组件数据  propTypes 建议在开发环境可加，生产环境通过babel-react-optimize去掉 初始化state：  12345678910this.state = &amp;#123;    count: props.initValue || 0&amp;#125;// =&amp;gt;">
+<meta name="twitter:description" content="深入浅出react&amp;amp;redux笔记 高内聚（js、jsx、css） 低耦合（弱化不同组件间的关系） react组件数据  propTypes 建议在开发环境可加，生产环境通过babel-react-optimize去掉">
 <meta name="twitter:image" content="https://i7eo.com/2019/06/11/深入浅出react-redux笔记/i7eo_25f291ba15777c663644a0f507fde1af.png">
 
   <!-- <link href="https://fonts.googleapis.com/css?family=Inconsolata|Titillium+Web" rel="stylesheet">
@@ -158,7 +158,9 @@
 <li>高内聚（js、jsx、css） 低耦合（弱化不同组件间的关系）</li>
 <li><p>react组件数据</p>
 <ol>
-<li>propTypes 建议在开发环境可加，生产环境通过babel-react-optimize去掉</li>
+<li><p>propTypes 建议在开发环境可加，生产环境通过babel-react-optimize去掉</p>
+<a id="more"></a>
+</li>
 <li><p>初始化state：</p>
 <ol>
 <li><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.state = &#123;</span><br><span class="line">    count: props.initValue || <span class="number">0</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// =&gt;</span></span><br><span class="line"><span class="keyword">this</span>.state = &#123;</span><br><span class="line">    count: props.initValue</span><br><span class="line">&#125;</span><br><span class="line">xxx.defaultProps = &#123;</span><br><span class="line">    count: <span class="number">0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -166,7 +168,6 @@
 </ol>
 </li>
 <li><p>prop&amp;state的对比：</p>
- <a id="more"></a>
 <ol>
 <li>prop 用于定义外部接口， state 用于记录内部状态;</li>
 <li>prop 的赋值在外部世界使用组件时， state 的赋值在组件内部;</li>
