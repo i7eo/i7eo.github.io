@@ -160,7 +160,30 @@
 <li>高内聚（js、jsx、css） 低耦合（弱化不同组件间的关系）</li>
 <li><p>react组件数据</p>
 <ol>
-<li><p>propTypes 建议在开发环境可加，生产环境通过babel-react-optimize去掉</p></li></ol></li></ol>
+<li><p>生命周期 (执行顺序如序号顺序)</p>
+<ul>
+<li>装载过程<ol>
+<li>constructor (初始化state，绑定this。当然也可以不绑定，在class中使用声明变量&amp;尖头函数的写法)</li>
+<li>getlnitialState (React.createClass中使用)</li>
+<li>getDefaultProps (React.createClass中使用)</li>
+<li>componentWillMount (这个时候没有任何渲染出来的结果，即使调用this.setState 修改状态也不会引发重新绘制换句话说，所有可以在这个 component­WillMount 中做的事情，都可以提前到 constructor 中间去做)</li>
+<li>render (完全根据 this.state 和 this.props 来决定返回的结果，而且不要产生任何副作用。在 render 函数中去调用 this.setState 毫无疑问是错误的，因为一个纯函数不应该引起状态的改变)</li>
+<li>componentDidMount (组件已经被装载到 DOM 树上了,这个时候我们可以通过请求来填充组件的内容、使用三方代码获取dom, 需要注意的是该生命周期不会在一个render后立即执行，而是在所有子组件render结束后执行，这是因为render只返回jsx对象并不往dom树上装载内容，具体的内容装载是react经过vm后才决定的)</li>
+</ol>
+</li>
+<li>更新过程<ol>
+<li>shouldComponentUpdate (如果这个函数返回 true，那就会继续更新过程，接下来调用 render 函数;反之，如果得到 一个 false，那就立刻停止更新过程，也就不会引发后续的渲染了)</li>
+<li>componentWillReceiveProps (只要是父组件的 render 函数被调用，在 render 函数里面被谊染的子组件就会经历更新过程，不管父组件传给子组件的 props 有没有改变，都会触发子组件的 componentWillReceiveProps 函数, 子组件中的 setstate 不会调用该方法)</li>
+<li>componentWillUpdate</li>
+<li>render</li>
+<li>componentDidUpdate</li>
+</ol>
+</li>
+<li>卸载过程<ol>
+<li>componentWillUnmount (通常解绑事件、定时器等)</li>
+</ol>
+</li>
+</ul></li></ol></li></ol>
 
     
 	  <div class="readmore">
