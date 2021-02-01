@@ -22,7 +22,7 @@
 <meta property="og:description" content="深入浅出react&amp;amp;redux笔记 高内聚（js、jsx、css） 低耦合（弱化不同组件间的关系） react组件数据  propTypes 建议在开发环境可加，生产环境通过babel-react-optimize去掉 初始化state：  12345678910this.state = &amp;#123;    count: props.initValue || 0&amp;#125;// =&amp;gt;">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://i7eo.com/2019/06/11/深入浅出react-redux笔记/i7eo_25f291ba15777c663644a0f507fde1af.png">
-<meta property="og:updated_time" content="2020-04-08T11:15:19.349Z">
+<meta property="og:updated_time" content="2021-02-01T07:01:53.306Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入浅出react&amp;redux笔记">
 <meta name="twitter:description" content="深入浅出react&amp;amp;redux笔记 高内聚（js、jsx、css） 低耦合（弱化不同组件间的关系） react组件数据  propTypes 建议在开发环境可加，生产环境通过babel-react-optimize去掉 初始化state：  12345678910this.state = &amp;#123;    count: props.initValue || 0&amp;#125;// =&amp;gt;">
@@ -166,12 +166,11 @@
 </ol>
 </li>
 <li><p>prop&amp;state的对比：</p>
+ <a id="more"></a>
 <ol>
 <li>prop 用于定义外部接口， state 用于记录内部状态;</li>
 <li>prop 的赋值在外部世界使用组件时， state 的赋值在组件内部;</li>
-<li><p>组件绝不应该改变 prop 的值（要严格遵守单向数据流原则，保证 ui=render(data) 这个函数无任何副作用），而 state存在的目的就是让组件来改变的 。</p>
-<a id="more"></a>
-</li>
+<li>组件绝不应该改变 prop 的值（要严格遵守单向数据流原则，保证 ui=render(data) 这个函数无任何副作用），而 state存在的目的就是让组件来改变的 。</li>
 </ol>
 </li>
 <li><p>生命周期 (执行顺序如序号顺序)</p>
