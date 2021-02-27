@@ -21,7 +21,7 @@
 <meta property="og:site_name" content="Solitude is freedom">
 <meta property="og:description" content="本文为译文，原文地址：  Virtual DOM is pure overhead  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;如果您在最近几年中使用过JavaScript框架，那么您可能已经听说过“虚拟DOM很快”这一短语，通常被说来意味着它比真实DOM快。这是一个令人惊讶的前端技术概念。例如，人们问Svelte在不使用虚拟DOM时如何更快。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2021-02-27T04:03:11.671Z">
+<meta property="og:updated_time" content="2021-02-27T04:27:36.912Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="译文: Virtual DOM is pure overhead">
 <meta name="twitter:description" content="本文为译文，原文地址：  Virtual DOM is pure overhead  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;如果您在最近几年中使用过JavaScript框架，那么您可能已经听说过“虚拟DOM很快”这一短语，通常被说来意味着它比真实DOM快。这是一个令人惊讶的前端技术概念。例如，人们问Svelte在不使用虚拟DOM时如何更快。">
@@ -138,7 +138,7 @@
 	
     
     <span class="post-count">
-      |&nbsp;字数 1350
+      |&nbsp;字数 1349
     </span>
     <div class="cats">
         <a href="/categories/Javascript/">Javascript</a>
@@ -147,8 +147,8 @@
 
 	</section>
 	
-		<section class="toc-wrapper"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是虚拟-dom-？"><span class="toc-number">1.</span> <span class="toc-text">什么是虚拟 dom ？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#虚拟-dom-更快这个概念是怎么开始的-？"><span class="toc-number">2.</span> <span class="toc-text">虚拟 dom 更快这个概念是怎么开始的 ？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#因此…-虚拟DOM是慢的么？"><span class="toc-number">3.</span> <span class="toc-text">因此… 虚拟DOM是慢的么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#开销在哪里？"><span class="toc-number">4.</span> <span class="toc-text">开销在哪里？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#为什么框架要使用虚拟DOM？"><span class="toc-number">5.</span> <span class="toc-text">为什么框架要使用虚拟DOM？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#读后感"><span class="toc-number">6.</span> <span class="toc-text">读后感</span></a></li></ol></section>
-		<section class="toc-wrapper-vdom"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是虚拟-dom-？"><span class="toc-number">1.</span> <span class="toc-text">什么是虚拟 dom ？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#虚拟-dom-更快这个概念是怎么开始的-？"><span class="toc-number">2.</span> <span class="toc-text">虚拟 dom 更快这个概念是怎么开始的 ？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#因此…-虚拟DOM是慢的么？"><span class="toc-number">3.</span> <span class="toc-text">因此… 虚拟DOM是慢的么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#开销在哪里？"><span class="toc-number">4.</span> <span class="toc-text">开销在哪里？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#为什么框架要使用虚拟DOM？"><span class="toc-number">5.</span> <span class="toc-text">为什么框架要使用虚拟DOM？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#读后感"><span class="toc-number">6.</span> <span class="toc-text">读后感</span></a></li></ol></section>
+		<section class="toc-wrapper"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是虚拟-dom-？"><span class="toc-number">1.</span> <span class="toc-text">什么是虚拟 dom ？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#虚拟-dom-更快这个概念是怎么开始的-？"><span class="toc-number">2.</span> <span class="toc-text">虚拟 dom 更快这个概念是怎么开始的 ？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#因此…-虚拟DOM是慢的么？"><span class="toc-number">3.</span> <span class="toc-text">因此… 虚拟DOM是慢的么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#开销在哪里？"><span class="toc-number">4.</span> <span class="toc-text">开销在哪里？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#为什么框架要使用虚拟DOM？"><span class="toc-number">5.</span> <span class="toc-text">为什么框架要使用虚拟DOM？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-number">6.</span> <span class="toc-text">总结</span></a></li></ol></section>
+		<section class="toc-wrapper-vdom"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是虚拟-dom-？"><span class="toc-number">1.</span> <span class="toc-text">什么是虚拟 dom ？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#虚拟-dom-更快这个概念是怎么开始的-？"><span class="toc-number">2.</span> <span class="toc-text">虚拟 dom 更快这个概念是怎么开始的 ？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#因此…-虚拟DOM是慢的么？"><span class="toc-number">3.</span> <span class="toc-text">因此… 虚拟DOM是慢的么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#开销在哪里？"><span class="toc-number">4.</span> <span class="toc-text">开销在哪里？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#为什么框架要使用虚拟DOM？"><span class="toc-number">5.</span> <span class="toc-text">为什么框架要使用虚拟DOM？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-number">6.</span> <span class="toc-text">总结</span></a></li></ol></section>
 	
 	<section class="article typo">
   	<div class="article-entry" itemprop="articleBody">
@@ -190,7 +190,7 @@
 <p>（这几乎完全是Svelte生成的更新代码。与传统的UI框架不同，Svelte是一个编译器，它在构建时就知道应用程序中的情况如何发生变化，而不必等着在运行时进行工作。）</p>
 <h3 id="为什么框架要使用虚拟DOM？"><a href="#为什么框架要使用虚拟DOM？" class="headerlink" title="为什么框架要使用虚拟DOM？"></a>为什么框架要使用虚拟DOM？</h3><p>重要的是要了解虚拟DOM不是功能。这是达到目的的一种手段，最终是声明性的，状态驱动的UI开发。虚拟DOM非常有价值，因为它使您无需考虑状态转换即可构建应用程序，并且性能通常足够好。这意味着更少的错误代码，而将更多的时间花费在创造性的任务上，而不是乏味的工作上。</p>
 <p>但事实证明，我们无需使用虚拟DOM就可以实现类似的编程模型-这就是Svelte的用武之地。</p>
-<h3 id="读后感"><a href="#读后感" class="headerlink" title="读后感"></a>读后感</h3><ol>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ol>
 <li>虚拟DOM不是功能。这是达到目的的一种手段</li>
 <li>场景不同需求不同</li>
 </ol>
