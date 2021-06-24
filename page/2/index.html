@@ -132,6 +132,137 @@
   <section class="meta">
     
     <h2 class="title">
+      <a href="/2018/11/06/HTTP1-02.html">
+        HTTP笔记(下)
+      </a>
+    </h2>
+    
+    <time>
+      Nov 6, 2018
+    </time>
+		
+    
+    <span class="post-count">
+      |&nbsp;字数 1809
+    </span>
+    <div class="cats">
+        <a href="/categories/HTTP/">HTTP</a>
+    </div>
+
+
+  </section>
+  <section class="article typo">
+	  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>跨域、缓存这些都是开发中常常遇到的，做些笔记供日后查阅。</p>
+<h3 id="CORS（Cross-Origin-Resource-Sharing）跨源资源分享"><a href="#CORS（Cross-Origin-Resource-Sharing）跨源资源分享" class="headerlink" title="CORS（Cross-Origin Resource Sharing）跨源资源分享"></a>CORS（Cross-Origin Resource Sharing）跨源资源分享</h3><h4 id="同源策略"><a href="#同源策略" class="headerlink" title="同源策略"></a>同源策略</h4><p>同源策略（<a href="https://en.wikipedia.org/wiki/Same-origin_policy" target="_blank" rel="noopener">same-origin policy</a>）是浏览器保障安全的一种方法。<br>主要指的是在同协议，同域名，同端口下才能访问资源。为什么要这样限制？假设某用户登陆了自己的网上网上银行，接着去访问了其他网站，如果没有同源策略的限制，那么其他网站就可以访问银行网站的cookie，而cookie一般存放着与用户相关的某些信息，这样用户的信息就会被泄漏或者被冒名顶替去访问网上银行。</p>
+
+    
+	  <div class="readmore">
+      <a href="/2018/11/06/HTTP1-02.html">Read More</a>
+    </div>
+    
+    
+    
+	  <div class="full-width auto-padding tags">
+      
+        <a href="/tags/CORS/">CORS</a>
+      
+        <a href="/tags/缓存/">缓存</a>
+      
+	  </div>
+    
+  </section>
+</article>
+    </div>
+  
+    <div class="post-wrapper">
+      <article class="post reveal">
+  <section class="meta">
+    
+    <h2 class="title">
+      <a href="/2018/11/03/HTTP1-0.html">
+        HTTP笔记(上)
+      </a>
+    </h2>
+    
+    <time>
+      Nov 3, 2018
+    </time>
+		
+    
+    <span class="post-count">
+      |&nbsp;字数 1401
+    </span>
+    <div class="cats">
+        <a href="/categories/HTTP/">HTTP</a>
+    </div>
+
+
+  </section>
+  <section class="article typo">
+	  <h3 id="HTTP-基础"><a href="#HTTP-基础" class="headerlink" title="HTTP 基础"></a>HTTP 基础</h3><h4 id="网络间通信的大体流程"><a href="#网络间通信的大体流程" class="headerlink" title="网络间通信的大体流程"></a>网络间通信的大体流程</h4><table>
+<thead>
+<tr>
+<th style="text-align:left">名称</th>
+<th style="text-align:left">概念</th>
+<th style="text-align:left">常用协议</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">应用层</td>
+<td style="text-align:left">为应用程序提供服务</td>
+<td style="text-align:left">HTTP/FTP/SMTP</td>
+</tr>
+<tr>
+<td style="text-align:left">表示层</td>
+<td style="text-align:left">定义数据格式及加密</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">会话层</td>
+<td style="text-align:left">定义了如何开始、控制和结束一个会话</td>
+<td style="text-align:left">SSL</td>
+</tr>
+<tr>
+<td style="text-align:left">传输层</td>
+<td style="text-align:left">向用户提供端到端的服务</td>
+<td style="text-align:left">TCP/UDP</td>
+</tr>
+<tr>
+<td style="text-align:left">网络层</td>
+<td style="text-align:left">数据在俩个机器间创建逻辑链路</td>
+<td style="text-align:left">IP(IPV4/IPV6)、ARP</td>
+</tr>
+<tr>
+<td style="text-align:left">数据链路层</td>
+<td style="text-align:left">通信实体间建立数据链路连接</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">物理层</td>
+<td style="text-align:left">定义物理设备间如何传输比特流的规范（网线、光缆等硬件）</td>
+</tr>
+</tbody>
+</table>
+<p>osi 模型较为复杂，一般常说的是五层模型：</p>
+<p>物理层 -&gt; 数据链路层 -&gt; 网络层 -&gt; 传输层 -&gt; 应用层</p>
+
+    
+	  <div class="readmore">
+      <a href="/2018/11/03/HTTP1-0.html">Read More</a>
+    </div>
+    
+    
+    
+  </section>
+</article>
+    </div>
+  
+    <div class="post-wrapper">
+      <article class="post reveal">
+  <section class="meta">
+    
+    <h2 class="title">
       <a href="/2018/09/05/CSS元素嵌套问题.html">
         CSS元素嵌套问题
       </a>
@@ -551,105 +682,6 @@
 </article>
     </div>
   
-    <div class="post-wrapper">
-      <article class="post reveal">
-  <section class="meta">
-    
-    <h2 class="title">
-      <a href="/2017/04/01/css水平垂直居中.html">
-        css水平垂直居中
-      </a>
-    </h2>
-    
-    <time>
-      Apr 1, 2017
-    </time>
-		
-    
-    <span class="post-count">
-      |&nbsp;字数 896
-    </span>
-    <div class="cats">
-        <a href="/categories/HTML-CSS/">HTML&CSS</a>
-    </div>
-
-
-  </section>
-  <section class="article typo">
-	  <h3 id="水平垂直居中"><a href="#水平垂直居中" class="headerlink" title="水平垂直居中"></a>水平垂直居中</h3><p>水平垂直居中是老生常谈的话题，也是面试官比较喜欢问的问题。下面我对在实际中常常运用的几种方式做总结。HTML结构如下(这里我默认wrapper水平垂直居中)：<br>　　<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">　　<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"wrapper"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"goal"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    　<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-
-    
-	  <div class="readmore">
-      <a href="/2017/04/01/css水平垂直居中.html">Read More</a>
-    </div>
-    
-    
-    
-	  <div class="full-width auto-padding tags">
-      
-        <a href="/tags/水平垂直居中/">水平垂直居中</a>
-      
-	  </div>
-    
-  </section>
-</article>
-    </div>
-  
-    <div class="post-wrapper">
-      <article class="post reveal">
-  <section class="meta">
-    
-    <h2 class="title">
-      <a href="/2017/03/05/webpack笔记.html">
-        webpack笔记
-      </a>
-    </h2>
-    
-    <time>
-      Mar 5, 2017
-    </time>
-		
-    
-    <span class="post-count">
-      |&nbsp;字数 2043
-    </span>
-    <div class="cats">
-        <a href="/categories/Javascript/">Javascript</a>
-    </div>
-
-
-  </section>
-  <section class="article typo">
-	  <p>　　<br>webpack 2.0 用了小一个月了，一直都是照猫画虎。这俩天开始细读官网的部分文章结合一些讲解视频，深入学习一下。小结一发来汇总知识点。
-　　</p>
-<ol>
-<li><strong>webpack 的由来?</strong></li>
-</ol>
-<p>已存在的模块打包器对于大型应用（大型的SPA）来说并不适合。发展另一个模块打包器最迫切的原因那就是代码分割（Code Splitting）并且可以让静态资源能够无缝的适用于模块化。</p>
-<ol start="2">
-<li><strong>webpack 可以做的事情？</strong></li>
-</ol>
-<ul>
-<li>将项目间的依赖分割成代码块并按需加载</li>
-</ul>
-
-    
-	  <div class="readmore">
-      <a href="/2017/03/05/webpack笔记.html">Read More</a>
-    </div>
-    
-    
-    
-	  <div class="full-width auto-padding tags">
-      
-        <a href="/tags/webpack/">webpack</a>
-      
-	  </div>
-    
-  </section>
-</article>
-    </div>
-  
 </section>
 
 
@@ -719,7 +751,7 @@
     
         <li><a class="flat-box" href="/categories/HTTP/"><div class="name">HTTP</div><div class="badget">2</div></a></li>
     
-        <li><a class="flat-box" href="/categories/Javascript/"><div class="name">Javascript</div><div class="badget">10</div></a></li>
+        <li><a class="flat-box" href="/categories/Javascript/"><div class="name">Javascript</div><div class="badget">12</div></a></li>
     
         <li><a class="flat-box" href="/categories/React/"><div class="name">React</div><div class="badget">1</div></a></li>
     
@@ -740,7 +772,7 @@
 <div class="m_widget tagcloud">
     <div class="header">Tags</div>
     <div class="content">
-        <a href="/tags/Alfred3-workflow/" style="font-size: 14px; color: #808080">Alfred3 workflow</a> <a href="/tags/CORS/" style="font-size: 14px; color: #808080">CORS</a> <a href="/tags/EventLoop/" style="font-size: 14px; color: #808080">EventLoop</a> <a href="/tags/Nuxt-js/" style="font-size: 14px; color: #808080">Nuxt.js</a> <a href="/tags/React/" style="font-size: 14px; color: #808080">React</a> <a href="/tags/Redux/" style="font-size: 14px; color: #808080">Redux</a> <a href="/tags/SSR/" style="font-size: 14px; color: #808080">SSR</a> <a href="/tags/certona/" style="font-size: 14px; color: #808080">certona</a> <a href="/tags/cloudflare/" style="font-size: 14px; color: #808080">cloudflare</a> <a href="/tags/flex/" style="font-size: 14px; color: #808080">flex</a> <a href="/tags/ga/" style="font-size: 14px; color: #808080">ga</a> <a href="/tags/https/" style="font-size: 14px; color: #808080">https</a> <a href="/tags/paypal-smart-button/" style="font-size: 14px; color: #808080">paypal smart button</a> <a href="/tags/pingpong/" style="font-size: 14px; color: #808080">pingpong</a> <a href="/tags/pinterest/" style="font-size: 14px; color: #808080">pinterest</a> <a href="/tags/prototype-proto/" style="font-size: 14px; color: #808080">prototype/_proto_</a> <a href="/tags/qshell/" style="font-size: 14px; color: #808080">qshell</a> <a href="/tags/rem/" style="font-size: 14px; color: #808080">rem</a> <a href="/tags/render-函数/" style="font-size: 14px; color: #808080">render 函数</a> <a href="/tags/sticky-footer/" style="font-size: 14px; color: #808080">sticky footer</a> <a href="/tags/webpack/" style="font-size: 14px; color: #808080">webpack</a> <a href="/tags/worldpay/" style="font-size: 14px; color: #808080">worldpay</a> <a href="/tags/上下文/" style="font-size: 14px; color: #808080">上下文</a> <a href="/tags/中间件/" style="font-size: 14px; color: #808080">中间件</a> <a href="/tags/作用域/" style="font-size: 14px; color: #808080">作用域</a> <a href="/tags/值传递/" style="font-size: 14px; color: #808080">值传递</a> <a href="/tags/图床/" style="font-size: 14px; color: #808080">图床</a> <a href="/tags/层叠上下文/" style="font-size: 14px; color: #808080">层叠上下文</a> <a href="/tags/执行环境/" style="font-size: 14px; color: #808080">执行环境</a> <a href="/tags/模版解析/" style="font-size: 14px; color: #808080">模版解析</a> <a href="/tags/水平垂直居中/" style="font-size: 14px; color: #808080">水平垂直居中</a> <a href="/tags/深拷贝/" style="font-size: 14px; color: #808080">深拷贝</a> <a href="/tags/继承/" style="font-size: 20px; color: #000">继承</a> <a href="/tags/缓存/" style="font-size: 14px; color: #808080">缓存</a> <a href="/tags/虚拟Dom/" style="font-size: 20px; color: #000">虚拟Dom</a> <a href="/tags/规范/" style="font-size: 14px; color: #808080">规范</a> <a href="/tags/闭包/" style="font-size: 14px; color: #808080">闭包</a> <a href="/tags/面向对象/" style="font-size: 14px; color: #808080">面向对象</a>
+        <a href="/tags/Alfred3-workflow/" style="font-size: 14px; color: #808080">Alfred3 workflow</a> <a href="/tags/CORS/" style="font-size: 14px; color: #808080">CORS</a> <a href="/tags/EventLoop/" style="font-size: 14px; color: #808080">EventLoop</a> <a href="/tags/Nuxt-js/" style="font-size: 14px; color: #808080">Nuxt.js</a> <a href="/tags/React/" style="font-size: 14px; color: #808080">React</a> <a href="/tags/Redux/" style="font-size: 14px; color: #808080">Redux</a> <a href="/tags/SSR/" style="font-size: 14px; color: #808080">SSR</a> <a href="/tags/certona/" style="font-size: 14px; color: #808080">certona</a> <a href="/tags/cloudflare/" style="font-size: 14px; color: #808080">cloudflare</a> <a href="/tags/flex/" style="font-size: 14px; color: #808080">flex</a> <a href="/tags/ga/" style="font-size: 14px; color: #808080">ga</a> <a href="/tags/https/" style="font-size: 14px; color: #808080">https</a> <a href="/tags/paypal-smart-button/" style="font-size: 14px; color: #808080">paypal smart button</a> <a href="/tags/pingpong/" style="font-size: 14px; color: #808080">pingpong</a> <a href="/tags/pinterest/" style="font-size: 14px; color: #808080">pinterest</a> <a href="/tags/prototype-proto/" style="font-size: 14px; color: #808080">prototype/_proto_</a> <a href="/tags/qshell/" style="font-size: 14px; color: #808080">qshell</a> <a href="/tags/rem/" style="font-size: 14px; color: #808080">rem</a> <a href="/tags/render-函数/" style="font-size: 14px; color: #808080">render 函数</a> <a href="/tags/sticky-footer/" style="font-size: 14px; color: #808080">sticky footer</a> <a href="/tags/webpack/" style="font-size: 20px; color: #000">webpack</a> <a href="/tags/webpack4-0/" style="font-size: 17px; color: #404040">webpack4.0</a> <a href="/tags/worldpay/" style="font-size: 14px; color: #808080">worldpay</a> <a href="/tags/上下文/" style="font-size: 14px; color: #808080">上下文</a> <a href="/tags/中间件/" style="font-size: 14px; color: #808080">中间件</a> <a href="/tags/作用域/" style="font-size: 14px; color: #808080">作用域</a> <a href="/tags/值传递/" style="font-size: 14px; color: #808080">值传递</a> <a href="/tags/图床/" style="font-size: 14px; color: #808080">图床</a> <a href="/tags/层叠上下文/" style="font-size: 14px; color: #808080">层叠上下文</a> <a href="/tags/执行环境/" style="font-size: 14px; color: #808080">执行环境</a> <a href="/tags/模版解析/" style="font-size: 14px; color: #808080">模版解析</a> <a href="/tags/水平垂直居中/" style="font-size: 14px; color: #808080">水平垂直居中</a> <a href="/tags/深拷贝/" style="font-size: 14px; color: #808080">深拷贝</a> <a href="/tags/继承/" style="font-size: 17px; color: #404040">继承</a> <a href="/tags/缓存/" style="font-size: 14px; color: #808080">缓存</a> <a href="/tags/虚拟Dom/" style="font-size: 17px; color: #404040">虚拟Dom</a> <a href="/tags/规范/" style="font-size: 14px; color: #808080">规范</a> <a href="/tags/闭包/" style="font-size: 14px; color: #808080">闭包</a> <a href="/tags/面向对象/" style="font-size: 14px; color: #808080">面向对象</a>
     </div>
 </div>
 
