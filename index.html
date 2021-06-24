@@ -132,6 +132,52 @@
   <section class="meta">
     
     <h2 class="title">
+      <a href="/2021/03/24/Vue3学习笔记.html">
+        Vue3学习笔记
+      </a>
+    </h2>
+    
+    <time>
+      Mar 24, 2021
+    </time>
+		
+    
+    <span class="post-count">
+      |&nbsp;字数 1411
+    </span>
+    <div class="cats">
+        <a href="/categories/Vue3-0/">Vue3.0</a>
+    </div>
+
+
+  </section>
+  <section class="article typo">
+	  <h3 id="vue-amp-react-设计思路对比"><a href="#vue-amp-react-设计思路对比" class="headerlink" title="vue &amp; react 设计思路对比"></a>vue &amp; react 设计思路对比</h3><p>vue: options =&gt; composition<br>react: class =&gt; hook<br>用法相似，但底层设计千差万别</p>
+<p>vue 只在初始化的时候执行一次，后续通过响应式更新：响应式 + vdom</p>
+<ol>
+<li>响应式：数据变了通知变化</li>
+<li>vdom 数据变了并不知道具体变化的地方需要diff算出变化</li>
+<li>二者一个推一个拉，相互配合</li>
+<li>如何配合？响应式主动通知变化，vdom是被动计算</li>
+<li>vue1 中是纯响应式，问题在于响应式对象太大后导致页面卡顿，vue2引入vdom</li>
+</ol>
+
+    
+	  <div class="readmore">
+      <a href="/2021/03/24/Vue3学习笔记.html">Read More</a>
+    </div>
+    
+    
+    
+  </section>
+</article>
+    </div>
+  
+    <div class="post-wrapper">
+      <article class="post reveal">
+  <section class="meta">
+    
+    <h2 class="title">
       <a href="/2020/11/07/react-hooks-笔记.html">
         react hooks 笔记
       </a>
@@ -639,60 +685,6 @@
 </article>
     </div>
   
-    <div class="post-wrapper">
-      <article class="post reveal">
-  <section class="meta">
-    
-    <h2 class="title">
-      <a href="/2019/03/02/前端代码编写注意事项.html">
-        前端代码编写注意事项
-      </a>
-    </h2>
-    
-    <time>
-      Mar 2, 2019
-    </time>
-		
-    
-    <span class="post-count">
-      |&nbsp;字数 778
-    </span>
-    <div class="cats">
-        <a href="/categories/Javascript/">Javascript</a>
-    </div>
-
-
-  </section>
-  <section class="article typo">
-	  <h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><ol>
-<li><p>声明不用，数据只使用一次或不使用就无需装到变量中</p>
-</li>
-<li><p>变量命名，驼峰、简洁、易懂</p>
-</li>
-<li><p>特定变量：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> MAX_INPUT_LENGTH = <span class="number">8</span>;</span><br><span class="line"><span class="keyword">if</span> (value.length &lt; MAX_INPUT_LENGTH) &#123;</span><br><span class="line">     <span class="comment">// 一目了然，不能超过最大输入长度</span></span><br><span class="line">    ....</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>使用说明性的变量(即有意义的变量名)</p>
-</li>
-</ol>
-
-    
-	  <div class="readmore">
-      <a href="/2019/03/02/前端代码编写注意事项.html">Read More</a>
-    </div>
-    
-    
-    
-	  <div class="full-width auto-padding tags">
-      
-        <a href="/tags/规范/">规范</a>
-      
-	  </div>
-    
-  </section>
-</article>
-    </div>
-  
 </section>
 
 
@@ -762,6 +754,8 @@
         <li><a class="flat-box" href="/categories/React/"><div class="name">React</div><div class="badget">2</div></a></li>
     
         <li><a class="flat-box" href="/categories/Vuejs/React/"><div class="name">React</div><div class="badget">1</div></a></li>
+    
+        <li><a class="flat-box" href="/categories/Vue3-0/"><div class="name">Vue3.0</div><div class="badget">1</div></a></li>
     
         <li><a class="flat-box" href="/categories/Vuejs/"><div class="name">Vuejs</div><div class="badget">3</div></a></li>
     
