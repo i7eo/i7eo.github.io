@@ -21,7 +21,7 @@
 <meta property="og:site_name" content="Solitude is freedom">
 <meta property="og:description" content="Webpack4.0 学习笔记webpack是什么？webpack 是模块打包工具，底层的文件处理逻辑全部由 node 完成 支持的模块的规范webpack 支持多种模块规范，es6: import/export default | common.js: reuqire/moudle.export | AMD: define/require | styles file: @import | res">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2021-06-24T12:26:23.653Z">
+<meta property="og:updated_time" content="2021-06-24T12:28:34.886Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Webpack4.0 学习笔记（上）">
 <meta name="twitter:description" content="Webpack4.0 学习笔记webpack是什么？webpack 是模块打包工具，底层的文件处理逻辑全部由 node 完成 支持的模块的规范webpack 支持多种模块规范，es6: import/export default | common.js: reuqire/moudle.export | AMD: define/require | styles file: @import | res">
@@ -154,6 +154,7 @@
   	<div class="article-entry" itemprop="articleBody">
     	<h3 id="Webpack4-0-学习笔记"><a href="#Webpack4-0-学习笔记" class="headerlink" title="Webpack4.0 学习笔记"></a>Webpack4.0 学习笔记</h3><h4 id="webpack是什么？"><a href="#webpack是什么？" class="headerlink" title="webpack是什么？"></a>webpack是什么？</h4><p>webpack 是模块打包工具，底层的文件处理逻辑全部由 node 完成</p>
 <h3 id="支持的模块的规范"><a href="#支持的模块的规范" class="headerlink" title="支持的模块的规范"></a>支持的模块的规范</h3><p>webpack 支持多种模块规范，es6: import/export default | common.js: reuqire/moudle.export | AMD: define/require | styles file: @import | resource file: <code>&lt;img src=...&gt;</code>。在 webpack 发展初期只是打包 js，但随着发展后现在可以打包 js/css 等文章</p>
+<a id="more"></a>
 <h3 id="loader"><a href="#loader" class="headerlink" title="loader"></a>loader</h3><h4 id="loader-就是-webpack-除-js-文件外帮助其识别、处理对应资源的-js-文件"><a href="#loader-就是-webpack-除-js-文件外帮助其识别、处理对应资源的-js-文件" class="headerlink" title="loader 就是 webpack 除 js 文件外帮助其识别、处理对应资源的 js 文件"></a>loader 就是 webpack 除 js 文件外帮助其识别、处理对应资源的 js 文件</h4><pre><code>1. file-loader 就是将图片资源复制粘贴进你配置的打包文件路径中，并将最新的符合你配置规则的图片名称（路径）返回，供代码使用
 2. [&apos;style-loader&apos;, &apos;css-loader&apos;] 先执行 css-loader 分析清楚 css 间的关系，并将其整合为一个 css 文件；style-loader 则将这个 css 文件挂载到 html 的 head 底部。
 3. css-loader 的 options 中设置 `importLoaders: 2` 指的是 index.scss 中 @import 了 a.scss，a.scss 中 @import 了 b.scss，如果不加这一项就会导致 b.scss 无法走 scss-loader 设置这个的目的就是为了确保 b.scss 先走 postcss-loader =》scss-loader 再走 css-loader =》style-loader
